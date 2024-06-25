@@ -29,7 +29,6 @@ Public Class frm_Usuario
         Try
             rolEstudiante = negocioRol.traer(ERoles.Estudiante)
         Catch ex As Exception
-
         End Try
 
 

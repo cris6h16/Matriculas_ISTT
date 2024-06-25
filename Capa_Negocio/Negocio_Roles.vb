@@ -23,4 +23,20 @@ Public Class Negocio_Roles
 
         Return rol
     End Function
+
+    Public Function crear(eRole As ERoles) As Boolean
+
+        If eRole = Nothing Then
+            Throw New Exception("El rol no puede ser nulo")
+        End If
+
+        If datoRoles.traer(eRole) IsNot Nothing Then
+            Throw New Exception("El rol ya existe")
+        End If
+
+        Return Me.datoRoles.crear(eRole)
+
+    End Function
+
+
 End Class
