@@ -5,11 +5,13 @@ Imports Capa_Negocio
 Public Class frm_Usuario
 
     Private negocioUsuario As Negocio_Usuario
-    Private negocioTipoDeUsuario As Negocio_TipoDeUsuario
+    Private negocioRol As Negocio_Roles
+    Private negocioTipoDeUsuario As Negocio_Roles
 
     Public Sub New()
         InitializeComponent()
         negocioUsuario = New Negocio_Usuario(New Dato_Usuario)
+        negocioRol = New Negocio_Roles(New Dato_Roles)
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
@@ -22,10 +24,16 @@ Public Class frm_Usuario
         Dim direccion As String = txtDireccion.Text
         Dim contrasena As String = txtContrasena.Text
 
-        ' Crear un objeto de tipo Entidad_Usuario con los datos capturados
+        Dim rolEstudiante As Entidad_Roles = Nothing
+
+        Try
+            rolEstudiante = negocioRol.traer(ERoles.Estudiante)
+        Catch ex As Exception
+
+        End Try
 
 
-        Dim usuario As New Entidad_Usuario(0, nombre, apellido, cedula, 1, contrasena, sexo, fechaNac, direccion)
+        Dim usuario As New Entidad_Usuario(0, nombre, apellido, cedula, 5, contrasena, sexo, fechaNac, direccion)
 
         Try
             negocioUsuario.crear(usuario)

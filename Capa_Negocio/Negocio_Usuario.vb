@@ -16,7 +16,7 @@ Public Class Negocio_Usuario
             Throw New ArgumentException("La contraseña no puede estar vacia o nula")
         End If
 
-        Dim ususario As Entidad_Usuario = Me.datoUsuario.traerUsuario(cedula, contrasena)
+        Dim ususario As Entidad_Usuario = Me.datoUsuario.traer(cedula, contrasena)
         If ususario Is Nothing Then
             Throw New Exception("No se encontro un usuario con esa cedula y contraseña")
         End If
@@ -24,42 +24,57 @@ Public Class Negocio_Usuario
     End Function
 
     Public Function crear(usuario As Entidad_Usuario) As Boolean
-        If usuario Is Nothing Then
+
+        'Private _Id As Integer
+        'Private _Nombres As String
+        'Private _Apellidos As String
+        'Private _Cedula As String
+        'Private _Contrasena As String
+        'Private _Sexo As Char
+        'Private _Nacimiento As Date
+        'Private _Direccion As String
+        'Private _Rol As Entidad_Roles
+
+
+        If (usuario Is Nothing) Then
             Throw New ArgumentException("El usuario no puede ser nulo")
         End If
-        If usuario.Id <> 0 Then
+
+        If (usuario.Id <> 0) Then
             Throw New ArgumentException("Para crear un usuario no debe asignar un id")
         End If
 
-        If usuario.Cedula = "" Or usuario.Cedula Is Nothing Then
-            Throw New ArgumentException("La cedula no puede estar vacia o nula")
-        End If
-        If usuario.Nombres = "" Or usuario.Nombres Is Nothing Then
+        If (usuario.Nombres = "" Or usuario.Nombres Is Nothing) Then
             Throw New ArgumentException("El nombre no puede estar vacio o nulo")
         End If
-        If usuario.Apellidos = "" Or usuario.Apellidos Is Nothing Then
+
+        If (usuario.Apellidos = "" Or usuario.Apellidos Is Nothing) Then
             Throw New ArgumentException("El apellido no puede estar vacio o nulo")
         End If
-        If usuario.TipoDeUsuario Is Nothing Or usuario.TipoDeUsuario.Id = 0 Then
-            Throw New ArgumentException("El tipo de usuario no puede ser nulo o tener un id de 0")
+
+        If (usuario.Cedula = "" Or usuario.Cedula Is Nothing) Then
+            Throw New ArgumentException("La cedula no puede estar vacia o nula")
         End If
 
-        If usuario.Sexo <> "M" AndAlso usuario.Sexo <> "F" Then
+        If (usuario.Sexo <> "M" AndAlso usuario.Sexo <> "F") Then
             Throw New ArgumentException("El sexo debe ser M o F")
         End If
 
-        If usuario.Direccion Is Nothing Or usuario.Direccion.Length = 0 Then
+        If (usuario.Nacimiento = Nothing) Then
+            Throw New Exception("La fecha de nacimiento no puede ser nula")
+        End If
+
+        If (usuario.Direccion Is Nothing Or usuario.Direccion.Length = 0) Then
             Throw New Exception("La direccion no puede estar vacia o nula")
         End If
 
-        If usuario.Nacimiento = Nothing Then
-            Throw New Exception("La fecha de nacimiento no puede ser nula")
+        If (usuario.Rol Is Nothing Or usuario.Rol.Id = 0) Then
+            Throw New ArgumentException("El Rol no puede ser nulo o no puede tener un id de 0")
         End If
 
         If usuario.Contrasena Is Nothing Or usuario.Contrasena.Length < 8 Then
             Throw New Exception("La contraseña debe tener al menos 8 caracteres")
         End If
-
 
         Return Me.datoUsuario.crear(usuario)
     End Function

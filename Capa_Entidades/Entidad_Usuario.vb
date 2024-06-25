@@ -7,14 +7,14 @@
     Private _Sexo As Char
     Private _Nacimiento As Date
     Private _Direccion As String
-    Private _TipoDeUsuario As Entidad_TipoDeUsuario
+    Private _Rol As Entidad_Roles
 
-    Public Sub New(id As Integer, nombre As String, apellido As String, cedula As String, TipoDeUsuario As Entidad_TipoDeUsuario, contrasena As String, sexo As Char, nacimiento As Date, direccion As String)
+    Public Sub New(id As Integer, nombre As String, apellido As String, cedula As String, Rol As Entidad_Roles, contrasena As String, sexo As Char, nacimiento As Date, direccion As String)
         Me.Id = id
         Me.Nombres = nombre
         Me.Apellidos = apellido
         Me.Cedula = cedula
-        Me.TipoDeUsuario = TipoDeUsuario
+        Me.Rol = Rol
         Me.Contrasena = contrasena
         Me.Sexo = sexo
         Me.Nacimiento = nacimiento
@@ -58,12 +58,12 @@
         End Set
     End Property
 
-    Public Property TipoDeUsuario As Entidad_TipoDeUsuario
+    Public Property Rol As Entidad_Roles
         Get
-            Return _TipoDeUsuario
+            Return _Rol
         End Get
-        Set(value As Entidad_TipoDeUsuario)
-            _TipoDeUsuario = value
+        Set(value As Entidad_Roles)
+            _Rol = value
         End Set
     End Property
 
