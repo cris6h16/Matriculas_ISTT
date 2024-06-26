@@ -52,8 +52,8 @@ Public Class Negocio_Usuario
             Throw New ArgumentException("El apellido no puede estar vacio o nulo")
         End If
 
-        If (usuario.Cedula = "" Or usuario.Cedula Is Nothing) Then
-            Throw New ArgumentException("La cedula no puede estar vacia o nula")
+        If (usuario.Cedula.Length <> 10 Or usuario.Cedula Is Nothing) Then
+            Throw New ArgumentException("La cedula debe tener 10 caracteres")
         End If
 
         If (usuario.Sexo <> "M" AndAlso usuario.Sexo <> "F") Then
@@ -61,20 +61,28 @@ Public Class Negocio_Usuario
         End If
 
         If (usuario.Nacimiento = Nothing) Then
-            Throw New Exception("La fecha de nacimiento no puede ser nula")
+            Throw New ArgumentException("La fecha de nacimiento no puede ser nula")
         End If
 
         If (usuario.Direccion Is Nothing Or usuario.Direccion.Length = 0) Then
-            Throw New Exception("La direccion no puede estar vacia o nula")
+            Throw New ArgumentException("La direccion no puede estar vacia o nula")
         End If
 
-        If (usuario.Rol Is Nothing Or usuario.Rol.Id = 0) Then
-            Throw New ArgumentException("El Rol no puede ser nulo o no puede tener un id de 0")
+        If (usuario.Rol = Nothing) Then
+            Throw New ArgumentException("El Rol no puede ser nulo")
         End If
 
         If usuario.Contrasena Is Nothing Or usuario.Contrasena.Length < 8 Then
-            Throw New Exception("La contraseña debe tener al menos 8 caracteres")
+            Throw New ArgumentException("La contraseña debe tener al menos 8 caracteres")
         End If
+
+        ' verificar no repetidos
+
+        If datoUsuario.existeConEstaCedula(usuario.Cedula) Then
+            Throw New ArgumentException("Ya existe un usuario con esa cedula")
+        End If
+
+
 
         Return Me.datoUsuario.crear(usuario)
     End Function

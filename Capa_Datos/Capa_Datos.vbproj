@@ -64,7 +64,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dato_Roles.vb" />
     <Compile Include="InformacionDeConexion.vb" />
     <Compile Include="Dato_Usuario.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

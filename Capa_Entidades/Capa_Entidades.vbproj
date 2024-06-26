@@ -72,7 +72,6 @@
     <Compile Include="Entidad_Paralelo.vb" />
     <Compile Include="Entidad_Periodo.vb" />
     <Compile Include="Entidad_TipoDeMatricula.vb" />
-    <Compile Include="Entidad_Roles.vb" />
     <Compile Include="Entidad_Usuario.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

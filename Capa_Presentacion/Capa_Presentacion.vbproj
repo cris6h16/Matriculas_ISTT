@@ -79,10 +79,10 @@
     <Compile Include="frmPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Usuario.Designer.vb">
-      <DependentUpon>frm_Usuario.vb</DependentUpon>
+    <Compile Include="frm_Administrador.Designer.vb">
+      <DependentUpon>frm_Administrador.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_Usuario.vb">
+    <Compile Include="frm_Administrador.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -105,8 +105,8 @@
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Usuario.resx">
-      <DependentUpon>frm_Usuario.vb</DependentUpon>
+    <EmbeddedResource Include="frm_Administrador.resx">
+      <DependentUpon>frm_Administrador.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

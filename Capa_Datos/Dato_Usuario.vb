@@ -3,12 +3,6 @@ Imports Capa_Entidades
 Imports MySql.Data.MySqlClient
 Public Class Dato_Usuario
 
-    Dim datoRoles As Dato_Roles
-
-    Public Sub New()
-        datoRoles = New Dato_Roles()
-    End Sub
-
     Public Function traer(cedula As String, contrasena As String) As Entidad_Usuario
         Dim query As String =
             "SELECT 
@@ -16,7 +10,7 @@ Public Class Dato_Usuario
                 u.nombres, 
                 u.apellidos, 
                 u.cedula, 
-                u.id_roles, 
+                u.rol, 
                 u.contrasena,
                 u.sexo,
                 u.nacimiento,
@@ -38,20 +32,16 @@ Public Class Dato_Usuario
                     Dim id As Integer = reader.GetInt32(0)
                     Dim nombres As String = reader.GetString(1)
                     Dim apellidos As String = reader.GetString(2)
-                    Dim idRol As String = reader.GetString(4)
+                    Dim rol As String = reader.GetString(4)
                     Dim cedulaR As String = reader.GetString(3)
                     Dim contrasenaR As String = reader.GetString(5)
                     Dim sexo As Char = reader.GetChar(6)
                     Dim nacimiento As Date = reader.GetDateTime(7)
                     Dim direccion As String = reader.GetString(8)
 
-                    Dim rol As Entidad_Roles = Nothing
+                    Dim eRol As ERoles = CType([Enum].Parse(GetType(ERoles), rol), ERoles)
 
-                    If idRol IsNot Nothing Or Not idRol.Equals("") Then
-                        rol = datoRoles.traer(Integer.Parse(idRol))
-                    End If
-
-                    usuario = New Entidad_Usuario(id, nombres, apellidos, cedula, rol, contrasena, sexo, nacimiento, direccion)
+                    usuario = New Entidad_Usuario(id, nombres, apellidos, cedula, eRol, contrasena, sexo, nacimiento, direccion)
                 End If
             End Using
         End Using
@@ -71,7 +61,7 @@ Public Class Dato_Usuario
                 sexo,
                 nacimiento,
                 direccion,
-                id_roles
+                rol
             )
             VALUES( 
                 @id,
@@ -82,7 +72,7 @@ Public Class Dato_Usuario
                 @sexo,
                 @nacimiento,
                 @direccion,
-                @id_roles
+                @erol
             )"
 
 
@@ -99,7 +89,7 @@ Public Class Dato_Usuario
                 cmd.Parameters.AddWithValue("@sexo", usuario.Sexo)
                 cmd.Parameters.AddWithValue("@nacimiento", usuario.Nacimiento)
                 cmd.Parameters.AddWithValue("@direccion", usuario.Direccion)
-                cmd.Parameters.AddWithValue("@id_roles", usuario.Rol.Id)
+                cmd.Parameters.AddWithValue("@erol", usuario.Rol.ToString)
 
                 creado = (cmd.ExecuteNonQuery() > 0)
             End Using
@@ -107,5 +97,23 @@ Public Class Dato_Usuario
 
         Return creado
     End Function
+
+
+    Public Function existeConEstaCedula(cedula As String) As Boolean
+        Dim query As String = "SELECT COUNT(id) FROM usuarios WHERE cedula = @cedula"
+        Dim existe As Boolean = False
+
+        Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            Using cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@cedula", cedula)
+                conn.Open()
+                existe = (CInt(cmd.ExecuteScalar()) > 0)
+            End Using
+        End Using
+
+        Return existe
+    End Function
+
+
 
 End Class

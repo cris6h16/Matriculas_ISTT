@@ -7,9 +7,9 @@
     Private _Sexo As Char
     Private _Nacimiento As Date
     Private _Direccion As String
-    Private _Rol As Entidad_Roles
+    Private _Rol As ERoles
 
-    Public Sub New(id As Integer, nombre As String, apellido As String, cedula As String, Rol As Entidad_Roles, contrasena As String, sexo As Char, nacimiento As Date, direccion As String)
+    Public Sub New(id As Integer, nombre As String, apellido As String, cedula As String, Rol As ERoles, contrasena As String, sexo As Char, nacimiento As Date, direccion As String)
         Me.Id = id
         Me.Nombres = nombre
         Me.Apellidos = apellido
@@ -19,7 +19,6 @@
         Me.Sexo = sexo
         Me.Nacimiento = nacimiento
         Me.Direccion = direccion
-
     End Sub
 
     Public Property Id As Integer
@@ -36,7 +35,7 @@
             Return _Nombres
         End Get
         Set(value As String)
-            _Nombres = value
+            _Nombres = value.ToUpper
         End Set
     End Property
 
@@ -45,7 +44,7 @@
             Return _Apellidos
         End Get
         Set(value As String)
-            _Apellidos = value
+            _Apellidos = value.ToUpper
         End Set
     End Property
 
@@ -55,15 +54,6 @@
         End Get
         Set(value As String)
             _Cedula = value
-        End Set
-    End Property
-
-    Public Property Rol As Entidad_Roles
-        Get
-            Return _Rol
-        End Get
-        Set(value As Entidad_Roles)
-            _Rol = value
         End Set
     End Property
 
@@ -102,4 +92,20 @@
             _Direccion = value
         End Set
     End Property
+
+    Public Property Rol As ERoles
+        Get
+            Return _Rol
+        End Get
+        Set(value As ERoles)
+            _Rol = value
+        End Set
+    End Property
 End Class
+
+
+Public Enum ERoles
+    Estudiante
+    Docente
+    Administrador
+End Enum

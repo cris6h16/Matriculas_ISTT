@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frm_Usuario
+Partial Class frm_Administrador
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -39,25 +39,31 @@ Partial Class frm_Usuario
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.txtContrasena = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.cmbRoles = New System.Windows.Forms.ComboBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label1.Location = New System.Drawing.Point(276, 9)
+        Me.Label1.Location = New System.Drawing.Point(331, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(323, 40)
+        Me.Label1.Size = New System.Drawing.Size(373, 40)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "REGISTRO ALUNMO"
+        Me.Label1.Text = "REGISTRO DE USUARIO"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(42, 89)
+        Me.Label2.Location = New System.Drawing.Point(44, 367)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(71, 19)
         Me.Label2.TabIndex = 1
@@ -67,7 +73,7 @@ Partial Class frm_Usuario
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(37, 128)
+        Me.Label3.Location = New System.Drawing.Point(47, 92)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(78, 19)
         Me.Label3.TabIndex = 2
@@ -77,7 +83,7 @@ Partial Class frm_Usuario
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(32, 167)
+        Me.Label4.Location = New System.Drawing.Point(50, 157)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(84, 19)
         Me.Label4.TabIndex = 3
@@ -87,7 +93,7 @@ Partial Class frm_Usuario
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(49, 215)
+        Me.Label7.Location = New System.Drawing.Point(516, 168)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(50, 19)
         Me.Label7.TabIndex = 6
@@ -97,7 +103,7 @@ Partial Class frm_Usuario
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(12, 255)
+        Me.Label8.Location = New System.Drawing.Point(516, 88)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(122, 19)
         Me.Label8.TabIndex = 7
@@ -107,7 +113,7 @@ Partial Class frm_Usuario
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(12, 301)
+        Me.Label9.Location = New System.Drawing.Point(516, 235)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(95, 19)
         Me.Label9.TabIndex = 8
@@ -115,114 +121,179 @@ Partial Class frm_Usuario
         '
         'txtCedula
         '
-        Me.txtCedula.Location = New System.Drawing.Point(167, 85)
+        Me.txtCedula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtCedula.Location = New System.Drawing.Point(48, 389)
+        Me.txtCedula.MinimumSize = New System.Drawing.Size(370, 35)
         Me.txtCedula.Name = "txtCedula"
-        Me.txtCedula.Size = New System.Drawing.Size(301, 22)
+        Me.txtCedula.Size = New System.Drawing.Size(370, 22)
         Me.txtCedula.TabIndex = 9
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(167, 128)
+        Me.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtNombre.Location = New System.Drawing.Point(48, 114)
+        Me.txtNombre.MinimumSize = New System.Drawing.Size(370, 35)
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(301, 22)
+        Me.txtNombre.Size = New System.Drawing.Size(370, 22)
         Me.txtNombre.TabIndex = 10
         '
         'txtApellido
         '
-        Me.txtApellido.Location = New System.Drawing.Point(167, 167)
+        Me.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtApellido.Location = New System.Drawing.Point(51, 179)
+        Me.txtApellido.MinimumSize = New System.Drawing.Size(370, 35)
         Me.txtApellido.Name = "txtApellido"
-        Me.txtApellido.Size = New System.Drawing.Size(301, 22)
+        Me.txtApellido.Size = New System.Drawing.Size(370, 22)
         Me.txtApellido.TabIndex = 11
         '
         'txtDireccion
         '
-        Me.txtDireccion.Location = New System.Drawing.Point(156, 298)
+        Me.txtDireccion.Location = New System.Drawing.Point(517, 257)
         Me.txtDireccion.Name = "txtDireccion"
-        Me.txtDireccion.Size = New System.Drawing.Size(301, 22)
+        Me.txtDireccion.Size = New System.Drawing.Size(370, 22)
         Me.txtDireccion.TabIndex = 14
         '
         'dtpFechaNac
         '
-        Me.dtpFechaNac.Location = New System.Drawing.Point(156, 252)
+        Me.dtpFechaNac.CustomFormat = "dd/MM/yyyy"
+        Me.dtpFechaNac.Location = New System.Drawing.Point(517, 119)
         Me.dtpFechaNac.Name = "dtpFechaNac"
-        Me.dtpFechaNac.Size = New System.Drawing.Size(301, 22)
+        Me.dtpFechaNac.Size = New System.Drawing.Size(370, 22)
         Me.dtpFechaNac.TabIndex = 15
         Me.dtpFechaNac.Value = New Date(2005, 1, 5, 0, 0, 0, 0)
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Capa_Presentacion.My.Resources.Resources.logousuario1
-        Me.PictureBox1.Location = New System.Drawing.Point(575, 144)
+        Me.PictureBox1.Location = New System.Drawing.Point(646, 320)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(205, 215)
+        Me.PictureBox1.Size = New System.Drawing.Size(129, 113)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 16
         Me.PictureBox1.TabStop = False
         '
         'cmbSexo
         '
+        Me.cmbSexo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cmbSexo.DropDownWidth = 370
         Me.cmbSexo.FormattingEnabled = True
+        Me.cmbSexo.ItemHeight = 16
         Me.cmbSexo.Items.AddRange(New Object() {"M", "F"})
-        Me.cmbSexo.Location = New System.Drawing.Point(156, 210)
+        Me.cmbSexo.Location = New System.Drawing.Point(517, 190)
+        Me.cmbSexo.MaximumSize = New System.Drawing.Size(110, 0)
+        Me.cmbSexo.MinimumSize = New System.Drawing.Size(370, 0)
         Me.cmbSexo.Name = "cmbSexo"
-        Me.cmbSexo.Size = New System.Drawing.Size(301, 24)
+        Me.cmbSexo.Size = New System.Drawing.Size(370, 24)
         Me.cmbSexo.TabIndex = 17
         '
         'btnGuardar
         '
         Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnGuardar.Location = New System.Drawing.Point(364, 445)
+        Me.btnGuardar.Location = New System.Drawing.Point(503, 475)
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(149, 56)
+        Me.btnGuardar.Size = New System.Drawing.Size(168, 64)
         Me.btnGuardar.TabIndex = 18
         Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.UseVisualStyleBackColor = False
         '
         'txtContrasena
         '
-        Me.txtContrasena.Location = New System.Drawing.Point(238, 346)
+        Me.txtContrasena.Location = New System.Drawing.Point(48, 460)
         Me.txtContrasena.Name = "txtContrasena"
-        Me.txtContrasena.Size = New System.Drawing.Size(301, 22)
+        Me.txtContrasena.Size = New System.Drawing.Size(370, 22)
         Me.txtContrasena.TabIndex = 20
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(12, 349)
+        Me.Label5.Location = New System.Drawing.Point(47, 438)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(215, 19)
         Me.Label5.TabIndex = 19
         Me.Label5.Text = "CONSTRASENA DE ACCESO"
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Label6)
+        Me.Panel1.Controls.Add(Me.cmbRoles)
+        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.cmbSexo)
+        Me.Panel1.Controls.Add(Me.dtpFechaNac)
+        Me.Panel1.Controls.Add(Me.Label5)
+        Me.Panel1.Controls.Add(Me.txtDireccion)
+        Me.Panel1.Controls.Add(Me.txtContrasena)
+        Me.Panel1.Controls.Add(Me.txtApellido)
+        Me.Panel1.Controls.Add(Me.btnGuardar)
+        Me.Panel1.Controls.Add(Me.txtNombre)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.txtCedula)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.Label9)
+        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.Label8)
+        Me.Panel1.Controls.Add(Me.Label7)
+        Me.Panel1.Location = New System.Drawing.Point(32, 28)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(959, 561)
+        Me.Panel1.TabIndex = 21
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(50, 235)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(179, 19)
+        Me.Label6.TabIndex = 24
+        Me.Label6.Text = "Rol del Usuario a Crear"
+        '
+        'cmbRoles
+        '
+        Me.cmbRoles.FormattingEnabled = True
+        Me.cmbRoles.Location = New System.Drawing.Point(54, 257)
+        Me.cmbRoles.Name = "cmbRoles"
+        Me.cmbRoles.Size = New System.Drawing.Size(380, 24)
+        Me.cmbRoles.TabIndex = 23
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Button2.Location = New System.Drawing.Point(786, 498)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(130, 41)
+        Me.Button2.TabIndex = 22
+        Me.Button2.Text = "Cerrar Secion"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Button1.Location = New System.Drawing.Point(786, 451)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(130, 41)
+        Me.Button1.TabIndex = 21
+        Me.Button1.Text = "Limpiar Datos"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'frm_Usuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.ClientSize = New System.Drawing.Size(986, 537)
-        Me.Controls.Add(Me.txtContrasena)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.btnGuardar)
-        Me.Controls.Add(Me.cmbSexo)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.dtpFechaNac)
-        Me.Controls.Add(Me.txtDireccion)
-        Me.Controls.Add(Me.txtApellido)
-        Me.Controls.Add(Me.txtNombre)
-        Me.Controls.Add(Me.txtCedula)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ClientSize = New System.Drawing.Size(1017, 648)
+        Me.Controls.Add(Me.Panel1)
         Me.Name = "frm_Usuario"
         Me.Text = "frm_Usuario"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -243,4 +314,9 @@ Partial Class frm_Usuario
     Friend WithEvents btnGuardar As Button
     Friend WithEvents txtContrasena As TextBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents cmbRoles As ComboBox
 End Class
