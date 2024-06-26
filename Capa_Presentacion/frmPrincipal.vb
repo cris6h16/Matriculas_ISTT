@@ -20,22 +20,29 @@ Public Class frmPrincipal
             Dim usuario As Entidad_Usuario = negocioUsuario.traerUsuario(txtUsuario.Text, txtContrasena.Text)
 
             If cbxAdministrador.Checked = True Then
+                If Not usuario.Rol.Equals(ERoles.Administrador) Then Throw New Exception("El usuario no tiene el rol de Administrador")
+
                 MsgBox("Bienvenido, se ha logueado como Administrador")
                 frm_Administrador.Show()
                 Me.Hide()
 
             ElseIf cbxDocente.Checked = True Then
-                MsgBox("Bienvenido, se ha logueado como Docente")
-                frm_Docente.Show()
-                Me.Hide()
+                If Not usuario.Rol.Equals(ERoles.Docente) Then Throw New Exception("El usuario no tiene el rol de Docente")
+
+                'MsgBox("Bienvenido, se ha logueado como Docente")
+                MsgBox("no existe aun la vista para docentes")
+                'frm_Docente.Show()
+                'Me.Hide()
 
             ElseIf cbxEstudiante.Checked = True Then
-                MsgBox("Bienvenido, se ha logueado como Estudiante")
-                frm_Estudiante.Show()
-                Me.Hide()
+                If Not usuario.Rol.Equals(ERoles.Estudiante) Then Throw New Exception("El usuario no tiene el rol de Estudiante")
+                ' MsgBox("Bienvenido, se ha logueado como Estudiante")
+                MsgBox("no existe aun la vista para estudiantes")
+                'frm_Estudiante.Show()
+                'Me.Hide()
 
             Else
-                MsgBox("Seleccione un rol")
+                    MsgBox("Seleccione un rol")
             End If
 
         Catch ex As Exception

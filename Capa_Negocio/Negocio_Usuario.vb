@@ -21,6 +21,7 @@ Public Class Negocio_Usuario
             Throw New Exception("No se encontro un usuario con esa cedula y contraseña")
         End If
 
+        Return ususario
     End Function
 
     Public Function crear(usuario As Entidad_Usuario) As Boolean
@@ -68,9 +69,9 @@ Public Class Negocio_Usuario
             Throw New ArgumentException("La direccion no puede estar vacia o nula")
         End If
 
-        If (usuario.Rol = Nothing) Then
-            Throw New ArgumentException("El Rol no puede ser nulo")
-        End If
+        'If (usuario.Rol Is Nothing) Then
+        'Throw New ArgumentException("El Rol no puede ser nulo")
+        'End If
 
         If usuario.Contrasena Is Nothing Or usuario.Contrasena.Length < 8 Then
             Throw New ArgumentException("La contraseña debe tener al menos 8 caracteres")
