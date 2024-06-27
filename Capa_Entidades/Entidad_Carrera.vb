@@ -1,8 +1,16 @@
 ﻿Public Class Entidad_Carrera
+
     Private _Id_Carrera As Integer
     Private _Nombre As String
     Private _DuracionEnSemestres As Byte
-    Private _Id_Modalidad As Integer
+    Private _EModalidad As EModalidad
+
+    Public Sub New(id_Carrera As Integer, nombre As String, duracionEnSemestres As Byte, eModalidad As EModalidad)
+        Me.Id_Carrera = id_Carrera
+        Me.Nombre = nombre
+        Me.DuracionEnSemestres = duracionEnSemestres
+        Me.EModalidad = eModalidad
+    End Sub
 
     Public Property Id_Carrera As Integer
         Get
@@ -13,7 +21,7 @@
         End Set
     End Property
 
-    Public Property Nombre_carrera As String
+    Public Property Nombre As String
         Get
             Return _Nombre
         End Get
@@ -31,12 +39,16 @@
         End Set
     End Property
 
-    Public Property Id_Modalidad As Integer
+    Public Property EModalidad As EModalidad
         Get
-            Return _Id_Modalidad
+            Return _EModalidad
         End Get
-        Set(value As Integer)
-            _Id_Modalidad = value
+        Set(value As EModalidad)
+            _EModalidad = value
         End Set
     End Property
 End Class
+Public Enum EModalidad
+    PRESENCIAL
+    VIRTUAL
+End Enum

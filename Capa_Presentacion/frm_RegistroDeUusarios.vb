@@ -2,7 +2,7 @@
 Imports Capa_Entidades
 Imports Capa_Negocio
 
-Public Class frm_Administrador
+Public Class frm_RegistroDeUusarios
 
     Private negocioUsuario As Negocio_Usuario
 

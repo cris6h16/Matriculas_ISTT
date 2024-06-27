@@ -79,10 +79,28 @@
     <Compile Include="frmPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Administrador.Designer.vb">
-      <DependentUpon>frm_Administrador.vb</DependentUpon>
+    <Compile Include="frm_MenuDeAdministrador.Designer.vb">
+      <DependentUpon>frm_MenuDeAdministrador.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_Administrador.vb">
+    <Compile Include="frm_MenuDeAdministrador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_RegistroDeAsignatura.Designer.vb">
+      <DependentUpon>frm_RegistroDeAsignatura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_RegistroDeAsignatura.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_RegistroDeCarrera.Designer.vb">
+      <DependentUpon>frm_RegistroDeCarrera.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_RegistroDeCarrera.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_RegistroDeUusarios.Designer.vb">
+      <DependentUpon>frm_RegistroDeUusarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_RegistroDeUusarios.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_Docentes.Designer.vb">
@@ -111,8 +129,17 @@
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Administrador.resx">
-      <DependentUpon>frm_Administrador.vb</DependentUpon>
+    <EmbeddedResource Include="frm_MenuDeAdministrador.resx">
+      <DependentUpon>frm_MenuDeAdministrador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_RegistroDeAsignatura.resx">
+      <DependentUpon>frm_RegistroDeAsignatura.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_RegistroDeCarrera.resx">
+      <DependentUpon>frm_RegistroDeCarrera.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_RegistroDeUusarios.resx">
+      <DependentUpon>frm_RegistroDeUusarios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

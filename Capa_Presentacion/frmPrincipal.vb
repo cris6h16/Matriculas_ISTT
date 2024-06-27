@@ -14,7 +14,6 @@ Public Class frmPrincipal
 
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
 
-
         Try
 
             Dim usuario As Entidad_Usuario = negocioUsuario.traerUsuario(txtUsuario.Text, txtContrasena.Text)
@@ -23,7 +22,7 @@ Public Class frmPrincipal
                 If Not usuario.Rol.Equals(ERoles.Administrador) Then Throw New Exception("El usuario no tiene el rol de Administrador")
 
                 MsgBox("Bienvenido, se ha logueado como Administrador")
-                frm_Administrador.Show()
+                frm_MenuDeAdministrador.Show()
                 Me.Hide()
 
             ElseIf cbxDocente.Checked = True Then
@@ -48,7 +47,7 @@ Public Class frmPrincipal
         Catch ex As Exception
             MsgBox(ex.Message)
 
-            frm_Administrador.Hide()
+            frm_MenuDeAdministrador.Hide()
         End Try
 
     End Sub
