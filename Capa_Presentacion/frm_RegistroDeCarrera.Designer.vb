@@ -45,6 +45,7 @@ Partial Class frm_RegistroDeCarrera
         '
         'cmbModalidades
         '
+        Me.cmbModalidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbModalidades.FormattingEnabled = True
         Me.cmbModalidades.Location = New System.Drawing.Point(47, 218)
         Me.cmbModalidades.Name = "cmbModalidades"
@@ -114,6 +115,7 @@ Partial Class frm_RegistroDeCarrera
         '
         'cbxDuracionSemestres
         '
+        Me.cbxDuracionSemestres.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxDuracionSemestres.FormattingEnabled = True
         Me.cbxDuracionSemestres.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"})
         Me.cbxDuracionSemestres.Location = New System.Drawing.Point(44, 146)

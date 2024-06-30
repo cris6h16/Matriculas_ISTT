@@ -9,7 +9,7 @@ Public Class Negocio_Carrera
     End Sub
 
     Public Function ListarCarreras() As HashSet(Of Entidad_Carrera)
-        Return datoCarrera.ListarCarreras()
+        Return datoCarrera.listar()
     End Function
 
 

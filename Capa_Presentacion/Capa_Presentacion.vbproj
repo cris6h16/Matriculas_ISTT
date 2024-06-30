@@ -97,6 +97,12 @@
     <Compile Include="frm_RegistroDeCarrera.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_RegistroDePeriodosAcademicos.Designer.vb">
+      <DependentUpon>frm_RegistroDePeriodosAcademicos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_RegistroDePeriodosAcademicos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_RegistroDeUusarios.Designer.vb">
       <DependentUpon>frm_RegistroDeUusarios.vb</DependentUpon>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_RegistroDeCarrera.resx">
       <DependentUpon>frm_RegistroDeCarrera.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_RegistroDePeriodosAcademicos.resx">
+      <DependentUpon>frm_RegistroDePeriodosAcademicos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_RegistroDeUusarios.resx">
       <DependentUpon>frm_RegistroDeUusarios.vb</DependentUpon>

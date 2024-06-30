@@ -1,14 +1,14 @@
 ﻿Imports Capa_Entidades
 Imports MySql.Data.MySqlClient
 
-Public Class Dato_Carrera
-    Public Function existe(nombreDeLaCarrera As String) As Boolean
-        Dim query As String = "SELECT COUNT(id) FROM carrera c WHERE LOWER(c.nombre) = @nombre"
+Public Class Dato_Periodo
+    Public Function existe(nombreDelPeriodo As String) As Boolean
+        Dim query As String = "SELECT COUNT(id) FROM periodo_academico p WHERE LOWER(p.nombre) = @nombre"
         Dim yaExiste As Boolean = False
 
         Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
             Using cmd As New MySqlCommand(query, conn)
-                cmd.Parameters.AddWithValue("@nombre", nombreDeLaCarrera.ToLower)
+                cmd.Parameters.AddWithValue("@nombre", nombreDelPeriodo.ToLower)
                 conn.Open()
                 existe = (CInt(cmd.ExecuteScalar()) > 0)
             End Using
@@ -17,19 +17,20 @@ Public Class Dato_Carrera
         Return existe
     End Function
 
-    Public Function crear(carrera As Entidad_Carrera) As Boolean
+    Public Function crear(periodo As Entidad_Periodo) As Boolean
+
         Dim query As String =
-           "INSERT INTO carrera ( 
+           "INSERT INTO periodo_academico ( 
                 id,
                 nombre,
-                duracion_en_semestres,
-                modalidad
+                fecha_inicio,
+                fecha_fin
             )
             VALUES( 
                 @id,
                 @nombre,
-                @duracion,
-                @modalidad
+                @fecha_inicio,
+                @fecha_fin
             )"
 
         Dim creado As Boolean = False
@@ -38,9 +39,9 @@ Public Class Dato_Carrera
             Using cmd As New MySqlCommand(query, conn)
                 conn.Open()
                 cmd.Parameters.AddWithValue("@id", Nothing)
-                cmd.Parameters.AddWithValue("@nombre", carrera.Nombre)
-                cmd.Parameters.AddWithValue("@duracion", carrera.DuracionEnSemestres)
-                cmd.Parameters.AddWithValue("@modalidad", carrera.EModalidad.ToString)
+                cmd.Parameters.AddWithValue("@nombre", periodo.Nombre)
+                cmd.Parameters.AddWithValue("@fecha_inicio", periodo.Fecha_Inicio)
+                cmd.Parameters.AddWithValue("@fecha_fin", periodo.Fecha_Fin)
 
                 creado = (cmd.ExecuteNonQuery() > 0)
             End Using
@@ -50,17 +51,19 @@ Public Class Dato_Carrera
     End Function
 
 
-    Public Function listar() As HashSet(Of Entidad_Carrera)
+    Public Function listar() As HashSet(Of Entidad_Periodo)
 
         Dim query As String =
         "SELECT 
             id,
             nombre,
-            duracion_en_semestres,
-            modalidad
-        FROM carrera"
+            fecha_inicio,
+            fecha_fin
+        FROM 
+            periodo_academico"
 
-        Dim carreras As New HashSet(Of Entidad_Carrera)
+        Dim periodos As New HashSet(Of Entidad_Periodo)
+
         Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
             Using cmd As New MySqlCommand(query, conn)
                 conn.Open()
@@ -68,16 +71,17 @@ Public Class Dato_Carrera
                     While reader.Read()
                         Dim id As Integer = reader.GetInt32(0)
                         Dim nombre As String = reader.GetString(1)
-                        Dim duracion As Byte = reader.GetByte(2)
-                        Dim modalidad As EModalidad = CType([Enum].Parse(GetType(EModalidad), reader.GetString(3)), EModalidad)
+                        Dim fechaInicio As Date = reader.GetDateTime(2)
+                        Dim fechaFin As Date = reader.GetDateTime(3)
 
-                        Dim carrera As New Entidad_Carrera(id, nombre, duracion, modalidad)
-                        carreras.Add(carrera)
+                        Dim periodo As New Entidad_Periodo(id, nombre, fechaInicio, fechaFin)
+
+                        periodos.Add(periodo)
                     End While
                 End Using
             End Using
         End Using
 
-        Return carreras
+        Return periodos
     End Function
 End Class

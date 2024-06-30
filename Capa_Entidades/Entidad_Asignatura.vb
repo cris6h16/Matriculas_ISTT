@@ -10,7 +10,7 @@
         Me.Nombre = nombre
         Me.Descripcion = descripcion
         Me.Carrera = carrera
-        Me.Id_Nivel = id_Nivel
+        Me.Nivel = id_Nivel
     End Sub
 
     Public Property Id_Asignatura As Integer

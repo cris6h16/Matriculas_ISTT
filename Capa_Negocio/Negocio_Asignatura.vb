@@ -3,9 +3,9 @@ Imports Capa_Entidades
 
 Public Class Negocio_Asignatura
 
-    Private datoAsignatura As Dato_Asignatura()
+    Private datoAsignatura As Dato_Asignatura
 
-    Public Sub New(c As Dato_Asignatura)
+    Public Sub New(datoAsignatura As Dato_Asignatura)
         Me.datoAsignatura = datoAsignatura
     End Sub
 
@@ -28,6 +28,10 @@ Public Class Negocio_Asignatura
 
         If (asignatura.Carrera Is Nothing) Then
             Throw New ArgumentException("La carrera no puede ser nula")
+        End If
+
+        If (asignatura.Carrera.Id_Carrera = 0) Then
+            Throw New ArgumentException("La carrera no tiene un id asignado")
         End If
 
         If (asignatura.Nivel <= 0) Then

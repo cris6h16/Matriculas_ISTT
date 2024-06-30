@@ -34,7 +34,6 @@ Partial Class frm_RegistroDeUusarios
         Me.txtApellido = New System.Windows.Forms.TextBox()
         Me.txtDireccion = New System.Windows.Forms.TextBox()
         Me.dtpFechaNac = New System.Windows.Forms.DateTimePicker()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.cmbSexo = New System.Windows.Forms.ComboBox()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.txtContrasena = New System.Windows.Forms.TextBox()
@@ -44,8 +43,9 @@ Partial Class frm_RegistroDeUusarios
         Me.cmbRoles = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -162,19 +162,10 @@ Partial Class frm_RegistroDeUusarios
         Me.dtpFechaNac.TabIndex = 15
         Me.dtpFechaNac.Value = New Date(2005, 1, 5, 0, 0, 0, 0)
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Capa_Presentacion.My.Resources.Resources.logousuario1
-        Me.PictureBox1.Location = New System.Drawing.Point(646, 320)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(129, 113)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 16
-        Me.PictureBox1.TabStop = False
-        '
         'cmbSexo
         '
         Me.cmbSexo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cmbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSexo.DropDownWidth = 370
         Me.cmbSexo.FormattingEnabled = True
         Me.cmbSexo.ItemHeight = 16
@@ -253,6 +244,7 @@ Partial Class frm_RegistroDeUusarios
         '
         'cmbRoles
         '
+        Me.cmbRoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbRoles.FormattingEnabled = True
         Me.cmbRoles.Location = New System.Drawing.Point(54, 257)
         Me.cmbRoles.Name = "cmbRoles"
@@ -268,7 +260,7 @@ Partial Class frm_RegistroDeUusarios
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(130, 41)
         Me.Button2.TabIndex = 22
-        Me.Button2.Text = "Cerrar Secion"
+        Me.Button2.Text = "Regresar"
         Me.Button2.UseVisualStyleBackColor = False
         '
         'Button1
@@ -281,18 +273,28 @@ Partial Class frm_RegistroDeUusarios
         Me.Button1.Text = "Limpiar Datos"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'frm_Usuario
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Capa_Presentacion.My.Resources.Resources.logousuario1
+        Me.PictureBox1.Location = New System.Drawing.Point(646, 320)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(129, 113)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 16
+        Me.PictureBox1.TabStop = False
+        '
+        'frm_RegistroDeUusarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.ClientSize = New System.Drawing.Size(1017, 648)
         Me.Controls.Add(Me.Panel1)
-        Me.Name = "frm_Usuario"
+        Me.Name = "frm_RegistroDeUusarios"
         Me.Text = "frm_Usuario"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

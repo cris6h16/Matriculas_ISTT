@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="Negocio_Asignatura.vb" />
     <Compile Include="Negocio_Carrera.vb" />
+    <Compile Include="Negocio_Periodo.vb" />
     <Compile Include="Negocio_Usuario.vb" />
   </ItemGroup>
   <ItemGroup>

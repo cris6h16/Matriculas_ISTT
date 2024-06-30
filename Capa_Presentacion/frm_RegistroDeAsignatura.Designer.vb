@@ -73,7 +73,7 @@ Partial Class frm_RegistroDeAsignatura
         Me.txtDescripcion.Location = New System.Drawing.Point(53, 175)
         Me.txtDescripcion.MinimumSize = New System.Drawing.Size(370, 35)
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(370, 35)
+        Me.txtDescripcion.Size = New System.Drawing.Size(370, 22)
         Me.txtDescripcion.TabIndex = 27
         '
         'txtNombre
@@ -82,7 +82,7 @@ Partial Class frm_RegistroDeAsignatura
         Me.txtNombre.Location = New System.Drawing.Point(50, 110)
         Me.txtNombre.MinimumSize = New System.Drawing.Size(370, 35)
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(370, 35)
+        Me.txtNombre.Size = New System.Drawing.Size(370, 22)
         Me.txtNombre.TabIndex = 26
         '
         'Label3
@@ -107,6 +107,7 @@ Partial Class frm_RegistroDeAsignatura
         '
         'cmbCarreras
         '
+        Me.cmbCarreras.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCarreras.FormattingEnabled = True
         Me.cmbCarreras.Location = New System.Drawing.Point(53, 247)
         Me.cmbCarreras.Name = "cmbCarreras"
@@ -135,6 +136,7 @@ Partial Class frm_RegistroDeAsignatura
         '
         'cmb_niveles
         '
+        Me.cmb_niveles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_niveles.FormattingEnabled = True
         Me.cmb_niveles.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"})
         Me.cmb_niveles.Location = New System.Drawing.Point(53, 309)

@@ -4,6 +4,13 @@
     Private _Fecha_Inicio As Date
     Private _Fecha_Fin As Date
 
+    Public Sub New(id_Periodo As Integer, nombre As String, fecha_Inicio As Date, fecha_Fin As Date)
+        Me.Id_Periodo = id_Periodo
+        Me.Nombre = nombre
+        Me.Fecha_Inicio = fecha_Inicio
+        Me.Fecha_Fin = fecha_Fin
+    End Sub
+
     Public Property Id_Periodo As Integer
         Get
             Return _Id_Periodo
