@@ -46,14 +46,16 @@ Partial Class frm_MatricularEstudiante
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txb_materiaMatriculados = New System.Windows.Forms.TextBox()
         Me.dgv_matriculados = New System.Windows.Forms.DataGridView()
+        Me.txb_rol = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.txb_periodo = New System.Windows.Forms.TextBox()
         Me.cedula = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sexo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nacimiento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.matriculado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.txb_rol = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
+        Me.eliminalCol = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -62,6 +64,8 @@ Partial Class frm_MatricularEstudiante
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.txb_periodo)
+        Me.Panel1.Controls.Add(Me.Label12)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Controls.Add(Me.cbx_asignaturas)
         Me.Panel1.Controls.Add(Me.Label3)
@@ -254,9 +258,9 @@ Partial Class frm_MatricularEstudiante
         '
         Me.cbx_asignaturas.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbx_asignaturas.FormattingEnabled = True
-        Me.cbx_asignaturas.Location = New System.Drawing.Point(292, 79)
+        Me.cbx_asignaturas.Location = New System.Drawing.Point(212, 69)
         Me.cbx_asignaturas.Name = "cbx_asignaturas"
-        Me.cbx_asignaturas.Size = New System.Drawing.Size(603, 28)
+        Me.cbx_asignaturas.Size = New System.Drawing.Size(514, 28)
         Me.cbx_asignaturas.TabIndex = 6
         '
         'Label3
@@ -273,7 +277,7 @@ Partial Class frm_MatricularEstudiante
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(105, 81)
+        Me.Label2.Location = New System.Drawing.Point(25, 70)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(181, 22)
         Me.Label2.TabIndex = 4
@@ -300,13 +304,50 @@ Partial Class frm_MatricularEstudiante
         'dgv_matriculados
         '
         Me.dgv_matriculados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_matriculados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cedula, Me.nombres, Me.apellidos, Me.sexo, Me.nacimiento, Me.matriculado})
+        Me.dgv_matriculados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cedula, Me.nombres, Me.apellidos, Me.sexo, Me.nacimiento, Me.eliminalCol})
         Me.dgv_matriculados.Location = New System.Drawing.Point(3, 464)
         Me.dgv_matriculados.Name = "dgv_matriculados"
         Me.dgv_matriculados.RowHeadersWidth = 51
         Me.dgv_matriculados.RowTemplate.Height = 24
         Me.dgv_matriculados.Size = New System.Drawing.Size(997, 228)
         Me.dgv_matriculados.TabIndex = 0
+        '
+        'txb_rol
+        '
+        Me.txb_rol.Enabled = False
+        Me.txb_rol.Location = New System.Drawing.Point(800, 115)
+        Me.txb_rol.Name = "txb_rol"
+        Me.txb_rol.Size = New System.Drawing.Size(143, 22)
+        Me.txb_rol.TabIndex = 35
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(796, 84)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(33, 19)
+        Me.Label11.TabIndex = 34
+        Me.Label11.Text = "Rol"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(799, 40)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(72, 22)
+        Me.Label12.TabIndex = 11
+        Me.Label12.Text = "Periodo"
+        '
+        'txb_periodo
+        '
+        Me.txb_periodo.Enabled = False
+        Me.txb_periodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txb_periodo.Location = New System.Drawing.Point(793, 67)
+        Me.txb_periodo.Name = "txb_periodo"
+        Me.txb_periodo.Size = New System.Drawing.Size(153, 30)
+        Me.txb_periodo.TabIndex = 10
         '
         'cedula
         '
@@ -344,30 +385,14 @@ Partial Class frm_MatricularEstudiante
         Me.nacimiento.Name = "nacimiento"
         Me.nacimiento.Width = 125
         '
-        'matriculado
+        'eliminalCol
         '
-        Me.matriculado.HeaderText = "Matriculado"
-        Me.matriculado.MinimumWidth = 6
-        Me.matriculado.Name = "matriculado"
-        Me.matriculado.Width = 80
-        '
-        'txb_rol
-        '
-        Me.txb_rol.Enabled = False
-        Me.txb_rol.Location = New System.Drawing.Point(800, 115)
-        Me.txb_rol.Name = "txb_rol"
-        Me.txb_rol.Size = New System.Drawing.Size(143, 22)
-        Me.txb_rol.TabIndex = 35
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(796, 84)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(33, 19)
-        Me.Label11.TabIndex = 34
-        Me.Label11.Text = "Rol"
+        Me.eliminalCol.HeaderText = "Eliminar"
+        Me.eliminalCol.MinimumWidth = 6
+        Me.eliminalCol.Name = "eliminalCol"
+        Me.eliminalCol.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.eliminalCol.Text = "Eliminar"
+        Me.eliminalCol.Width = 80
         '
         'frm_MatricularEstudiante
         '
@@ -391,12 +416,6 @@ Partial Class frm_MatricularEstudiante
     Friend WithEvents Panel1 As Panel
     Friend WithEvents dgv_matriculados As DataGridView
     Friend WithEvents txb_materiaMatriculados As TextBox
-    Friend WithEvents cedula As DataGridViewTextBoxColumn
-    Friend WithEvents nombres As DataGridViewTextBoxColumn
-    Friend WithEvents apellidos As DataGridViewTextBoxColumn
-    Friend WithEvents sexo As DataGridViewTextBoxColumn
-    Friend WithEvents nacimiento As DataGridViewTextBoxColumn
-    Friend WithEvents matriculado As DataGridViewCheckBoxColumn
     Friend WithEvents Label1 As Label
     Friend WithEvents tbx_cedula As TextBox
     Friend WithEvents Label4 As Label
@@ -420,4 +439,12 @@ Partial Class frm_MatricularEstudiante
     Friend WithEvents btn_matricular As Button
     Friend WithEvents txb_rol As TextBox
     Friend WithEvents Label11 As Label
+    Friend WithEvents txb_periodo As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents cedula As DataGridViewTextBoxColumn
+    Friend WithEvents nombres As DataGridViewTextBoxColumn
+    Friend WithEvents apellidos As DataGridViewTextBoxColumn
+    Friend WithEvents sexo As DataGridViewTextBoxColumn
+    Friend WithEvents nacimiento As DataGridViewTextBoxColumn
+    Friend WithEvents eliminalCol As DataGridViewButtonColumn
 End Class

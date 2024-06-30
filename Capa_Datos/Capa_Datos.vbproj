@@ -66,6 +66,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dato_MatriculaAAsignatura.vb" />
     <Compile Include="Dato_Asignatura.vb" />
     <Compile Include="Dato_Carrera.vb" />
     <Compile Include="Dato_Periodo.vb" />

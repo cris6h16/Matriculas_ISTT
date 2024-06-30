@@ -4,6 +4,7 @@
     Public frm_RegistroDeCarrera As frm_RegistroDeCarrera
     Public frm_RegistroDeAsignatura As frm_RegistroDeAsignatura
     Public frm_RegistroDePeriodosAcademicos As frm_RegistroDePeriodosAcademicos
+    Public frm_AsignarMateriasADocentes As frm_AsignarMateriasADocentes
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.frm_RegistroDeUusarios = New frm_RegistroDeUusarios()
@@ -35,6 +36,8 @@
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-
+        Me.frm_AsignarMateriasADocentes = New frm_AsignarMateriasADocentes()
+        Me.frm_AsignarMateriasADocentes.Show()
+        Me.Hide()
     End Sub
 End Class

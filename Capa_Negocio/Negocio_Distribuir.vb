@@ -3,9 +3,11 @@ Imports Capa_Entidades
 
 Public Class Negocio_Distribuir
     Private datoDistribuir As Dato_Distribuir
+    Private datoUsuario As Dato_Usuario
 
-    Public Sub New(datoUsuarioAsignatura As Dato_Distribuir)
-        Me.datoDistribuir = datoUsuarioAsignatura
+    Public Sub New(datoDistribuir As Dato_Distribuir, datoUsuario As Dato_Usuario)
+        Me.datoDistribuir = datoDistribuir
+        Me.datoUsuario = datoUsuario
     End Sub
 
     Public Function crear(distribuir As Entidad_Distribuir) As Boolean
@@ -43,13 +45,25 @@ Public Class Negocio_Distribuir
     End Function
 
     Public Function listarPorIdUsuario(idDocente As Integer) As HashSet(Of Entidad_Distribuir)
+
+        If Not datoUsuario.existePorId(idDocente) Then
+            Throw New ArgumentException("No existe un usuario con el id " & idDocente)
+        End If
+
         Return Me.datoDistribuir.listarPorIdUsuario(idDocente)
+
     End Function
 
 
 
-    Public Function borrar(id As Integer) As Boolean
-        Return Me.datoDistribuir.borrar(id)
+    Public Function borrar(idDistribuir As Integer) As Boolean
+
+        If Not datoDistribuir.existe(idDistribuir) Then
+            Throw New Exception("No existe una distribucion con el id " & idDistribuir)
+        End If
+
+        Return Me.datoDistribuir.borrar(idDistribuir)
+
     End Function
 
 End Class

@@ -36,6 +36,28 @@ Public Class Dato_Distribuir
         Return docenteYaAsignado
     End Function
 
+    Public Function existe(idDistribuir As Integer) As Boolean
+        Dim query As String =
+            "SELECT 
+                COUNT(id) 
+            FROM 
+                distribuir d 
+            WHERE 
+                d.id = @id"
+
+        Dim docenteYaAsignado As Boolean = False
+
+        Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            Using cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@id", idDistribuir)
+                conn.Open()
+                docenteYaAsignado = (CInt(cmd.ExecuteScalar()) > 0)
+            End Using
+        End Using
+
+        Return docenteYaAsignado
+    End Function
+
     Public Function crear(usuarioAsignatura As Entidad_Distribuir) As Boolean
 
         Dim query As String =
@@ -93,7 +115,7 @@ Public Class Dato_Distribuir
                         Dim idAsignatura As Integer = reader.GetInt32(2)
                         Dim idPeriodo As Integer = reader.GetInt32(3)
 
-                        Dim usuario As Entidad_Usuario = datoUsuario.traer(idUsuario)
+                        Dim usuario As Entidad_Usuario = datoUsuario.traerPorId(idUsuario)
                         Dim asignatura As Entidad_Asignatura = datoAsignatura.traer(idAsignatura)
                         Dim periodo As Entidad_Periodo = datoPeriodo.traer(idPeriodo)
 
@@ -141,7 +163,7 @@ Public Class Dato_Distribuir
                         Dim idAsignatura As Integer = reader.GetInt32(1)
                         Dim idPeriodo As Integer = reader.GetInt32(2)
 
-                        Dim usuario As Entidad_Usuario = datoUsuario.traer(idUsuario)
+                        Dim usuario As Entidad_Usuario = datoUsuario.traerPorId(idUsuario)
                         Dim asignatura As Entidad_Asignatura = datoAsignatura.traer(idAsignatura)
                         Dim periodo As Entidad_Periodo = datoPeriodo.traer(idPeriodo)
 

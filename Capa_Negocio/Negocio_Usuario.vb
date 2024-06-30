@@ -18,7 +18,7 @@ Public Class Negocio_Usuario
             Throw New ArgumentException("La contraseña no puede estar vacia o nula")
         End If
 
-        Dim ususario As Entidad_Usuario = Me.datoUsuario.traer(cedula, contrasena)
+        Dim ususario As Entidad_Usuario = Me.datoUsuario.traerPorCedulaYContrasena(cedula, contrasena)
         If ususario Is Nothing Then
             Throw New Exception("No se encontro un usuario con esa cedula y contraseña")
         End If
@@ -33,8 +33,8 @@ Public Class Negocio_Usuario
             MsgBox("La cedula debe tener 10 digitos")
         End If
 
-        If datoUsuario.existeConEstaCedula(cedula) Then
-            Throw New ArgumentException("No existe ningun usuario con esa cedula")
+        If Not datoUsuario.existePorCedula(cedula) Then
+            Throw New ArgumentException("No existe ningun usuario con cedula " & cedula)
         End If
 
         Return Me.datoUsuario.traerPorCedula(cedula)
@@ -85,17 +85,13 @@ Public Class Negocio_Usuario
             Throw New ArgumentException("La direccion no puede estar vacia o nula")
         End If
 
-        'If (usuario.Rol Is Nothing) Then
-        'Throw New ArgumentException("El Rol no puede ser nulo")
-        'End If
-
         If usuario.Contrasena Is Nothing Or usuario.Contrasena.Length < 8 Then
             Throw New ArgumentException("La contraseña debe tener al menos 8 caracteres")
         End If
 
         ' verificar no repetidos
 
-        If datoUsuario.existeConEstaCedula(usuario.Cedula) Then
+        If datoUsuario.existePorCedula(usuario.Cedula) Then
             Throw New ArgumentException("Ya existe un usuario con esa cedula")
         End If
 

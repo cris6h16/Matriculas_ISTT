@@ -25,13 +25,14 @@ Public Class frm_RegistroDeUusarios
         Dim fechaNac As Date = dtpFechaNac.Value
         Dim direccion As String = txtDireccion.Text
         Dim contrasena As String = txtContrasena.Text
+        Dim rol As ERoles = CType([Enum].Parse(GetType(ERoles), cmbRoles.SelectedItem.ToString), ERoles)
 
         Dim usuario As New Entidad_Usuario(
             0,
             nombre,
             apellido,
             cedula,
-            ERoles.Estudiante,
+            rol,
             contrasena,
             sexo,
             fechaNac,
@@ -88,6 +89,10 @@ Public Class frm_RegistroDeUusarios
     End Sub
 
     Private Sub dtpFechaNac_ValueChanged(sender As Object, e As EventArgs) Handles dtpFechaNac.ValueChanged
+
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
 
     End Sub
 End Class

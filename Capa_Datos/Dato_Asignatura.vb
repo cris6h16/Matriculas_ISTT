@@ -9,6 +9,52 @@ Public Class Dato_Asignatura
         Me.datoCarrera = datoCarrera
     End Sub
 
+
+    Public Function existePorId(id As Integer) As Boolean
+        Dim query As String =
+            "SELECT 
+                COUNT(id) 
+            FROM 
+                asignatura a 
+            WHERE 
+                a.id = @id"
+
+        Dim existe As Boolean = False
+
+        Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            Using cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@id", id)
+                conn.Open()
+                existe = (CInt(cmd.ExecuteScalar()) > 0)
+            End Using
+        End Using
+
+        Return existe
+    End Function
+
+
+    Public Function existePorNombre(nombre As String) As Boolean
+        Dim query As String =
+            "SELECT 
+                COUNT(id) 
+            FROM 
+                asignatura a 
+            WHERE 
+                LOWER(a.nombre) = @nombre"
+
+        Dim existe As Boolean = False
+
+        Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            Using cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@nombre", nombre.ToLower)
+                conn.Open()
+                existe = (CInt(cmd.ExecuteScalar()) > 0)
+            End Using
+        End Using
+
+        Return existe
+    End Function
+
     Public Function crear(asignatura As Entidad_Asignatura) As Boolean
 
         Dim query As String =

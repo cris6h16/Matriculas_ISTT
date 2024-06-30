@@ -3,7 +3,7 @@ Imports Capa_Entidades
 Imports MySql.Data.MySqlClient
 Public Class Dato_Usuario
 
-    Public Function traer(cedula As String, contrasena As String) As Entidad_Usuario
+    Public Function traerPorCedulaYContrasena(cedula As String, contrasena As String) As Entidad_Usuario
         Dim query As String =
             "SELECT 
                 u.id, 
@@ -94,7 +94,7 @@ Public Class Dato_Usuario
         Return usuario
     End Function
 
-    Public Function traer(id As Integer) As Entidad_Usuario
+    Public Function traerPorId(id As Integer) As Entidad_Usuario
         Dim query As String =
             "SELECT 
                 u.id, 
@@ -188,13 +188,29 @@ Public Class Dato_Usuario
     End Function
 
 
-    Public Function existeConEstaCedula(cedula As String) As Boolean
+    Public Function existePorCedula(cedula As String) As Boolean
         Dim query As String = "SELECT COUNT(id) FROM usuarios WHERE cedula = @cedula"
         Dim existe As Boolean = False
 
         Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
             Using cmd As New MySqlCommand(query, conn)
                 cmd.Parameters.AddWithValue("@cedula", cedula)
+                conn.Open()
+                existe = (CInt(cmd.ExecuteScalar()) > 0)
+            End Using
+        End Using
+
+        Return existe
+    End Function
+
+
+    Public Function existePorId(id As Integer) As Boolean
+        Dim query As String = "SELECT COUNT(id) FROM usuarios WHERE id = @id"
+        Dim existe As Boolean = False
+
+        Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            Using cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@id", id)
                 conn.Open()
                 existe = (CInt(cmd.ExecuteScalar()) > 0)
             End Using

@@ -16,10 +16,20 @@ Public Class frm_AsignarMateriasADocentes
 
     Public Sub New()
         InitializeComponent()
-        Me.negocioAsignatura = New Negocio_Asignatura(New Dato_Asignatura())
-        Me.negocioUsuaeio = New Negocio_Usuario(New Dato_Usuario())
-        Me.negocioDistribuir = New Negocio_Distribuir(New Dato_Distribuir())
-        Me.negocioPeriodo = New Negocio_Periodo(New Dato_Periodo())
+
+        ' creo capa de datos
+        Dim datoUsuario As Dato_Usuario = New Dato_Usuario()
+        Dim datoCarrera As Dato_Carrera = New Dato_Carrera()
+        Dim datoPeriodo As Dato_Periodo = New Dato_Periodo()
+        Dim datoAsignatura As Dato_Asignatura = New Dato_Asignatura(datoCarrera)
+        Dim datoDistribuir As Dato_Distribuir = New Dato_Distribuir(datoAsignatura, datoUsuario, datoPeriodo)
+
+        ' creo capa de negocio asignando capa de datos
+        Me.negocioAsignatura = New Negocio_Asignatura(datoAsignatura)
+        Me.negocioUsuaeio = New Negocio_Usuario(datoUsuario)
+        Me.negocioDistribuir = New Negocio_Distribuir(datoDistribuir, datoUsuario)
+        Me.negocioPeriodo = New Negocio_Periodo(datoPeriodo)
+
         Me.cargarAsignaturas()
         Me.cargarDocentes()
         Me.cargarPeriodos()

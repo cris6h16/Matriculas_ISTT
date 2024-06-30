@@ -48,7 +48,4 @@
         End Set
     End Property
 End Class
-Public Enum EModalidad
-    PRESENCIAL
-    VIRTUAL
-End Enum
+

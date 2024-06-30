@@ -2,7 +2,7 @@
 Imports MySql.Data.MySqlClient
 
 Public Class Dato_Periodo
-    Public Function existe(nombreDelPeriodo As String) As Boolean
+    Public Function existePorNombre(nombreDelPeriodo As String) As Boolean
         Dim query As String = "SELECT COUNT(id) FROM periodo_academico p WHERE LOWER(p.nombre) = @nombre"
         Dim yaExiste As Boolean = False
 
@@ -10,11 +10,27 @@ Public Class Dato_Periodo
             Using cmd As New MySqlCommand(query, conn)
                 cmd.Parameters.AddWithValue("@nombre", nombreDelPeriodo.ToLower)
                 conn.Open()
-                existe = (CInt(cmd.ExecuteScalar()) > 0)
+                existePorNombre = (CInt(cmd.ExecuteScalar()) > 0)
             End Using
         End Using
 
-        Return existe
+        Return existePorNombre
+    End Function
+
+
+    Public Function existePorId(idPeriodo As Integer) As Boolean
+        Dim query As String = "SELECT COUNT(id) FROM periodo_academico p WHERE p.id = @id"
+        Dim yaExiste As Boolean = False
+
+        Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            Using cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@id", idPeriodo)
+                conn.Open()
+                existePorId = (CInt(cmd.ExecuteScalar()) > 0)
+            End Using
+        End Using
+
+        Return existePorId
     End Function
 
     Public Function crear(periodo As Entidad_Periodo) As Boolean

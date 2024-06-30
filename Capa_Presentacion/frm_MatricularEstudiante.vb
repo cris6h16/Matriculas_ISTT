@@ -6,9 +6,11 @@ Public Class frm_MatricularEstudiante
     Private asignaturasNegocio As Negocio_Asignatura
     Private distribuirNegocio As Negocio_Distribuir
     Private usuarioNegocio As Negocio_Usuario
+    Private matriculaAAsignaturaNegocio As Negocio_MatriculaAAsignatura
 
     Private docente As Entidad_Usuario
     Private misAsignaciones As HashSet(Of Entidad_Distribuir) ' contiene mis materias asignadas
+    Private matriculadosEnLaAsignaturaSeleccionada As HashSet(Of Entidad_MatriculaAAsignatura)
 
     Public Sub New(docente As Entidad_Usuario)
         InitializeComponent()
@@ -34,15 +36,84 @@ Public Class frm_MatricularEstudiante
 
         cbx_asignaturas.SelectedIndex = 0
         txb_materiaMatriculados.Text = cbx_asignaturas.SelectedItem.ToString
+        'txb_periodo
+        For Each asignacion As Entidad_Distribuir In misAsignaciones
+            If asignacion.Asignatura.Nombre = txb_materiaMatriculados.Text Then
+                txb_periodo.Text = asignacion.Periodo.Nombre
+                Exit For
+            End If
+        Next
         cargarMatriculados()
     End Sub
 
     Private Sub cargarMatriculados()
+        Dim idAsignaturaSeleccionada As Integer
+        Dim idPeriodoCorrespondiente As Integer
 
+
+        For Each asignacion As Entidad_Distribuir In misAsignaciones
+            If asignacion.Asignatura.Nombre = txb_materiaMatriculados.Text Then
+                idAsignaturaSeleccionada = asignacion.Asignatura.Id
+                idPeriodoCorrespondiente = asignacion.Periodo.Id
+                Exit For
+            End If
+        Next
+
+        matriculadosEnLaAsignaturaSeleccionada = matriculaAAsignaturaNegocio.listarPorIdAsignaturaYIdPeriodo(
+            idAsignaturaSeleccionada, idPeriodoCorrespondiente
+        )
+
+        dgv_matriculados.Rows.Clear()
+
+        For Each matricula As Entidad_MatriculaAAsignatura In matriculadosEnLaAsignaturaSeleccionada
+            dgv_matriculados.Rows.Add(
+                matricula.Usuario.Cedula,
+                matricula.Usuario.Nombres,
+                matricula.Usuario.Apellidos,
+                matricula.Usuario.Sexo,
+                matricula.Usuario.Nacimiento
+            )
+        Next
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_matriculados.CellContentClick
+        Dim idxBotonEliminar = dgv_matriculados.ColumnCount - 1
+        If e.ColumnIndex = idxBotonEliminar Then
+            Dim cedula As String = dgv_matriculados.Rows(e.RowIndex).Cells(0).Value
 
+            Dim idUsuario As Integer
+            Dim idAsignatura As Integer
+            Dim idPeriodo As Integer
+
+            ' obtener el id del usuario seleccionado de la tabla matriculados
+            For Each matricula As Entidad_MatriculaAAsignatura In matriculadosEnLaAsignaturaSeleccionada
+                If matricula.Usuario.Cedula = cedula Then
+                    idUsuario = matricula.Usuario.Id
+                    Exit For
+                End If
+            Next
+
+            ' obtener el id de asignatura y el id periodo correspondiente
+            For Each asignacion As Entidad_Distribuir In misAsignaciones
+                If asignacion.Asignatura.Nombre = txb_materiaMatriculados.Text Then
+                    idAsignatura = asignacion.Asignatura.Id
+                    idPeriodo = asignacion.Periodo.Id
+                    Exit For
+                End If
+            Next
+
+            Try
+                matriculaAAsignaturaNegocio.borrarPorIdUsuarioYIdAsignaturaYIdPeriodo(
+                    idUsuario,
+                    idAsignatura,
+                    idPeriodo
+                )
+                MsgBox("Estudiante eliminado de la asignatura")
+                cargarMatriculados()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
     End Sub
 
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
@@ -93,6 +164,15 @@ Public Class frm_MatricularEstudiante
 
     Private Sub cbx_asignaturas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbx_asignaturas.SelectedIndexChanged
         txb_materiaMatriculados.Text = cbx_asignaturas.SelectedItem.ToString
+
+        'txb_periodo
+        For Each asignacion As Entidad_Distribuir In misAsignaciones
+            If asignacion.Asignatura.Nombre = txb_materiaMatriculados.Text Then
+                txb_periodo.Text = asignacion.Periodo.Nombre
+                Exit For
+            End If
+        Next
+
         cargarMatriculados()
     End Sub
 End Class

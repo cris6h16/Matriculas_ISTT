@@ -1,11 +1,12 @@
-﻿Imports Capa_Entidades
+﻿Imports Capa_Datos
+Imports Capa_Entidades
 Imports Capa_Negocio
 
 Public Class frmPrincipal
     Dim negocioUsuario As Negocio_Usuario
     Public Sub New()
         InitializeComponent()
-        negocioUsuario = New Negocio_Usuario(New Capa_Datos.Dato_Usuario())
+        negocioUsuario = New Negocio_Usuario(New Dato_Usuario())
     End Sub
 
 
@@ -41,7 +42,7 @@ Public Class frmPrincipal
                 'Me.Hide()
 
             Else
-                    MsgBox("Seleccione un rol")
+                MsgBox("Seleccione un rol")
             End If
 
         Catch ex As Exception

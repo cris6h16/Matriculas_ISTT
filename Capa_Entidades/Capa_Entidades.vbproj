@@ -64,14 +64,14 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EModalidad.vb" />
     <Compile Include="Entidad_Carrera.vb" />
     <Compile Include="Entidad_Asignatura.vb" />
-    <Compile Include="Entidad_MatriculasAAsignaturas.vb" />
+    <Compile Include="Entidad_MatriculaAAsignatura.vb" />
     <Compile Include="Entidad_Modalidad.vb" />
     <Compile Include="Entidad_Nivel.vb" />
     <Compile Include="Entidad_Paralelo.vb" />
     <Compile Include="Entidad_Periodo.vb" />
-    <Compile Include="Entidad_TipoDeMatricula.vb" />
     <Compile Include="Entidad_Usuario.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

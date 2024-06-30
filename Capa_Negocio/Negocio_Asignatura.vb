@@ -38,6 +38,13 @@ Public Class Negocio_Asignatura
             Throw New ArgumentException("El nivel no puede ser 0 o inferior")
         End If
 
+        ' Verificar si la asignatura existe -> nombre
+        If Me.datoAsignatura.existePorNombre(asignatura.Nombre) Then
+            Throw New ArgumentException("Ya existe una asignatura con ese nombre")
+        End If
+
+
+
         Return Me.datoAsignatura.crear(asignatura)
     End Function
 

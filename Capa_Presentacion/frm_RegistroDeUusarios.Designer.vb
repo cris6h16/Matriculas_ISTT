@@ -75,9 +75,9 @@ Partial Class frm_RegistroDeUusarios
         Me.Label3.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(47, 92)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(78, 19)
+        Me.Label3.Size = New System.Drawing.Size(87, 19)
         Me.Label3.TabIndex = 2
-        Me.Label3.Text = "NOMBRE"
+        Me.Label3.Text = "NOMBRES"
         '
         'Label4
         '
@@ -85,9 +85,9 @@ Partial Class frm_RegistroDeUusarios
         Me.Label4.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(50, 157)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(84, 19)
+        Me.Label4.Size = New System.Drawing.Size(93, 19)
         Me.Label4.TabIndex = 3
-        Me.Label4.Text = "APELLIDO"
+        Me.Label4.Text = "APELLIDOS"
         '
         'Label7
         '

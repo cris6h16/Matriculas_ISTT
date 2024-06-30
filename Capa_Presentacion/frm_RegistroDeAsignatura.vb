@@ -10,8 +10,14 @@ Public Class frm_RegistroDeAsignatura
 
     Public Sub New()
         InitializeComponent()
-        Me.carreraNegocio = New Negocio_Carrera(New Dato_Carrera())
-        Me.asignaturaNegocio = New Negocio_Asignatura(New Dato_Asignatura())
+
+        ' creo capa de datos
+        Dim datoCarrera As Dato_Carrera = New Dato_Carrera()
+        Dim datoAsignatura As Dato_Asignatura = New Dato_Asignatura(datoCarrera)
+
+        ' creo capa de negocio asignando capa de datos
+        Me.carreraNegocio = New Negocio_Carrera(datoCarrera)
+        Me.asignaturaNegocio = New Negocio_Asignatura(datoAsignatura)
 
         Try
             Me.carrerasHS = Me.carreraNegocio.ListarCarreras()
