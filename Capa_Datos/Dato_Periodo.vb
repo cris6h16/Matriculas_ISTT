@@ -84,4 +84,36 @@ Public Class Dato_Periodo
 
         Return periodos
     End Function
+
+    Public Function traer(id As Integer) As Entidad_Periodo
+        Dim query As String =
+        "SELECT 
+            id,
+            nombre,
+            fecha_inicio,
+            fecha_fin
+        FROM 
+            periodo_academico
+        WHERE 
+            id = @id"
+
+        Dim periodo As Entidad_Periodo = Nothing
+        Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            Using cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@id", id)
+                conn.Open()
+                Using reader As MySqlDataReader = cmd.ExecuteReader()
+                    If reader.Read() Then
+                        Dim nombre As String = reader.GetString(1)
+                        Dim fechaInicio As Date = reader.GetDateTime(2)
+                        Dim fechaFin As Date = reader.GetDateTime(3)
+
+                        periodo = New Entidad_Periodo(id, nombre, fechaInicio, fechaFin)
+                    End If
+                End Using
+            End Using
+        End Using
+
+        Return periodo
+    End Function
 End Class

@@ -14,7 +14,7 @@ Public Class Negocio_Asignatura
             Throw New ArgumentException("La asignatura no puede ser nula")
         End If
 
-        If (asignatura.Id_Asignatura <> 0) Then
+        If (asignatura.Id <> 0) Then
             Throw New ArgumentException("Para crear una asignatura no debe asignar un id")
         End If
 
@@ -39,5 +39,10 @@ Public Class Negocio_Asignatura
         End If
 
         Return Me.datoAsignatura.crear(asignatura)
+    End Function
+
+
+    Public Function listar() As HashSet(Of Entidad_Asignatura)
+        Return Me.datoAsignatura.listar()
     End Function
 End Class

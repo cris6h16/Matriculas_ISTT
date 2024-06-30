@@ -6,14 +6,14 @@
     Private _Nivel As Integer
 
     Public Sub New(id_Asignatura As Integer, nombre As String, descripcion As String, carrera As Entidad_Carrera, id_Nivel As Integer)
-        Me.Id_Asignatura = id_Asignatura
+        Me.Id = id_Asignatura
         Me.Nombre = nombre
         Me.Descripcion = descripcion
         Me.Carrera = carrera
         Me.Nivel = id_Nivel
     End Sub
 
-    Public Property Id_Asignatura As Integer
+    Public Property Id As Integer
         Get
             Return _Id_Asignatura
         End Get

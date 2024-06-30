@@ -8,7 +8,9 @@ Public Class Negocio_Usuario
         Me.datoUsuario = datoUsuario
     End Sub
 
-    Public Function traerUsuario(cedula As String, contrasena As String) As Entidad_Usuario
+
+
+    Public Function traerPorCedulaYContrasena(cedula As String, contrasena As String) As Entidad_Usuario
         If cedula = "" Or cedula Is Nothing Then
             Throw New ArgumentException("La cedula no puede estar vacia o nula")
         End If
@@ -22,6 +24,20 @@ Public Class Negocio_Usuario
         End If
 
         Return ususario
+    End Function
+
+
+
+    Public Function traerPorCedula(cedula As String) As Entidad_Usuario
+        If cedula.Length <> 10 Then
+            MsgBox("La cedula debe tener 10 digitos")
+        End If
+
+        If datoUsuario.existeConEstaCedula(cedula) Then
+            Throw New ArgumentException("No existe ningun usuario con esa cedula")
+        End If
+
+        Return Me.datoUsuario.traerPorCedula(cedula)
     End Function
 
     Public Function crear(usuario As Entidad_Usuario) As Boolean
@@ -88,4 +104,11 @@ Public Class Negocio_Usuario
         Return Me.datoUsuario.crear(usuario)
     End Function
 
+
+    ' listar estudiantes pasar: ERoles.ESTUDIANTE
+    ' listar docentes pasar: ERoles.DOCENTE
+    ' listar administradores pasar: ERoles.ADMINISTRADOR
+    Public Function listarTipoDeUsuario(eRol As ERoles) As HashSet(Of Entidad_Usuario)
+        Return Me.datoUsuario.listarTipoDeUsuario(eRol)
+    End Function
 End Class

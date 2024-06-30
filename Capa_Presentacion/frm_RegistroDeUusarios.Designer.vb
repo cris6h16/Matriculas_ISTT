@@ -156,6 +156,7 @@ Partial Class frm_RegistroDeUusarios
         'dtpFechaNac
         '
         Me.dtpFechaNac.CustomFormat = "dd/MM/yyyy"
+        Me.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFechaNac.Location = New System.Drawing.Point(517, 119)
         Me.dtpFechaNac.Name = "dtpFechaNac"
         Me.dtpFechaNac.Size = New System.Drawing.Size(370, 22)

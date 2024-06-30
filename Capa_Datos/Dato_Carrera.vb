@@ -50,6 +50,39 @@ Public Class Dato_Carrera
     End Function
 
 
+    Public Function traer(id As Integer) As Entidad_Carrera
+        Dim query As String =
+        "SELECT 
+            id,
+            nombre,
+            duracion_en_semestres,
+            modalidad
+        FROM 
+            carrera
+        WHERE 
+            id = @id"
+
+        Dim carrera As Entidad_Carrera = Nothing
+        Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            Using cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@id", id)
+                conn.Open()
+                Using reader As MySqlDataReader = cmd.ExecuteReader()
+                    If reader.Read() Then
+                        Dim nombre As String = reader.GetString(1)
+                        Dim duracion As Byte = reader.GetByte(2)
+                        Dim modalidad As EModalidad = CType([Enum].Parse(GetType(EModalidad), reader.GetString(3)), EModalidad)
+
+                        carrera = New Entidad_Carrera(id, nombre, duracion, modalidad)
+                    End If
+                End Using
+            End Using
+        End Using
+
+        Return carrera
+    End Function
+
+
     Public Function listar() As HashSet(Of Entidad_Carrera)
 
         Dim query As String =

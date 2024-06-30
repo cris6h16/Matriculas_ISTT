@@ -69,6 +69,7 @@
     <Compile Include="Dato_Asignatura.vb" />
     <Compile Include="Dato_Carrera.vb" />
     <Compile Include="Dato_Periodo.vb" />
+    <Compile Include="Dato_Distribuir.vb" />
     <Compile Include="InformacionDeConexion.vb" />
     <Compile Include="Dato_Usuario.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

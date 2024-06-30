@@ -12,7 +12,7 @@ Public Class Negocio_Periodo
         If periodo Is Nothing Then
             Throw New ArgumentException("El periodo no puede ser nulo")
         End If
-        If periodo.Id_Periodo <> 0 Then
+        If periodo.Id <> 0 Then
             Throw New ArgumentException("El id del periodo debe ser 0")
         End If
         If periodo.Nombre Is Nothing Or periodo.Nombre.Length <= 0 Then

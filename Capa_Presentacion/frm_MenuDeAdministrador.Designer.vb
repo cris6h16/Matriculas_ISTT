@@ -29,12 +29,14 @@ Partial Class frm_MenuDeAdministrador
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.Panel1.Controls.Add(Me.Button6)
         Me.Panel1.Controls.Add(Me.Button5)
         Me.Panel1.Controls.Add(Me.Button4)
         Me.Panel1.Controls.Add(Me.Button3)
@@ -43,7 +45,7 @@ Partial Class frm_MenuDeAdministrador
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Location = New System.Drawing.Point(13, 13)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(936, 482)
+        Me.Panel1.Size = New System.Drawing.Size(936, 616)
         Me.Panel1.TabIndex = 0
         '
         'Button5
@@ -51,7 +53,7 @@ Partial Class frm_MenuDeAdministrador
         Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button5.Location = New System.Drawing.Point(399, 423)
+        Me.Button5.Location = New System.Drawing.Point(409, 553)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(130, 41)
         Me.Button5.TabIndex = 23
@@ -112,11 +114,22 @@ Partial Class frm_MenuDeAdministrador
         Me.Button1.Text = "AGREGAR USUARIOS"
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'Button6
+        '
+        Me.Button6.BackColor = System.Drawing.Color.PaleGreen
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(279, 413)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(399, 79)
+        Me.Button6.TabIndex = 24
+        Me.Button6.Text = "ASIGNAR MATERIAS A DOCENTES"
+        Me.Button6.UseVisualStyleBackColor = False
+        '
         'frm_MenuDeAdministrador
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(977, 507)
+        Me.ClientSize = New System.Drawing.Size(977, 641)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "frm_MenuDeAdministrador"
         Me.Text = "frm_MenuDeAdministrador"
@@ -133,4 +146,5 @@ Partial Class frm_MenuDeAdministrador
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button5 As Button
+    Friend WithEvents Button6 As Button
 End Class

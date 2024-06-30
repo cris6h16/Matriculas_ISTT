@@ -79,10 +79,28 @@
     <Compile Include="frmPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_AsignarMateriasADocentes.Designer.vb">
+      <DependentUpon>frm_AsignarMateriasADocentes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_AsignarMateriasADocentes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_MatricularEstudiante.Designer.vb">
+      <DependentUpon>frm_MatricularEstudiante.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_MatricularEstudiante.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_MenuDeAdministrador.Designer.vb">
       <DependentUpon>frm_MenuDeAdministrador.vb</DependentUpon>
     </Compile>
     <Compile Include="frm_MenuDeAdministrador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_MenuDeDocente.Designer.vb">
+      <DependentUpon>frm_MenuDeDocente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_MenuDeDocente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_RegistroDeAsignatura.Designer.vb">
@@ -135,8 +153,17 @@
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_AsignarMateriasADocentes.resx">
+      <DependentUpon>frm_AsignarMateriasADocentes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_MatricularEstudiante.resx">
+      <DependentUpon>frm_MatricularEstudiante.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_MenuDeAdministrador.resx">
       <DependentUpon>frm_MenuDeAdministrador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_MenuDeDocente.resx">
+      <DependentUpon>frm_MenuDeDocente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_RegistroDeAsignatura.resx">
       <DependentUpon>frm_RegistroDeAsignatura.vb</DependentUpon>

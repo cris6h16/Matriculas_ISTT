@@ -16,7 +16,7 @@ Public Class frmPrincipal
 
         Try
 
-            Dim usuario As Entidad_Usuario = negocioUsuario.traerUsuario(txtUsuario.Text, txtContrasena.Text)
+            Dim usuario As Entidad_Usuario = negocioUsuario.traerPorCedulaYContrasena(txtUsuario.Text, txtContrasena.Text)
 
             If cbxAdministrador.Checked = True Then
                 If Not usuario.Rol.Equals(ERoles.Administrador) Then Throw New Exception("El usuario no tiene el rol de Administrador")

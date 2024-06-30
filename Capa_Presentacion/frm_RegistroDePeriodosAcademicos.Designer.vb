@@ -103,6 +103,7 @@ Partial Class frm_RegistroDePeriodosAcademicos
         '
         'dtp_fechaInicio
         '
+        Me.dtp_fechaInicio.CustomFormat = "dd/MM/yyyy"
         Me.dtp_fechaInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp_fechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtp_fechaInicio.Location = New System.Drawing.Point(47, 209)
@@ -112,6 +113,7 @@ Partial Class frm_RegistroDePeriodosAcademicos
         '
         'dtp_fechaFin
         '
+        Me.dtp_fechaFin.CustomFormat = "dd/MM/yyyy"
         Me.dtp_fechaFin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp_fechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtp_fechaFin.Location = New System.Drawing.Point(496, 209)
