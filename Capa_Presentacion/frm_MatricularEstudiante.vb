@@ -28,7 +28,7 @@ Public Class frm_MatricularEstudiante
 
         ' creo capa de negocio asignando capa de datos
         Me.asignaturasNegocio = New Negocio_Asignatura(datoAsignatura)
-        Me.distribuirNegocio = New Negocio_Distribuir(datoDistribuir, datoUsuario)
+        Me.distribuirNegocio = New Negocio_Distribuir(datoDistribuir, datoUsuario, datoPeriodo, datoAsignatura)
         Me.usuarioNegocio = New Negocio_Usuario(datoUsuario)
         Me.matriculaAAsignaturaNegocio = New Negocio_MatriculaAAsignatura(datoMatriculaAAsignatura, datoPeriodo, datoAsignatura, datoUsuario)
 

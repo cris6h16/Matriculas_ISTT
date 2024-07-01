@@ -103,6 +103,12 @@
     <Compile Include="frm_MenuDeDocente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_MisMatriculas.Designer.vb">
+      <DependentUpon>frm_MisMatriculas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_MisMatriculas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_RegistroDeAsignatura.Designer.vb">
       <DependentUpon>frm_RegistroDeAsignatura.vb</DependentUpon>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_MenuDeDocente.resx">
       <DependentUpon>frm_MenuDeDocente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_MisMatriculas.resx">
+      <DependentUpon>frm_MisMatriculas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_RegistroDeAsignatura.resx">
       <DependentUpon>frm_RegistroDeAsignatura.vb</DependentUpon>

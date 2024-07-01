@@ -4,10 +4,14 @@ Imports Capa_Entidades
 Public Class Negocio_Distribuir
     Private datoDistribuir As Dato_Distribuir
     Private datoUsuario As Dato_Usuario
+    Private datoPeriodo As Dato_Periodo
+    Private datoAsignatura As Dato_Asignatura
 
-    Public Sub New(datoDistribuir As Dato_Distribuir, datoUsuario As Dato_Usuario)
+    Public Sub New(datoDistribuir As Dato_Distribuir, datoUsuario As Dato_Usuario, datoPeriodo As Dato_Periodo, datoAsignatura As Dato_Asignatura)
         Me.datoDistribuir = datoDistribuir
         Me.datoUsuario = datoUsuario
+        Me.datoPeriodo = datoPeriodo
+        Me.datoAsignatura = datoAsignatura
     End Sub
 
     Public Function crear(distribuir As Entidad_Distribuir) As Boolean
@@ -63,6 +67,21 @@ Public Class Negocio_Distribuir
         End If
 
         Return Me.datoDistribuir.borrar(idDistribuir)
+
+    End Function
+
+    'traerPorIdPeriodoYIdAsignatura
+    Public Function traerPorIdPeriodoYIdAsignatura(idPeriodo As Integer, idAsignatura As Integer) As Entidad_Distribuir
+
+        If Not datoPeriodo.existePorId(idPeriodo) Then
+            Throw New ArgumentException("No existe un periodo con el id " & idPeriodo)
+        End If
+
+        If Not datoAsignatura.existePorId(idAsignatura) Then
+            Throw New ArgumentException("No existe una asignatura con el id " & idAsignatura)
+        End If
+
+        Return Me.datoDistribuir.traerPorIdPeriodoYIdAsignatura(idPeriodo, idAsignatura)
 
     End Function
 

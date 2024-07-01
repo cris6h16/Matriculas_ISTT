@@ -204,4 +204,51 @@ Public Class Dato_Distribuir
         Return borrado
     End Function
 
+
+    'Me.datoDistribuir.traerPorIdPeriodoYIdAsignatura(idPeriodo, idAsignatura)
+
+    Public Function traerPorIdPeriodoYIdAsignatura(idPeriodo As Integer, idAsignatura As Integer) As Entidad_Distribuir
+        Dim query As String =
+        "SELECT 
+            id,
+            id_usuario
+        FROM 
+            distribuir
+        WHERE 
+            (id_periodo_academico = @id_periodo_academico) AND (id_asignatura = @id_asignatura)"
+
+        Dim distribucion As Entidad_Distribuir = Nothing
+
+        Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            Using cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@id_periodo_academico", idPeriodo)
+                cmd.Parameters.AddWithValue("@id_asignatura", idAsignatura)
+                conn.Open()
+                Using reader As MySqlDataReader = cmd.ExecuteReader()
+                    If reader.Read() Then
+                        Dim id As Integer = reader.GetInt32(0)
+                        Dim idUsuario As Integer = reader.GetInt32(1)
+
+                        Dim usuario As Entidad_Usuario = datoUsuario.traerPorId(idUsuario)
+                        Dim asignatura As Entidad_Asignatura = datoAsignatura.traer(idAsignatura)
+                        Dim periodo As Entidad_Periodo = datoPeriodo.traer(idPeriodo)
+
+                        If usuario Is Nothing Then
+                            Throw New Exception("No se pudo encontrar el usuario con id " & idUsuario)
+                        End If
+                        If asignatura Is Nothing Then
+                            Throw New Exception("No se pudo encontrar la asignatura con id " & idAsignatura)
+                        End If
+                        If periodo Is Nothing Then
+                            Throw New Exception("No se pudo encontrar el periodo con id " & idPeriodo)
+                        End If
+
+                        distribucion = New Entidad_Distribuir(id, usuario, asignatura, periodo)
+                    End If
+                End Using
+            End Using
+        End Using
+
+        Return distribucion
+    End Function
 End Class

@@ -7,6 +7,9 @@ Public Class frmPrincipal
     Public Shared Property frm_MenuDeAdministrador As frm_MenuDeAdministrador
     Public Shared Property frm_MenuDeDocente As frm_MenuDeDocente
 
+    Public Shared Property frm_MisMatriculas As frm_MisMatriculas
+
+
 
     Dim negocioUsuario As Negocio_Usuario
     Public Sub New()
@@ -42,10 +45,10 @@ Public Class frmPrincipal
 
             ElseIf cbxEstudiante.Checked = True Then
                 If Not usuario.Rol.Equals(ERoles.Estudiante) Then Throw New Exception("El usuario no tiene el rol de Estudiante")
-                ' MsgBox("Bienvenido, se ha logueado como Estudiante")
-                MsgBox("no existe aun la vista para estudiantes")
-                'frm_Estudiante.Show()
-                'Me.Hide()
+                MsgBox("Bienvenido, se ha logueado como Estudiante")
+                frm_MisMatriculas = New frm_MisMatriculas(usuario)
+                frm_MisMatriculas.Show()
+                Me.Hide()
 
             Else
                 MsgBox("Seleccione un rol")

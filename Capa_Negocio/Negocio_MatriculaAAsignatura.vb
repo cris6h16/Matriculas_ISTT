@@ -96,4 +96,18 @@ Public Class Negocio_MatriculaAAsignatura
 
         Return Me.datoMatriculaAAsignatura.borrarPorIdUsuarioYIdAsignaturaYIdPeriodo(idUsuario, idAsignatura, idPeriodo)
     End Function
+
+
+
+    ' listarPorIdUsuario
+
+    Public Function listarPorIdUsuario(idUsuario As Integer) As HashSet(Of Entidad_MatriculaAAsignatura)
+
+        If Not datoUsuario.existePorId(idUsuario) Then
+            Throw New ArgumentException("No existe un usuario con el id " & idUsuario)
+        End If
+
+        Return Me.datoMatriculaAAsignatura.listarPorIdUsuario(idUsuario)
+
+    End Function
 End Class

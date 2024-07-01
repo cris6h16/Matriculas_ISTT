@@ -153,4 +153,57 @@ Public Class Dato_MatriculaAAsignatura
 
         Return borrado
     End Function
+
+
+    'Me.datoMatriculaAAsignatura.listarPorIdUsuario(idUsuario)
+    Public Function listarPorIdUsuario(idUsuario As Integer) As HashSet(Of Entidad_MatriculaAAsignatura)
+        Dim query As String =
+            "SELECT 
+                id,
+                id_asignatura,
+                id_periodo_academico,
+                tipo_de_matricula,
+                modalidad
+            FROM 
+                matricula_a_asignatura
+            WHERE 
+                id_usuario = @id_usuario"
+
+        Dim matriculas As New HashSet(Of Entidad_MatriculaAAsignatura)
+
+        Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            Using cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@id_usuario", idUsuario)
+                conn.Open()
+                Using reader = cmd.ExecuteReader()
+                    While reader.Read()
+                        Dim id As Integer = reader.GetInt32(0)
+                        Dim idAsignatura As Integer = reader.GetInt32(1)
+                        Dim idPeriodo As Integer = reader.GetInt32(2)
+                        Dim tipoDeMatricula As ETipoDeMatricula = [Enum].Parse(GetType(ETipoDeMatricula), reader.GetString(3))
+                        Dim modalidad As EModalidad = [Enum].Parse(GetType(EModalidad), reader.GetString(4))
+
+                        Dim usuario As Entidad_Usuario = datoUsuario.traerPorId(idUsuario)
+                        Dim asignatura As Entidad_Asignatura = datoAsignatura.traer(idAsignatura)
+                        Dim periodo As Entidad_Periodo = datoPeriodo.traer(idPeriodo)
+
+                        If usuario Is Nothing Then
+                            Throw New Exception("No se pudo encontrar el usuario con id " & idUsuario)
+                        End If
+                        If asignatura Is Nothing Then
+                            Throw New Exception("No se pudo encontrar la asignatura con id " & idAsignatura)
+                        End If
+                        If periodo Is Nothing Then
+                            Throw New Exception("No se pudo encontrar el periodo con id " & idPeriodo)
+                        End If
+
+                        Dim matricula As New Entidad_MatriculaAAsignatura(id, asignatura, usuario, periodo, tipoDeMatricula, modalidad)
+                        matriculas.Add(matricula)
+                    End While
+                End Using
+            End Using
+        End Using
+
+        Return matriculas
+    End Function
 End Class

@@ -27,7 +27,7 @@ Public Class frm_AsignarMateriasADocentes
         ' creo capa de negocio asignando capa de datos
         Me.negocioAsignatura = New Negocio_Asignatura(datoAsignatura)
         Me.negocioUsuaeio = New Negocio_Usuario(datoUsuario)
-        Me.negocioDistribuir = New Negocio_Distribuir(datoDistribuir, datoUsuario)
+        Me.negocioDistribuir = New Negocio_Distribuir(datoDistribuir, datoUsuario, datoPeriodo, datoAsignatura)
         Me.negocioPeriodo = New Negocio_Periodo(datoPeriodo)
 
         Try
