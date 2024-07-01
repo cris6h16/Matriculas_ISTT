@@ -47,6 +47,6 @@ Public Class frm_RegistroDeCarrera
 
     Private Sub btn_regresar_Click(sender As Object, e As EventArgs) Handles btn_regresar.Click
         Me.Hide()
-        frm_MenuDeAdministrador.Show()
+        frmPrincipal.frm_MenuDeAdministrador.Show()
     End Sub
 End Class

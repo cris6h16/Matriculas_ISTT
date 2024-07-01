@@ -127,12 +127,6 @@
     <Compile Include="frm_RegistroDeUusarios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Docentes.Designer.vb">
-      <DependentUpon>frm_Docentes.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frm_Docentes.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

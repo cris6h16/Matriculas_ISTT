@@ -62,14 +62,14 @@ Public Class Dato_Asignatura
                 id,
                 nombre,
                 descripcion,
-                carrera_id,
+                id_carrera,
                 nivel
             )
             VALUES( 
                 @id,
                 @nombre,
                 @descripcion,
-                @carrera_id,
+                @id_carrera,
                 @nivel
             )"
 
@@ -82,7 +82,7 @@ Public Class Dato_Asignatura
                 cmd.Parameters.AddWithValue("@id", Nothing)
                 cmd.Parameters.AddWithValue("@nombre", asignatura.Nombre)
                 cmd.Parameters.AddWithValue("@descripcion", asignatura.Descripcion)
-                cmd.Parameters.AddWithValue("@carrera_id", asignatura.Carrera.Id_Carrera)
+                cmd.Parameters.AddWithValue("@id_carrera", asignatura.Carrera.Id_Carrera)
                 cmd.Parameters.AddWithValue("@nivel", asignatura.Nivel)
 
                 creado = (cmd.ExecuteNonQuery() > 0)

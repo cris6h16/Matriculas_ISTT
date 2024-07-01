@@ -15,7 +15,7 @@ Public Class Dato_Usuario
                 u.sexo,
                 u.nacimiento,
                 u.direccion
-             FROM usuarios u 
+             FROM usuario u 
              WHERE cedula = @cedula 
              AND contrasena = @contrasena"
 
@@ -62,7 +62,7 @@ Public Class Dato_Usuario
                 u.sexo,
                 u.nacimiento,
                 u.direccion
-             FROM usuarios u 
+             FROM usuario u 
              WHERE cedula = @cedula"
 
         Dim usuario As Entidad_Usuario = Nothing
@@ -106,7 +106,7 @@ Public Class Dato_Usuario
                 u.sexo,
                 u.nacimiento,
                 u.direccion
-             FROM usuarios u 
+             FROM usuario u 
              WHERE id = @id"
 
         Dim usuario As Entidad_Usuario = Nothing
@@ -141,7 +141,7 @@ Public Class Dato_Usuario
 
     Public Function crear(usuario As Entidad_Usuario) As Boolean
         Dim query As String =
-           "INSERT INTO usuarios ( 
+           "INSERT INTO usuario ( 
                 id,
                 nombres,
                 apellidos,
@@ -189,7 +189,7 @@ Public Class Dato_Usuario
 
 
     Public Function existePorCedula(cedula As String) As Boolean
-        Dim query As String = "SELECT COUNT(id) FROM usuarios WHERE cedula = @cedula"
+        Dim query As String = "SELECT COUNT(id) FROM usuario WHERE cedula = @cedula"
         Dim existe As Boolean = False
 
         Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
@@ -205,7 +205,7 @@ Public Class Dato_Usuario
 
 
     Public Function existePorId(id As Integer) As Boolean
-        Dim query As String = "SELECT COUNT(id) FROM usuarios WHERE id = @id"
+        Dim query As String = "SELECT COUNT(id) FROM usuario WHERE id = @id"
         Dim existe As Boolean = False
 
         Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
@@ -235,9 +235,9 @@ Public Class Dato_Usuario
             u.nacimiento,
             u.direccion
         FROM 
-            usuarios u
+            usuario u
         WHERE 
-            LOWER(u.rol) = " + eRol.ToString.ToLower
+            LOWER(u.rol) = """ + eRol.ToString.ToLower + """"
 
         Dim usuarios As New HashSet(Of Entidad_Usuario)
         Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)

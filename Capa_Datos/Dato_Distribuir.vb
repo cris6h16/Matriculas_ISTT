@@ -21,13 +21,14 @@ Public Class Dato_Distribuir
             FROM 
                 distribuir d 
             WHERE 
-                (d.id_asignatura = @id) AND (d.id_periodo = @id_periodo)"
+                (d.id_asignatura = @id) AND (d.id_periodo_academico = @id_periodo_academico)"
 
         Dim docenteYaAsignado As Boolean = False
 
         Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
             Using cmd As New MySqlCommand(query, conn)
                 cmd.Parameters.AddWithValue("@id", idAsignatura)
+                cmd.Parameters.AddWithValue("@id_periodo_academico", idPeriodo)
                 conn.Open()
                 docenteYaAsignado = (CInt(cmd.ExecuteScalar()) > 0)
             End Using
@@ -65,13 +66,13 @@ Public Class Dato_Distribuir
                 id,
                 id_usuario,
                 id_asignatura,
-                id_periodo
+                id_periodo_academico
             )
             VALUES( 
                 @id,
                 @id_usuario,
                 @id_asignatura,
-                @id_periodo
+                @id_periodo_academico
             )"
 
         Dim creado As Boolean = False
@@ -82,7 +83,7 @@ Public Class Dato_Distribuir
                 cmd.Parameters.AddWithValue("@id", Nothing)
                 cmd.Parameters.AddWithValue("@id_usuario", usuarioAsignatura.Usuario.Id)
                 cmd.Parameters.AddWithValue("@id_asignatura", usuarioAsignatura.Asignatura.Id)
-                cmd.Parameters.AddWithValue("@id_periodo", usuarioAsignatura.Periodo.Id)
+                cmd.Parameters.AddWithValue("@id_periodo_academico", usuarioAsignatura.Periodo.Id)
 
                 creado = (cmd.ExecuteNonQuery() > 0)
             End Using
@@ -99,7 +100,7 @@ Public Class Dato_Distribuir
             d.id,
             d.id_usuario,
             d.id_asignatura,
-            d.id_periodo
+            d.id_periodo_academico
         FROM 
             distribuir d"
 
@@ -145,7 +146,7 @@ Public Class Dato_Distribuir
         "SELECT 
             d.id,
             d.id_asignatura,
-            d.id_periodo
+            d.id_periodo_academico
         FROM 
             distribuir d
         WHERE 

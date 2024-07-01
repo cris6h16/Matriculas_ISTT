@@ -27,7 +27,7 @@ Public Class frm_RegistroDePeriodosAcademicos
 
     Private Sub btn_regersar_Click(sender As Object, e As EventArgs) Handles btn_regersar.Click
         Me.Hide()
-        frm_MenuDeAdministrador.Show()
+        frmPrincipal.frm_MenuDeAdministrador.Show()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

@@ -23,22 +23,6 @@ Partial Class frm_AsignarMateriasADocentes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.dgv_asignaciones = New System.Windows.Forms.DataGridView()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.dgv_asignaturas = New System.Windows.Forms.DataGridView()
-        Me.dgw_docentes = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.cbx_periodos = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.btn_regersar = New System.Windows.Forms.Button()
-        Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.nivel = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.carrera = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cedula = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.asignatura = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.periodo = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -46,167 +30,39 @@ Partial Class frm_AsignarMateriasADocentes
         Me.docente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.apellidoDocente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.eliminarCol = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.dgv_asignaturas = New System.Windows.Forms.DataGridView()
+        Me.nivel = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.carrera = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgw_docentes = New System.Windows.Forms.DataGridView()
+        Me.cedula = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cbx_periodos = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.btn_regersar = New System.Windows.Forms.Button()
+        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         CType(Me.dgv_asignaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv_asignaturas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgw_docentes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'dgv_asignaciones
         '
         Me.dgv_asignaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_asignaciones.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.asignatura, Me.periodo, Me.cedulaDocente, Me.docente, Me.apellidoDocente, Me.eliminarCol})
-        Me.dgv_asignaciones.Location = New System.Drawing.Point(38, 503)
+        Me.dgv_asignaciones.Location = New System.Drawing.Point(12, 500)
         Me.dgv_asignaciones.Name = "dgv_asignaciones"
         Me.dgv_asignaciones.RowHeadersWidth = 51
         Me.dgv_asignaciones.RowTemplate.Height = 24
         Me.dgv_asignaciones.Size = New System.Drawing.Size(1164, 155)
         Me.dgv_asignaciones.TabIndex = 0
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(350, 20)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(434, 29)
-        Me.Label3.TabIndex = 6
-        Me.Label3.Text = "ASIGNAR MATERIAS A DOCENTES"
-        '
-        'dgv_asignaturas
-        '
-        Me.dgv_asignaturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_asignaturas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nivel, Me.nombre, Me.carrera})
-        Me.dgv_asignaturas.Location = New System.Drawing.Point(21, 99)
-        Me.dgv_asignaturas.Name = "dgv_asignaturas"
-        Me.dgv_asignaturas.RowHeadersWidth = 51
-        Me.dgv_asignaturas.RowTemplate.Height = 24
-        Me.dgv_asignaturas.Size = New System.Drawing.Size(544, 152)
-        Me.dgv_asignaturas.TabIndex = 7
-        '
-        'dgw_docentes
-        '
-        Me.dgw_docentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgw_docentes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cedula, Me.nombres, Me.apellidos})
-        Me.dgw_docentes.Location = New System.Drawing.Point(658, 99)
-        Me.dgw_docentes.Name = "dgw_docentes"
-        Me.dgw_docentes.RowHeadersWidth = 51
-        Me.dgw_docentes.RowTemplate.Height = 24
-        Me.dgw_docentes.Size = New System.Drawing.Size(544, 152)
-        Me.dgw_docentes.TabIndex = 8
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(17, 74)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(150, 22)
-        Me.Label1.TabIndex = 9
-        Me.Label1.Text = "ASIGNATURAS"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(654, 74)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(119, 22)
-        Me.Label2.TabIndex = 10
-        Me.Label2.Text = "DOCENTES"
-        '
-        'cbx_periodos
-        '
-        Me.cbx_periodos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbx_periodos.FormattingEnabled = True
-        Me.cbx_periodos.Location = New System.Drawing.Point(586, 276)
-        Me.cbx_periodos.Name = "cbx_periodos"
-        Me.cbx_periodos.Size = New System.Drawing.Size(217, 33)
-        Me.cbx_periodos.TabIndex = 11
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(334, 287)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(221, 22)
-        Me.Label4.TabIndex = 12
-        Me.Label4.Text = "PERIODO ACADEMICO"
-        '
-        'btn_regersar
-        '
-        Me.btn_regersar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btn_regersar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_regersar.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btn_regersar.Location = New System.Drawing.Point(1094, 700)
-        Me.btn_regersar.Name = "btn_regersar"
-        Me.btn_regersar.Size = New System.Drawing.Size(130, 41)
-        Me.btn_regersar.TabIndex = 31
-        Me.btn_regersar.Text = "Regresar"
-        Me.btn_regersar.UseVisualStyleBackColor = False
-        '
-        'btnGuardar
-        '
-        Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Location = New System.Drawing.Point(457, 338)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(260, 64)
-        Me.btnGuardar.TabIndex = 29
-        Me.btnGuardar.Text = "ASIGNAR"
-        Me.btnGuardar.UseVisualStyleBackColor = False
-        '
-        'nivel
-        '
-        Me.nivel.HeaderText = "Nivel"
-        Me.nivel.MinimumWidth = 6
-        Me.nivel.Name = "nivel"
-        Me.nivel.Width = 50
-        '
-        'nombre
-        '
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.MinimumWidth = 6
-        Me.nombre.Name = "nombre"
-        Me.nombre.Width = 220
-        '
-        'carrera
-        '
-        Me.carrera.HeaderText = "Carrera"
-        Me.carrera.MinimumWidth = 6
-        Me.carrera.Name = "carrera"
-        Me.carrera.Width = 220
-        '
-        'cedula
-        '
-        Me.cedula.HeaderText = "Cedula"
-        Me.cedula.MinimumWidth = 6
-        Me.cedula.Name = "cedula"
-        Me.cedula.Width = 125
-        '
-        'nombres
-        '
-        Me.nombres.HeaderText = "Nombres"
-        Me.nombres.MinimumWidth = 6
-        Me.nombres.Name = "nombres"
-        Me.nombres.Width = 180
-        '
-        'apellidos
-        '
-        Me.apellidos.HeaderText = "Apellidos"
-        Me.apellidos.MinimumWidth = 6
-        Me.apellidos.Name = "apellidos"
-        Me.apellidos.Width = 180
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(33, 471)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(205, 29)
-        Me.Label5.TabIndex = 32
-        Me.Label5.Text = "ASIGNACIONES"
         '
         'id
         '
@@ -256,30 +112,187 @@ Partial Class frm_AsignarMateriasADocentes
         Me.eliminarCol.MinimumWidth = 6
         Me.eliminarCol.Name = "eliminarCol"
         Me.eliminarCol.Text = "Eliminar"
+        Me.eliminarCol.Width = 125
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(363, 17)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(434, 29)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "ASIGNAR MATERIAS A DOCENTES"
+        '
+        'dgv_asignaturas
+        '
+        Me.dgv_asignaturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_asignaturas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nivel, Me.nombre, Me.carrera})
+        Me.dgv_asignaturas.Location = New System.Drawing.Point(34, 96)
+        Me.dgv_asignaturas.Name = "dgv_asignaturas"
+        Me.dgv_asignaturas.RowHeadersWidth = 51
+        Me.dgv_asignaturas.RowTemplate.Height = 24
+        Me.dgv_asignaturas.Size = New System.Drawing.Size(544, 152)
+        Me.dgv_asignaturas.TabIndex = 7
+        '
+        'nivel
+        '
+        Me.nivel.HeaderText = "Nivel"
+        Me.nivel.MinimumWidth = 6
+        Me.nivel.Name = "nivel"
+        Me.nivel.Width = 50
+        '
+        'nombre
+        '
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.MinimumWidth = 6
+        Me.nombre.Name = "nombre"
+        Me.nombre.Width = 220
+        '
+        'carrera
+        '
+        Me.carrera.HeaderText = "Carrera"
+        Me.carrera.MinimumWidth = 6
+        Me.carrera.Name = "carrera"
+        Me.carrera.Width = 220
+        '
+        'dgw_docentes
+        '
+        Me.dgw_docentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgw_docentes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cedula, Me.nombres, Me.apellidos})
+        Me.dgw_docentes.Location = New System.Drawing.Point(671, 96)
+        Me.dgw_docentes.Name = "dgw_docentes"
+        Me.dgw_docentes.RowHeadersWidth = 51
+        Me.dgw_docentes.RowTemplate.Height = 24
+        Me.dgw_docentes.Size = New System.Drawing.Size(544, 152)
+        Me.dgw_docentes.TabIndex = 8
+        '
+        'cedula
+        '
+        Me.cedula.HeaderText = "Cedula"
+        Me.cedula.MinimumWidth = 6
+        Me.cedula.Name = "cedula"
+        Me.cedula.Width = 125
+        '
+        'nombres
+        '
+        Me.nombres.HeaderText = "Nombres"
+        Me.nombres.MinimumWidth = 6
+        Me.nombres.Name = "nombres"
+        Me.nombres.Width = 180
+        '
+        'apellidos
+        '
+        Me.apellidos.HeaderText = "Apellidos"
+        Me.apellidos.MinimumWidth = 6
+        Me.apellidos.Name = "apellidos"
+        Me.apellidos.Width = 180
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(30, 71)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(150, 22)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "ASIGNATURAS"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(667, 71)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(119, 22)
+        Me.Label2.TabIndex = 10
+        Me.Label2.Text = "DOCENTES"
+        '
+        'cbx_periodos
+        '
+        Me.cbx_periodos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbx_periodos.FormattingEnabled = True
+        Me.cbx_periodos.Location = New System.Drawing.Point(574, 279)
+        Me.cbx_periodos.Name = "cbx_periodos"
+        Me.cbx_periodos.Size = New System.Drawing.Size(217, 33)
+        Me.cbx_periodos.TabIndex = 11
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(347, 284)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(221, 22)
+        Me.Label4.TabIndex = 12
+        Me.Label4.Text = "PERIODO ACADEMICO"
+        '
+        'btn_regersar
+        '
+        Me.btn_regersar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btn_regersar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_regersar.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btn_regersar.Location = New System.Drawing.Point(1046, 687)
+        Me.btn_regersar.Name = "btn_regersar"
+        Me.btn_regersar.Size = New System.Drawing.Size(130, 41)
+        Me.btn_regersar.TabIndex = 31
+        Me.btn_regersar.Text = "Regresar"
+        Me.btn_regersar.UseVisualStyleBackColor = False
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.Location = New System.Drawing.Point(502, 353)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(260, 64)
+        Me.btnGuardar.TabIndex = 29
+        Me.btnGuardar.Text = "ASIGNAR"
+        Me.btnGuardar.UseVisualStyleBackColor = False
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(7, 468)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(205, 29)
+        Me.Label5.TabIndex = 32
+        Me.Label5.Text = "ASIGNACIONES"
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.Panel1.Controls.Add(Me.dgw_docentes)
+        Me.Panel1.Controls.Add(Me.btn_regersar)
+        Me.Panel1.Controls.Add(Me.Label5)
+        Me.Panel1.Controls.Add(Me.dgv_asignaciones)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.dgv_asignaturas)
+        Me.Panel1.Controls.Add(Me.btnGuardar)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.cbx_periodos)
+        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Location = New System.Drawing.Point(12, 12)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1248, 749)
+        Me.Panel1.TabIndex = 33
         '
         'frm_AsignarMateriasADocentes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1236, 753)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.btn_regersar)
-        Me.Controls.Add(Me.btnGuardar)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.cbx_periodos)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.dgw_docentes)
-        Me.Controls.Add(Me.dgv_asignaturas)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.dgv_asignaciones)
+        Me.ClientSize = New System.Drawing.Size(1252, 795)
+        Me.Controls.Add(Me.Panel1)
         Me.Name = "frm_AsignarMateriasADocentes"
         Me.Text = "frm_AsignarMateriasADocentes"
         CType(Me.dgv_asignaciones, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv_asignaturas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgw_docentes, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -307,4 +320,5 @@ Partial Class frm_AsignarMateriasADocentes
     Friend WithEvents docente As DataGridViewTextBoxColumn
     Friend WithEvents apellidoDocente As DataGridViewTextBoxColumn
     Friend WithEvents eliminarCol As DataGridViewButtonColumn
+    Friend WithEvents Panel1 As Panel
 End Class

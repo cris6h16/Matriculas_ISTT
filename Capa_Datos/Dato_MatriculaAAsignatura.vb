@@ -18,7 +18,7 @@ Public Class Dato_MatriculaAAsignatura
                 id,
                 id_asignatura,
                 id_usuario,
-                id_periodo,
+                id_periodo_academico,
                 tipo_de_matricula,
                 modalidad
             )
@@ -26,7 +26,7 @@ Public Class Dato_MatriculaAAsignatura
                 @id,
                 @id_asignatura,
                 @id_usuario,
-                @id_periodo,
+                @id_periodo_academico,
                 @tipo_de_matricula,
                 @modalidad
             )"
@@ -39,7 +39,7 @@ Public Class Dato_MatriculaAAsignatura
                 cmd.Parameters.AddWithValue("@id", Nothing)
                 cmd.Parameters.AddWithValue("@id_asignatura", matricula.Asignatura.Id)
                 cmd.Parameters.AddWithValue("@id_usuario", matricula.Usuario.Id)
-                cmd.Parameters.AddWithValue("@id_periodo", matricula.Periodo.Id)
+                cmd.Parameters.AddWithValue("@id_periodo_academico", matricula.Periodo.Id)
                 cmd.Parameters.AddWithValue("@tipo_de_matricula", matricula.TipoDeMatricula.ToString)
                 cmd.Parameters.AddWithValue("@modalidad", matricula.Modalidad.ToString)
 
@@ -59,7 +59,7 @@ Public Class Dato_MatriculaAAsignatura
             FROM 
                 matricula_a_asignatura m 
             WHERE 
-                (m.id_usuario = @id_usuario) AND (m.id_asignatura = @id_asignatura) AND (m.id_periodo = @id_periodo)"
+                (m.id_usuario = @id_usuario) AND (m.id_asignatura = @id_asignatura) AND (m.id_periodo_academico = @id_periodo_academico)"
 
         Dim matriculaYaExiste As Boolean = False
 
@@ -67,7 +67,7 @@ Public Class Dato_MatriculaAAsignatura
             Using cmd As New MySqlCommand(query, conn)
                 cmd.Parameters.AddWithValue("@id_usuario", idUsuario)
                 cmd.Parameters.AddWithValue("@id_asignatura", idAsignatura)
-                cmd.Parameters.AddWithValue("@id_periodo", idPeriodo)
+                cmd.Parameters.AddWithValue("@id_periodo_academico", idPeriodo)
                 conn.Open()
                 matriculaYaExiste = (CInt(cmd.ExecuteScalar()) > 0)
             End Using
@@ -88,13 +88,13 @@ Public Class Dato_MatriculaAAsignatura
         FROM 
             matricula_a_asignatura
         WHERE 
-            (id_asignatura = @id_asignatura) AND (id_periodo = @id_periodo)"
+            (id_asignatura = @id_asignatura) AND (id_periodo_academico = @id_periodo_academico)"
 
         Dim matriculas As New HashSet(Of Entidad_MatriculaAAsignatura)
         Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
             Using cmd As New MySqlCommand(query, conn)
                 cmd.Parameters.AddWithValue("@id_asignatura", idAsignatura)
-                cmd.Parameters.AddWithValue("@id_periodo", idPeriodo)
+                cmd.Parameters.AddWithValue("@id_periodo_academico", idPeriodo)
                 conn.Open()
                 Using reader = cmd.ExecuteReader()
                     While reader.Read()
@@ -137,7 +137,7 @@ Public Class Dato_MatriculaAAsignatura
         Dim query As String =
             "DELETE FROM matricula_a_asignatura 
             WHERE 
-                (id_usuario = @id_usuario) AND (id_asignatura = @id_asignatura) AND (id_periodo = @id_periodo)"
+                (id_usuario = @id_usuario) AND (id_asignatura = @id_asignatura) AND (id_periodo_academico = @id_periodo_academico)"
 
         Dim borrado As Boolean = False
 
@@ -145,7 +145,7 @@ Public Class Dato_MatriculaAAsignatura
             Using cmd As New MySqlCommand(query, conn)
                 cmd.Parameters.AddWithValue("@id_usuario", idUsuario)
                 cmd.Parameters.AddWithValue("@id_asignatura", idAsignatura)
-                cmd.Parameters.AddWithValue("@id_periodo", idPeriodo)
+                cmd.Parameters.AddWithValue("@id_periodo_academico", idPeriodo)
                 conn.Open()
                 borrado = (cmd.ExecuteNonQuery() > 0)
             End Using

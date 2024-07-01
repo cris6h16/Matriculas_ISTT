@@ -7,7 +7,7 @@ Public Class Negocio_MatriculaAAsignatura
     Private datoAsignatura As Dato_Asignatura
     Private datoUsuario As Dato_Usuario
 
-    Public Sub Neu(datoMatriculaAAsignatura As Dato_MatriculaAAsignatura,
+    Public Sub New(datoMatriculaAAsignatura As Dato_MatriculaAAsignatura,
                   datoPeriodo As Dato_Periodo,
                   datoAsignatura As Dato_Asignatura,
                   datoUsuario As Dato_Usuario)

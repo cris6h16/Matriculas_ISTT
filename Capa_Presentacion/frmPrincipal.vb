@@ -3,6 +3,11 @@ Imports Capa_Entidades
 Imports Capa_Negocio
 
 Public Class frmPrincipal
+
+    Public Shared Property frm_MenuDeAdministrador As frm_MenuDeAdministrador
+    Public Shared Property frm_MenuDeDocente As frm_MenuDeDocente
+
+
     Dim negocioUsuario As Negocio_Usuario
     Public Sub New()
         InitializeComponent()
@@ -23,16 +28,17 @@ Public Class frmPrincipal
                 If Not usuario.Rol.Equals(ERoles.Administrador) Then Throw New Exception("El usuario no tiene el rol de Administrador")
 
                 MsgBox("Bienvenido, se ha logueado como Administrador")
+                frm_MenuDeAdministrador = New frm_MenuDeAdministrador()
                 frm_MenuDeAdministrador.Show()
                 Me.Hide()
 
             ElseIf cbxDocente.Checked = True Then
                 If Not usuario.Rol.Equals(ERoles.Docente) Then Throw New Exception("El usuario no tiene el rol de Docente")
 
-                'MsgBox("Bienvenido, se ha logueado como Docente")
-                MsgBox("no existe aun la vista para docentes")
-                'frm_Docente.Show()
-                'Me.Hide()
+                MsgBox("Bienvenido, se ha logueado como Docente")
+                frm_MenuDeDocente = New frm_MenuDeDocente(usuario)
+                frm_MenuDeDocente.Show()
+                Me.Hide()
 
             ElseIf cbxEstudiante.Checked = True Then
                 If Not usuario.Rol.Equals(ERoles.Estudiante) Then Throw New Exception("El usuario no tiene el rol de Estudiante")

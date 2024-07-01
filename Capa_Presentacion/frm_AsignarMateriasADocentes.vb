@@ -30,14 +30,23 @@ Public Class frm_AsignarMateriasADocentes
         Me.negocioDistribuir = New Negocio_Distribuir(datoDistribuir, datoUsuario)
         Me.negocioPeriodo = New Negocio_Periodo(datoPeriodo)
 
-        Me.cargarAsignaturas()
-        Me.cargarDocentes()
-        Me.cargarPeriodos()
-        Me.cargarAsignaciones()
+        Try
+            Me.cargarAsignaturas()
+            Me.cargarDocentes()
+            Me.cargarPeriodos()
+            Me.cargarAsignaciones()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub cargarAsignaciones()
         asignaciones = Me.negocioDistribuir.listar()
+
+        ' limpiar tabla
+        Me.dgv_asignaciones.Rows.Clear()
+
         ' iterar sobre las asignaciones
         For Each asignacion As Entidad_Distribuir In asignaciones
             Me.dgv_asignaciones.Rows.Add( ' por cada asignacion agregar una fila a la tabla
@@ -61,7 +70,7 @@ Public Class frm_AsignarMateriasADocentes
         Next
 
         If periodos.Count <= 0 Then
-            MsgBox("No existen periodos registrados, debe registrar almenos 1 periodo antes de asignar materias a docentes")
+            Throw New Exception("No existen periodos registrados, debe registrar almenos 1 periodo antes de asignar materias a docentes")
         Else
             Me.cbx_periodos.SelectedIndex = 0
         End If
@@ -79,7 +88,7 @@ Public Class frm_AsignarMateriasADocentes
         Next
 
         If docentes.Count <= 0 Then
-            MsgBox("No existen docentes registrados, debe registrar almenos 1 docente antes de asignar materias")
+            Throw New Exception("No existen docentes registrados, debe registrar almenos 1 docente antes de asignar materias")
         End If
     End Sub
 
@@ -95,7 +104,7 @@ Public Class frm_AsignarMateriasADocentes
         Next
 
         If asignaturas.Count <= 0 Then
-            MsgBox("No existen asignaturas registradas, debe registrar almenos 1 asignatura antes de asignar materias a docentes")
+            Throw New Exception("No existen asignaturas registradas, debe registrar almenos 1 asignatura antes de asignar materias a docentes")
         End If
     End Sub
 
@@ -114,6 +123,9 @@ Public Class frm_AsignarMateriasADocentes
 
             Me.negocioDistribuir.crear(distribuir)
             MsgBox("Se ha asignado la materia al docente correctamente")
+
+            Me.cargarAsignaciones()
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -174,7 +186,7 @@ Public Class frm_AsignarMateriasADocentes
     End Sub
 
     Private Sub btn_regersar_Click(sender As Object, e As EventArgs) Handles btn_regersar.Click
-        frm_MenuDeAdministrador.Show()
+        frmPrincipal.frm_MenuDeAdministrador.Show()
         Me.Close()
     End Sub
 End Class

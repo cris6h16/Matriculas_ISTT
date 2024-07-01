@@ -1,4 +1,6 @@
-﻿Imports Capa_Entidades
+﻿Imports System.Management
+Imports Capa_Datos
+Imports Capa_Entidades
 Imports Capa_Negocio
 
 Public Class frm_MatricularEstudiante
@@ -12,10 +14,41 @@ Public Class frm_MatricularEstudiante
     Private misAsignaciones As HashSet(Of Entidad_Distribuir) ' contiene mis materias asignadas
     Private matriculadosEnLaAsignaturaSeleccionada As HashSet(Of Entidad_MatriculaAAsignatura)
 
+
     Public Sub New(docente As Entidad_Usuario)
         InitializeComponent()
+
+        ' creo capa de datos
+        Dim datoUsuario As Dato_Usuario = New Dato_Usuario()
+        Dim datoCarrera As Dato_Carrera = New Dato_Carrera()
+        Dim datoPeriodo As Dato_Periodo = New Dato_Periodo()
+        Dim datoAsignatura As Dato_Asignatura = New Dato_Asignatura(datoCarrera)
+        Dim datoDistribuir As Dato_Distribuir = New Dato_Distribuir(datoAsignatura, datoUsuario, datoPeriodo)
+        Dim datoMatriculaAAsignatura As Dato_MatriculaAAsignatura = New Dato_MatriculaAAsignatura(datoUsuario, datoAsignatura, datoPeriodo)
+
+        ' creo capa de negocio asignando capa de datos
+        Me.asignaturasNegocio = New Negocio_Asignatura(datoAsignatura)
+        Me.distribuirNegocio = New Negocio_Distribuir(datoDistribuir, datoUsuario)
+        Me.usuarioNegocio = New Negocio_Usuario(datoUsuario)
+        Me.matriculaAAsignaturaNegocio = New Negocio_MatriculaAAsignatura(datoMatriculaAAsignatura, datoPeriodo, datoAsignatura, datoUsuario)
+
         Me.docente = docente
         cargarMisAsignaturas()
+        cargarTipoDeMatriculaYModalidad()
+    End Sub
+
+    Private Sub cargarTipoDeMatriculaYModalidad()
+        'EModalidad.PRESENCIAL, EModalidad.DISTANCIA....
+
+        For Each modalidad As EModalidad In [Enum].GetValues(GetType(EModalidad))
+            cbx_modalidad.Items.Add(modalidad.ToString)
+            cbx_modalidad.SelectedIndex = 0
+        Next
+
+        For Each tipoMatricula As ETipoDeMatricula In [Enum].GetValues(GetType(ETipoDeMatricula))
+            cbx_tipoMatricula.Items.Add(tipoMatricula.ToString)
+            cbx_tipoMatricula.SelectedIndex = 0
+        Next
     End Sub
 
     Private Sub cargarMisAsignaturas()
@@ -160,6 +193,37 @@ Public Class frm_MatricularEstudiante
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btn_matricular.Click
 
+        Dim ceula As String = tbx_cedula.Text
+        Dim tipoMatricula As ETipoDeMatricula = CType([Enum].Parse(GetType(ETipoDeMatricula), cbx_tipoMatricula.SelectedItem.ToString), ETipoDeMatricula)
+        Dim modalidad As EModalidad = CType([Enum].Parse(GetType(EModalidad), cbx_modalidad.SelectedItem.ToString), EModalidad)
+        Try
+            Dim usuario As Entidad_Usuario = usuarioNegocio.traerPorCedula(ceula)
+            Dim asignatura As Entidad_Asignatura
+            Dim periodo As Entidad_Periodo
+
+            If usuario.Rol <> ERoles.Estudiante Then
+                Throw New Exception("Solo se pueden matricular a usuarios con el rol: Estudiante")
+            End If
+
+            For Each asignacion As Entidad_Distribuir In misAsignaciones
+                If asignacion.Asignatura.Nombre = txb_materiaMatriculados.Text Then
+                    asignatura = asignacion.Asignatura
+                    periodo = asignacion.Periodo
+                    Exit For
+                End If
+            Next
+
+            matriculaAAsignaturaNegocio.crear(
+                New Entidad_MatriculaAAsignatura(0, asignatura, usuario, periodo, tipoMatricula, modalidad)
+            )
+            MsgBox("Estudiante matriculado correctamente")
+            cargarMatriculados()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+
     End Sub
 
     Private Sub cbx_asignaturas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbx_asignaturas.SelectedIndexChanged
@@ -174,5 +238,14 @@ Public Class frm_MatricularEstudiante
         Next
 
         cargarMatriculados()
+    End Sub
+
+    Private Sub btn_regersar_Click(sender As Object, e As EventArgs) Handles btn_regersar.Click
+        frmPrincipal.frm_MenuDeDocente.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub cbx_tipoMatricula_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbx_tipoMatricula.SelectedIndexChanged
+
     End Sub
 End Class
