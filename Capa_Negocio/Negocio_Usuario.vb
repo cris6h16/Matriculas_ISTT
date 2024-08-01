@@ -122,4 +122,13 @@ Public Class Negocio_Usuario
     Public Function listarTodos() As List(Of Entidad_Usuario)
         Return Me.datoUsuario.listarTodos()
     End Function
+
+    Public Function listarActivosDataSet() As DataSet
+        Return Me.datoUsuario.listarActivosDataSet()
+    End Function
+
+    Public Function listarInactivosDataSet() As DataSet
+        Return Me.datoUsuario.listarInactivosDataSet()
+    End Function
+
 End Class

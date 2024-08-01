@@ -324,6 +324,42 @@ Public Class Dato_Usuario
 
     End Function
 
+    Public Function listarActivosDataSet() As DataSet
+        Dim ds As New DataSet()
+
+        Using cnn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            cnn.Open()
+            Try
+                Dim cmd As New MySqlCommand("SELECT * FROM vistaUsuariosCamposEnOrden where activo = TRUE", cnn)
+                Dim adapter As New MySqlDataAdapter(cmd)
+                adapter.Fill(ds, "estudiantes")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End Using
+
+
+        Return ds
+    End Function
+
+    Public Function listarInactivosDataSet() As DataSet
+        Dim ds As New DataSet()
+
+        Using cnn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            cnn.Open()
+            Try
+                Dim cmd As New MySqlCommand("SELECT * FROM vistaUsuariosCamposEnOrden where activo = FALSE", cnn)
+                Dim adapter As New MySqlDataAdapter(cmd)
+                adapter.Fill(ds, "estudiantes")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End Using
+
+
+        Return ds
+    End Function
+
     Public Function ByteArrayToImage(byteArray As Byte()) As Image
         If byteArray.Length <= 2 Then
             Return Nothing
@@ -340,4 +376,6 @@ Public Class Dato_Usuario
             Return ms.ToArray()
         End Using
     End Function
+
+
 End Class

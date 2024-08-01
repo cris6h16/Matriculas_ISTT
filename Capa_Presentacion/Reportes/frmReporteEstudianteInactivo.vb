@@ -20,7 +20,7 @@ Public Class frmReporteEstudianteInactivo
     End Sub
     Private Sub cargardata()
         ' Dim obj As New Negocio_Usuario();
-        Dim ds As DataSet = negocioUsuario.listarTodosDataSet()
+        Dim ds As DataSet = negocioUsuario.listarInactivosDataSet()
 
         ' Asigna el DataSet al ReportViewer
         rvEstudiante.LocalReport.DataSources.Clear()

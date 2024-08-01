@@ -23,22 +23,22 @@ Partial Class frm_MenuDeAdministrador
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.btnReporte = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -52,6 +52,16 @@ Partial Class frm_MenuDeAdministrador
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1327, 661)
         Me.Panel1.TabIndex = 0
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Capa_Presentacion.My.Resources.Resources.maxresdefault
+        Me.PictureBox1.Location = New System.Drawing.Point(379, 73)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(948, 540)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
         '
         'Panel3
         '
@@ -77,25 +87,34 @@ Partial Class frm_MenuDeAdministrador
         Me.Panel2.Size = New System.Drawing.Size(382, 674)
         Me.Panel2.TabIndex = 25
         '
+        'Button8
+        '
+        Me.Button8.BackColor = System.Drawing.Color.Pink
+        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.Location = New System.Drawing.Point(6, 457)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(353, 68)
+        Me.Button8.TabIndex = 27
+        Me.Button8.Text = "DESACTIVAR/ACTIVAR USUARIOS"
+        Me.Button8.UseVisualStyleBackColor = False
+        '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(206, 546)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(148, 55)
+        Me.Button7.TabIndex = 26
+        Me.Button7.Text = "VER REPORTES: Usuarios Inactivos"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
         'btnReporte
         '
-        Me.btnReporte.Location = New System.Drawing.Point(31, 562)
+        Me.btnReporte.Location = New System.Drawing.Point(17, 546)
         Me.btnReporte.Name = "btnReporte"
-        Me.btnReporte.Size = New System.Drawing.Size(148, 41)
+        Me.btnReporte.Size = New System.Drawing.Size(148, 55)
         Me.btnReporte.TabIndex = 25
-        Me.btnReporte.Text = "VER REPORTES"
+        Me.btnReporte.Text = "VER REPORTES: Usuarios Activos"
         Me.btnReporte.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.DeepSkyBlue
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(3, 31)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(356, 79)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "AGREGAR USUARIOS"
-        Me.Button1.UseVisualStyleBackColor = False
         '
         'Button5
         '
@@ -108,6 +127,17 @@ Partial Class frm_MenuDeAdministrador
         Me.Button5.TabIndex = 23
         Me.Button5.Text = "Cerrar Secion"
         Me.Button5.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(3, 31)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(356, 79)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "AGREGAR USUARIOS"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Button6
         '
@@ -163,36 +193,6 @@ Partial Class frm_MenuDeAdministrador
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "MENU DE ADMINISTRADOR"
         '
-        'Button7
-        '
-        Me.Button7.Location = New System.Drawing.Point(208, 571)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(148, 41)
-        Me.Button7.TabIndex = 26
-        Me.Button7.Text = "VER REPORTES"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'Button8
-        '
-        Me.Button8.BackColor = System.Drawing.Color.Pink
-        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Location = New System.Drawing.Point(6, 448)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(353, 68)
-        Me.Button8.TabIndex = 27
-        Me.Button8.Text = "MODIFICAR USUARIOS"
-        Me.Button8.UseVisualStyleBackColor = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Capa_Presentacion.My.Resources.Resources.maxresdefault
-        Me.PictureBox1.Location = New System.Drawing.Point(379, 73)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(948, 540)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
         'frm_MenuDeAdministrador
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -203,8 +203,8 @@ Partial Class frm_MenuDeAdministrador
         Me.Text = "frm_MenuDeAdministrador"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

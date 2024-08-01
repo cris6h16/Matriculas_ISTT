@@ -6,6 +6,7 @@
     Public Shared Property frm_RegistroDePeriodosAcademicos As frm_RegistroDePeriodosAcademicos
     Public Shared Property frm_AsignarMateriasADocentes As frm_AsignarMateriasADocentes
 
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frm_RegistroDeUusarios = New frm_RegistroDeUusarios()
         frm_RegistroDeUusarios.Show()
@@ -50,11 +51,14 @@
     End Sub
 
     Private Sub btnReporte_Click(sender As Object, e As EventArgs) Handles btnReporte.Click
-        frmReporteEstudianteInactivo.Show()
-
+        frmReporteEstudianteActivo.Show()
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         frm_ListaDeUsuarios.Show()
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        frmReporteEstudianteInactivo.Show()
     End Sub
 End Class

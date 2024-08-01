@@ -5,7 +5,7 @@ Imports Capa_Negocio
 Imports Microsoft.Reporting.WinForms
 Imports Org.BouncyCastle.Asn1
 
-Public Class frmReporteDocentes
+Public Class frmReporteEstudianteActivo
     Private negocioUsuario As Negocio_Usuario
 
     Public Sub New()
@@ -20,7 +20,7 @@ Public Class frmReporteDocentes
     End Sub
     Private Sub cargardata()
         ' Dim obj As New Negocio_Usuario();
-        Dim ds As DataSet = negocioUsuario.listarTodosDataSet()
+        Dim ds As DataSet = negocioUsuario.listarActivosDataSet()
 
         ' Asigna el DataSet al ReportViewer
         rvEstudiante.LocalReport.DataSources.Clear()
