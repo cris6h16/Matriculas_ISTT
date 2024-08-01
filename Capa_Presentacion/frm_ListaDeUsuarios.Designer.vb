@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class frm_ListaDeUsuarios
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.dgv_matriculados = New System.Windows.Forms.DataGridView()
+        Me.tablaUsuarios = New System.Windows.Forms.DataGridView()
         Me.Foto = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ROL = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cedula = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -31,20 +31,20 @@ Partial Class Form1
         Me.sexo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nacimiento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.modificarCol = New System.Windows.Forms.DataGridViewButtonColumn()
-        CType(Me.dgv_matriculados, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tablaUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'dgv_matriculados
+        'tablaUsuarios
         '
-        Me.dgv_matriculados.BackgroundColor = System.Drawing.Color.DeepSkyBlue
-        Me.dgv_matriculados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_matriculados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Foto, Me.ROL, Me.cedula, Me.nombres, Me.apellidos, Me.sexo, Me.nacimiento, Me.modificarCol})
-        Me.dgv_matriculados.Location = New System.Drawing.Point(12, 116)
-        Me.dgv_matriculados.Name = "dgv_matriculados"
-        Me.dgv_matriculados.RowHeadersWidth = 51
-        Me.dgv_matriculados.RowTemplate.Height = 24
-        Me.dgv_matriculados.Size = New System.Drawing.Size(1290, 376)
-        Me.dgv_matriculados.TabIndex = 1
+        Me.tablaUsuarios.BackgroundColor = System.Drawing.Color.DeepSkyBlue
+        Me.tablaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tablaUsuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Foto, Me.ROL, Me.cedula, Me.nombres, Me.apellidos, Me.sexo, Me.nacimiento, Me.modificarCol})
+        Me.tablaUsuarios.Location = New System.Drawing.Point(12, 116)
+        Me.tablaUsuarios.Name = "tablaUsuarios"
+        Me.tablaUsuarios.RowHeadersWidth = 51
+        Me.tablaUsuarios.RowTemplate.Height = 24
+        Me.tablaUsuarios.Size = New System.Drawing.Size(1290, 376)
+        Me.tablaUsuarios.TabIndex = 1
         '
         'Foto
         '
@@ -106,27 +106,27 @@ Partial Class Form1
         'modificarCol
         '
         Me.modificarCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.modificarCol.HeaderText = "Modificar"
+        Me.modificarCol.HeaderText = "ACTIVAR / DESACTIVAR"
         Me.modificarCol.MinimumWidth = 6
         Me.modificarCol.Name = "modificarCol"
         Me.modificarCol.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.modificarCol.Text = "Modificar"
-        Me.modificarCol.Width = 68
+        Me.modificarCol.Width = 150
         '
-        'Form1
+        'frm_ListaDeUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1387, 664)
-        Me.Controls.Add(Me.dgv_matriculados)
-        Me.Name = "Form1"
+        Me.Controls.Add(Me.tablaUsuarios)
+        Me.Name = "frm_ListaDeUsuarios"
         Me.Text = "Form1"
-        CType(Me.dgv_matriculados, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tablaUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents dgv_matriculados As DataGridView
+    Friend WithEvents tablaUsuarios As DataGridView
     Friend WithEvents Foto As DataGridViewImageColumn
     Friend WithEvents ROL As DataGridViewTextBoxColumn
     Friend WithEvents cedula As DataGridViewTextBoxColumn

@@ -40,7 +40,8 @@ Public Class frm_RegistroDeUusarios
             sexo,
             fechaNac,
             direccion,
-            foto
+            foto,
+            True
             )
 
         Try

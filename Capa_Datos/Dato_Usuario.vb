@@ -4,6 +4,22 @@ Imports System.Drawing
 Imports System.IO
 
 Public Class Dato_Usuario
+    Public Sub cambiarEstadoPorCedula(cedula As String, activo As Boolean)
+
+        ' Conexión a la base de datos
+        Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            ' Comando para ejecutar el procedimiento almacenado
+            Using cmd As New MySqlCommand("cambiarEstadoPorCedula", conn)
+                cmd.CommandType = CommandType.StoredProcedure
+                ' Agregar parámetros al procedimiento almacenado
+                cmd.Parameters.AddWithValue("cedula_param", cedula)
+                cmd.Parameters.AddWithValue("activo_param", activo)
+                conn.Open()
+                ' Ejecutar el comando
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
 
 
     Public Function traerPorCedulaYContrasena(cedula As String, contrasena As String) As Entidad_Usuario
@@ -32,11 +48,12 @@ Public Class Dato_Usuario
                         Dim nacimiento As Date = reader.GetDateTime(7)
                         Dim direccion As String = reader.GetString(8)
                         Dim foto As Byte() = CType(reader("foto"), Byte())
+                        Dim activo As Boolean = reader.GetBoolean(10)
 
 
                         Dim eRol As ERoles = CType([Enum].Parse(GetType(ERoles), rol), ERoles)
 
-                        usuario = New Entidad_Usuario(id, nombres, apellidos, cedulaR, eRol, contrasenaR, sexo, nacimiento, direccion, ByteArrayToImage(foto))
+                        usuario = New Entidad_Usuario(id, nombres, apellidos, cedulaR, eRol, contrasenaR, sexo, nacimiento, direccion, ByteArrayToImage(foto), activo)
 
                     End If
                 End Using
@@ -71,10 +88,11 @@ Public Class Dato_Usuario
                         Dim nacimiento As Date = reader.GetDateTime(7)
                         Dim direccion As String = reader.GetString(8)
                         Dim foto As Byte() = CType(reader("foto"), Byte())
+                        Dim activo As Boolean = reader.GetBoolean(10)
 
                         Dim eRol As ERoles = CType([Enum].Parse(GetType(ERoles), rol), ERoles)
 
-                        usuario = New Entidad_Usuario(id, nombres, apellidos, cedulaR, eRol, contrasenaR, sexo, nacimiento, direccion, ByteArrayToImage(foto))
+                        usuario = New Entidad_Usuario(id, nombres, apellidos, cedulaR, eRol, contrasenaR, sexo, nacimiento, direccion, ByteArrayToImage(foto), activo)
                     End If
                 End Using
             End Using
@@ -109,10 +127,11 @@ Public Class Dato_Usuario
                         Dim nacimiento As Date = reader.GetDateTime(7)
                         Dim direccion As String = reader.GetString(8)
                         Dim foto As Byte() = CType(reader("foto"), Byte())
+                        Dim activo As Boolean = reader.GetBoolean(10)
 
                         Dim eRol As ERoles = CType([Enum].Parse(GetType(ERoles), rol), ERoles)
 
-                        usuario = New Entidad_Usuario(idR, nombres, apellidos, cedula, eRol, contrasena, sexo, nacimiento, direccion, ByteArrayToImage(foto))
+                        usuario = New Entidad_Usuario(idR, nombres, apellidos, cedula, eRol, contrasena, sexo, nacimiento, direccion, ByteArrayToImage(foto), activo)
                     End If
                 End Using
             End Using
@@ -138,6 +157,7 @@ Public Class Dato_Usuario
                 cmd.Parameters.AddWithValue("nacimiento_param", usuario.Nacimiento)
                 cmd.Parameters.AddWithValue("direccion_param", usuario.Direccion)
                 cmd.Parameters.AddWithValue("foto_param", ImageToByteArray(usuario.Foto))
+                cmd.Parameters.AddWithValue("activo_param", usuario.Activo)
                 cmd.Parameters.AddWithValue("rol_param", usuario.Rol.ToString())
                 conn.Open()
 
@@ -212,6 +232,7 @@ Public Class Dato_Usuario
                         Dim nacimiento As Date = reader.GetDateTime(7)
                         Dim direccion As String = reader.GetString(8)
                         Dim foto As Byte() = CType(reader("foto"), Byte())
+                        Dim activo As Boolean = reader.GetBoolean(10)
 
                         Dim usuario As New Entidad_Usuario(
                             id,
@@ -223,7 +244,8 @@ Public Class Dato_Usuario
                             sexo,
                             nacimiento,
                             direccion,
-                            ByteArrayToImage(foto)
+                            ByteArrayToImage(foto),
+                            activo
                             )
                         usuarios.Add(usuario)
                     End While
@@ -257,6 +279,7 @@ Public Class Dato_Usuario
                         Dim nacimiento As Date = reader.GetDateTime(7)
                         Dim direccion As String = reader.GetString(8)
                         Dim foto As Byte() = CType(reader("foto"), Byte())
+                        Dim activo As Boolean = reader.GetBoolean(10)
 
                         Dim eRol As ERoles = CType([Enum].Parse(GetType(ERoles), rol), ERoles)
 
@@ -270,7 +293,8 @@ Public Class Dato_Usuario
                             sexo,
                             nacimiento,
                             direccion,
-                            ByteArrayToImage(foto)
+                            ByteArrayToImage(foto),
+                            activo
                             )
                         usuarios.Add(usuario)
                     End While

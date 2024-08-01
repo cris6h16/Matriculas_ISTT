@@ -8,7 +8,13 @@ Public Class Negocio_Usuario
         Me.datoUsuario = datoUsuario
     End Sub
 
+    Public Sub cambiarEstadoPorCedula(cedula As String, activo As Boolean)
+        If cedula = "" Or cedula Is Nothing Then
+            Throw New ArgumentException("La cedula no puede estar vacia o nula")
+        End If
 
+        datoUsuario.cambiarEstadoPorCedula(cedula, activo)
+    End Sub
 
     Public Function traerPorCedulaYContrasena(cedula As String, contrasena As String) As Entidad_Usuario
         If cedula = "" Or cedula Is Nothing Then

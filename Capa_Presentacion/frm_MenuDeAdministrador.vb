@@ -55,6 +55,6 @@
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        Form1.Show()
+        frm_ListaDeUsuarios.Show()
     End Sub
 End Class

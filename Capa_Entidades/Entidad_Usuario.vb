@@ -10,9 +10,10 @@ Public Class Entidad_Usuario
     Private _Nacimiento As Date
     Private _Direccion As String
     Private _Foto As Image
+    Private _Activo As Boolean
     Private _Rol As ERoles
 
-    Public Sub New(id As Integer, nombre As String, apellido As String, cedula As String, Rol As ERoles, contrasena As String, sexo As Char, nacimiento As Date, direccion As String, foto As Image)
+    Public Sub New(id As Integer, nombre As String, apellido As String, cedula As String, Rol As ERoles, contrasena As String, sexo As Char, nacimiento As Date, direccion As String, foto As Image, activo As Boolean)
         Me.Id = id
         Me.Nombres = nombre
         Me.Apellidos = apellido
@@ -23,6 +24,7 @@ Public Class Entidad_Usuario
         Me.Nacimiento = nacimiento
         Me.Direccion = direccion
         Me._Foto = foto
+        Me._Activo = activo
     End Sub
 
     Public Property Id As Integer
@@ -112,6 +114,15 @@ Public Class Entidad_Usuario
         End Get
         Set(value As Image)
             _Foto = value
+        End Set
+    End Property
+
+    Public Property Activo As Boolean
+        Get
+            Return _Activo
+        End Get
+        Set(value As Boolean)
+            _Activo = value
         End Set
     End Property
 End Class
