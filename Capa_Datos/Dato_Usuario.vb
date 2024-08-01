@@ -234,6 +234,53 @@ Public Class Dato_Usuario
         Return usuarios
     End Function
 
+    Public Function listarTodos() As List(Of Entidad_Usuario)
+        Dim usuarios As New List(Of Entidad_Usuario)
+        Dim query As String = "SELECT * FROM vistaUsuariosCamposEnOrden"
+
+        ' Conexión a la base de datos
+        Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            ' Comando para ejecutar la consulta
+            Using cmd As New MySqlCommand(query, conn)
+                conn.Open()
+                ' Ejecución del comando y lectura de resultados
+                Using reader As MySqlDataReader = cmd.ExecuteReader()
+                    While reader.Read()
+                        ' Mapeo de los datos del lector a la entidad
+                        Dim id As Integer = reader.GetInt32(0)
+                        Dim nombres As String = reader.GetString(1)
+                        Dim apellidos As String = reader.GetString(2)
+                        Dim cedula As String = reader.GetString(3)
+                        Dim rol As String = reader.GetString(4)
+                        Dim contrasena As String = reader.GetString(5)
+                        Dim sexo As Char = reader.GetChar(6)
+                        Dim nacimiento As Date = reader.GetDateTime(7)
+                        Dim direccion As String = reader.GetString(8)
+                        Dim foto As Byte() = CType(reader("foto"), Byte())
+
+                        Dim eRol As ERoles = CType([Enum].Parse(GetType(ERoles), rol), ERoles)
+
+                        Dim usuario As New Entidad_Usuario(
+                            id,
+                            nombres,
+                            apellidos,
+                            cedula,
+                            eRol,
+                            contrasena,
+                            sexo,
+                            nacimiento,
+                            direccion,
+                            ByteArrayToImage(foto)
+                            )
+                        usuarios.Add(usuario)
+                    End While
+                End Using
+            End Using
+        End Using
+
+        Return usuarios
+    End Function
+
     Public Function listarTodosDataSet() As DataSet
         Dim ds As New DataSet()
 
@@ -254,6 +301,10 @@ Public Class Dato_Usuario
     End Function
 
     Public Function ByteArrayToImage(byteArray As Byte()) As Image
+        If byteArray.Length <= 2 Then
+            Return Nothing
+        End If
+
         Using ms As New MemoryStream(byteArray)
             Return Image.FromStream(ms)
         End Using

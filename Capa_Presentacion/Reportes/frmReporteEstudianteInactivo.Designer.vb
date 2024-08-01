@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmReporteEstudiante
+Partial Class frmReporteEstudianteInactivo
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -24,17 +24,27 @@ Partial Class frmReporteEstudiante
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.EstudiantesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DsMatriculas = New Capa_Presentacion.dsMatriculas()
         Me.rvEstudiantes = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.btnReporte = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.rvEstudiante = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.DsMatriculas = New Capa_Presentacion.dsMatriculas()
-        Me.EstudiantesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Panel1.SuspendLayout()
-        CType(Me.DsMatriculas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EstudiantesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsMatriculas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'EstudiantesBindingSource
+        '
+        Me.EstudiantesBindingSource.DataMember = "estudiantes"
+        Me.EstudiantesBindingSource.DataSource = Me.DsMatriculas
+        '
+        'DsMatriculas
+        '
+        Me.DsMatriculas.DataSetName = "dsMatriculas"
+        Me.DsMatriculas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'rvEstudiantes
         '
@@ -86,17 +96,7 @@ Partial Class frmReporteEstudiante
         Me.rvEstudiante.Size = New System.Drawing.Size(1116, 443)
         Me.rvEstudiante.TabIndex = 2
         '
-        'DsMatriculas
-        '
-        Me.DsMatriculas.DataSetName = "dsMatriculas"
-        Me.DsMatriculas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EstudiantesBindingSource
-        '
-        Me.EstudiantesBindingSource.DataMember = "estudiantes"
-        Me.EstudiantesBindingSource.DataSource = Me.DsMatriculas
-        '
-        'frmReporteEstudiante
+        'frmReporteEstudianteInactivo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -104,12 +104,12 @@ Partial Class frmReporteEstudiante
         Me.Controls.Add(Me.rvEstudiante)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.rvEstudiantes)
-        Me.Name = "frmReporteEstudiante"
+        Me.Name = "frmReporteEstudianteInactivo"
         Me.Text = "frmReporteEstudiante"
+        CType(Me.EstudiantesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsMatriculas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.DsMatriculas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EstudiantesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

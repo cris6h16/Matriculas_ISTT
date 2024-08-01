@@ -5,7 +5,7 @@ Imports Capa_Negocio
 Imports Microsoft.Reporting.WinForms
 Imports Org.BouncyCastle.Asn1
 
-Public Class frmReporteEstudiante
+Public Class frmReporteEstudianteInactivo
     Private negocioUsuario As Negocio_Usuario
 
     Public Sub New()
@@ -33,6 +33,10 @@ Public Class frmReporteEstudiante
     End Sub
 
     Private Sub rvEstudiante_Load(sender As Object, e As EventArgs) Handles rvEstudiante.Load
+
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
     End Sub
 End Class

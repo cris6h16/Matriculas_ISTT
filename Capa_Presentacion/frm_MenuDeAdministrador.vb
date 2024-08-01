@@ -50,7 +50,11 @@
     End Sub
 
     Private Sub btnReporte_Click(sender As Object, e As EventArgs) Handles btnReporte.Click
-        frmReporteEstudiante.Show()
+        frmReporteEstudianteInactivo.Show()
 
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Form1.Show()
     End Sub
 End Class

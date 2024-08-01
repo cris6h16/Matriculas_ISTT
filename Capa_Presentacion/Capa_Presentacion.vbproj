@@ -101,6 +101,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPrincipal.Designer.vb">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
     </Compile>
@@ -185,14 +191,23 @@
     <Compile Include="Reportes\dsMatriculas.vb">
       <DependentUpon>dsMatriculas.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\frmReporteEstudiante.Designer.vb">
-      <DependentUpon>frmReporteEstudiante.vb</DependentUpon>
+    <Compile Include="Reportes\frmReporteEstudianteActivo.Designer.vb">
+      <DependentUpon>frmReporteEstudianteActivo.vb</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\frmReporteEstudiante.vb">
+    <Compile Include="Reportes\frmReporteEstudianteActivo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteEstudianteInactivo.Designer.vb">
+      <DependentUpon>frmReporteEstudianteInactivo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteEstudianteInactivo.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
     </EmbeddedResource>
@@ -229,10 +244,13 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\frmReporteEstudiante.resx">
-      <DependentUpon>frmReporteEstudiante.vb</DependentUpon>
+    <EmbeddedResource Include="Reportes\frmReporteEstudianteActivo.resx">
+      <DependentUpon>frmReporteEstudianteActivo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rEstudiantes.rdlc" />
+    <EmbeddedResource Include="Reportes\frmReporteEstudianteInactivo.resx">
+      <DependentUpon>frmReporteEstudianteInactivo.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Capa_Presentacion_TemporaryKey.pfx" />
