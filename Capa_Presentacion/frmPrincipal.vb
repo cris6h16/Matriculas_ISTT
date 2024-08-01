@@ -14,7 +14,6 @@ Public Class frmPrincipal
     Dim negocioUsuario As Negocio_Usuario
     Public Sub New()
         InitializeComponent()
-        negocioUsuario = New Negocio_Usuario(New Dato_Usuario())
     End Sub
 
 
@@ -57,7 +56,6 @@ Public Class frmPrincipal
         Catch ex As Exception
             MsgBox(ex.Message)
 
-            frm_MenuDeAdministrador.Hide()
         End Try
 
     End Sub

@@ -31,6 +31,8 @@ Partial Class frm_RegistroDeCarrera
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.cbxDuracionSemestres = New System.Windows.Forms.ComboBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -78,7 +80,7 @@ Partial Class frm_RegistroDeCarrera
         Me.txtNombre.Location = New System.Drawing.Point(44, 81)
         Me.txtNombre.MinimumSize = New System.Drawing.Size(370, 35)
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(370, 35)
+        Me.txtNombre.Size = New System.Drawing.Size(370, 22)
         Me.txtNombre.TabIndex = 35
         '
         'btn_regresar
@@ -86,7 +88,7 @@ Partial Class frm_RegistroDeCarrera
         Me.btn_regresar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btn_regresar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_regresar.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btn_regresar.Location = New System.Drawing.Point(670, 390)
+        Me.btn_regresar.Location = New System.Drawing.Point(45, 81)
         Me.btn_regresar.Name = "btn_regresar"
         Me.btn_regresar.Size = New System.Drawing.Size(130, 41)
         Me.btn_regresar.TabIndex = 34
@@ -96,7 +98,7 @@ Partial Class frm_RegistroDeCarrera
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Button1.Location = New System.Drawing.Point(670, 343)
+        Me.Button1.Location = New System.Drawing.Point(45, 34)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(130, 41)
         Me.Button1.TabIndex = 33
@@ -106,7 +108,7 @@ Partial Class frm_RegistroDeCarrera
         'btnGuardar
         '
         Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnGuardar.Location = New System.Drawing.Point(457, 367)
+        Me.btnGuardar.Location = New System.Drawing.Point(27, 142)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(168, 64)
         Me.btnGuardar.TabIndex = 32
@@ -123,22 +125,33 @@ Partial Class frm_RegistroDeCarrera
         Me.cbxDuracionSemestres.Size = New System.Drawing.Size(380, 24)
         Me.cbxDuracionSemestres.TabIndex = 41
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Panel1.Controls.Add(Me.btnGuardar)
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.btn_regresar)
+        Me.Panel1.Location = New System.Drawing.Point(544, 176)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(224, 234)
+        Me.Panel1.TabIndex = 42
+        '
         'frm_RegistroDeCarrera
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.cbxDuracionSemestres)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmbModalidades)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtNombre)
-        Me.Controls.Add(Me.btn_regresar)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.btnGuardar)
         Me.Name = "frm_RegistroDeCarrera"
         Me.Text = "frm_RegistroDeCarrera"
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -153,4 +166,5 @@ Partial Class frm_RegistroDeCarrera
     Friend WithEvents Button1 As Button
     Friend WithEvents btnGuardar As Button
     Friend WithEvents cbxDuracionSemestres As ComboBox
+    Friend WithEvents Panel1 As Panel
 End Class

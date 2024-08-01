@@ -23,16 +23,16 @@ Partial Class frm_RegistroDePeriodosAcademicos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.txb_periodo = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.dtp_fechaInicio = New System.Windows.Forms.DateTimePicker()
-        Me.dtp_fechaFin = New System.Windows.Forms.DateTimePicker()
         Me.btn_regersar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.dtp_fechaFin = New System.Windows.Forms.DateTimePicker()
+        Me.dtp_fechaInicio = New System.Windows.Forms.DateTimePicker()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txb_periodo = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -52,74 +52,6 @@ Partial Class frm_RegistroDePeriodosAcademicos
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(887, 468)
         Me.Panel1.TabIndex = 0
-        '
-        'txb_periodo
-        '
-        Me.txb_periodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txb_periodo.Location = New System.Drawing.Point(47, 66)
-        Me.txb_periodo.Name = "txb_periodo"
-        Me.txb_periodo.Size = New System.Drawing.Size(368, 30)
-        Me.txb_periodo.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(42, 34)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(355, 29)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Nombre del periodo academico"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(44, 99)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(110, 16)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Ejemplo: 2022-IIP"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(42, 172)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(177, 29)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Fecha de Inicio"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(491, 172)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(154, 29)
-        Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Fecha de Fin"
-        '
-        'dtp_fechaInicio
-        '
-        Me.dtp_fechaInicio.CustomFormat = "dd/MM/yyyy"
-        Me.dtp_fechaInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp_fechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtp_fechaInicio.Location = New System.Drawing.Point(47, 209)
-        Me.dtp_fechaInicio.Name = "dtp_fechaInicio"
-        Me.dtp_fechaInicio.Size = New System.Drawing.Size(350, 30)
-        Me.dtp_fechaInicio.TabIndex = 7
-        '
-        'dtp_fechaFin
-        '
-        Me.dtp_fechaFin.CustomFormat = "dd/MM/yyyy"
-        Me.dtp_fechaFin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp_fechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtp_fechaFin.Location = New System.Drawing.Point(496, 209)
-        Me.dtp_fechaFin.Name = "dtp_fechaFin"
-        Me.dtp_fechaFin.Size = New System.Drawing.Size(350, 30)
-        Me.dtp_fechaFin.TabIndex = 8
         '
         'btn_regersar
         '
@@ -153,10 +85,79 @@ Partial Class frm_RegistroDePeriodosAcademicos
         Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.UseVisualStyleBackColor = False
         '
+        'dtp_fechaFin
+        '
+        Me.dtp_fechaFin.CustomFormat = "dd/MM/yyyy"
+        Me.dtp_fechaFin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_fechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtp_fechaFin.Location = New System.Drawing.Point(496, 209)
+        Me.dtp_fechaFin.Name = "dtp_fechaFin"
+        Me.dtp_fechaFin.Size = New System.Drawing.Size(350, 30)
+        Me.dtp_fechaFin.TabIndex = 8
+        '
+        'dtp_fechaInicio
+        '
+        Me.dtp_fechaInicio.CustomFormat = "dd/MM/yyyy"
+        Me.dtp_fechaInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_fechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtp_fechaInicio.Location = New System.Drawing.Point(47, 209)
+        Me.dtp_fechaInicio.Name = "dtp_fechaInicio"
+        Me.dtp_fechaInicio.Size = New System.Drawing.Size(350, 30)
+        Me.dtp_fechaInicio.TabIndex = 7
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(491, 172)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(154, 29)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Fecha de Fin"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(42, 172)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(177, 29)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "Fecha de Inicio"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(44, 99)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(110, 16)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Ejemplo: 2022-IIP"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(42, 34)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(355, 29)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Nombre del periodo academico"
+        '
+        'txb_periodo
+        '
+        Me.txb_periodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txb_periodo.Location = New System.Drawing.Point(47, 66)
+        Me.txb_periodo.Name = "txb_periodo"
+        Me.txb_periodo.Size = New System.Drawing.Size(368, 30)
+        Me.txb_periodo.TabIndex = 0
+        '
         'frm_RegistroDePeriodosAcademicos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(945, 507)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "frm_RegistroDePeriodosAcademicos"

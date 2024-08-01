@@ -23,12 +23,22 @@ Partial Class frm_MatricularEstudiante
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btn_regersar = New System.Windows.Forms.Button()
         Me.txb_periodo = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.cbx_modalidad = New System.Windows.Forms.ComboBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.cbx_tipoMatricula = New System.Windows.Forms.ComboBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.btn_matricular = New System.Windows.Forms.Button()
         Me.txb_rol = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.btn_matricular = New System.Windows.Forms.Button()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.tbx_cedula = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.txb_sexo = New System.Windows.Forms.TextBox()
         Me.txb_apellidos = New System.Windows.Forms.TextBox()
         Me.txb_nombres = New System.Windows.Forms.TextBox()
@@ -52,25 +62,16 @@ Partial Class frm_MatricularEstudiante
         Me.sexo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nacimiento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.eliminalCol = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.btn_regersar = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.tbx_cedula = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.cbx_tipoMatricula = New System.Windows.Forms.ComboBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.cbx_modalidad = New System.Windows.Forms.ComboBox()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.dgv_matriculados, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        CType(Me.dgv_matriculados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.Panel1.Controls.Add(Me.btn_regersar)
         Me.Panel1.Controls.Add(Me.txb_periodo)
         Me.Panel1.Controls.Add(Me.Label12)
@@ -85,6 +86,18 @@ Partial Class frm_MatricularEstudiante
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1025, 771)
         Me.Panel1.TabIndex = 0
+        '
+        'btn_regersar
+        '
+        Me.btn_regersar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btn_regersar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_regersar.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btn_regersar.Location = New System.Drawing.Point(895, 727)
+        Me.btn_regersar.Name = "btn_regersar"
+        Me.btn_regersar.Size = New System.Drawing.Size(130, 41)
+        Me.btn_regersar.TabIndex = 32
+        Me.btn_regersar.Text = "Regresar"
+        Me.btn_regersar.UseVisualStyleBackColor = False
         '
         'txb_periodo
         '
@@ -128,6 +141,68 @@ Partial Class frm_MatricularEstudiante
         Me.Panel2.Size = New System.Drawing.Size(997, 340)
         Me.Panel2.TabIndex = 10
         '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.Panel4.Controls.Add(Me.cbx_modalidad)
+        Me.Panel4.Controls.Add(Me.Label14)
+        Me.Panel4.Controls.Add(Me.cbx_tipoMatricula)
+        Me.Panel4.Controls.Add(Me.Label13)
+        Me.Panel4.Controls.Add(Me.btn_matricular)
+        Me.Panel4.Location = New System.Drawing.Point(3, 184)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(994, 153)
+        Me.Panel4.TabIndex = 34
+        '
+        'cbx_modalidad
+        '
+        Me.cbx_modalidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbx_modalidad.FormattingEnabled = True
+        Me.cbx_modalidad.Location = New System.Drawing.Point(542, 45)
+        Me.cbx_modalidad.Name = "cbx_modalidad"
+        Me.cbx_modalidad.Size = New System.Drawing.Size(261, 28)
+        Me.cbx_modalidad.TabIndex = 36
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(563, 20)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(92, 22)
+        Me.Label14.TabIndex = 35
+        Me.Label14.Text = "Modalidad"
+        '
+        'cbx_tipoMatricula
+        '
+        Me.cbx_tipoMatricula.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbx_tipoMatricula.FormattingEnabled = True
+        Me.cbx_tipoMatricula.Location = New System.Drawing.Point(159, 45)
+        Me.cbx_tipoMatricula.Name = "cbx_tipoMatricula"
+        Me.cbx_tipoMatricula.Size = New System.Drawing.Size(261, 28)
+        Me.cbx_tipoMatricula.TabIndex = 34
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(180, 20)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(148, 22)
+        Me.Label13.TabIndex = 33
+        Me.Label13.Text = "Tipo de Matricula"
+        '
+        'btn_matricular
+        '
+        Me.btn_matricular.BackColor = System.Drawing.Color.LightYellow
+        Me.btn_matricular.Enabled = False
+        Me.btn_matricular.Location = New System.Drawing.Point(312, 98)
+        Me.btn_matricular.Name = "btn_matricular"
+        Me.btn_matricular.Size = New System.Drawing.Size(359, 41)
+        Me.btn_matricular.TabIndex = 10
+        Me.btn_matricular.Text = "MATRICULAR"
+        Me.btn_matricular.UseVisualStyleBackColor = False
+        '
         'txb_rol
         '
         Me.txb_rol.Enabled = False
@@ -146,16 +221,45 @@ Partial Class frm_MatricularEstudiante
         Me.Label11.TabIndex = 34
         Me.Label11.Text = "Rol"
         '
-        'btn_matricular
+        'Panel3
         '
-        Me.btn_matricular.BackColor = System.Drawing.Color.LightYellow
-        Me.btn_matricular.Enabled = False
-        Me.btn_matricular.Location = New System.Drawing.Point(312, 98)
-        Me.btn_matricular.Name = "btn_matricular"
-        Me.btn_matricular.Size = New System.Drawing.Size(359, 41)
-        Me.btn_matricular.TabIndex = 10
-        Me.btn_matricular.Text = "MATRICULAR"
-        Me.btn_matricular.UseVisualStyleBackColor = False
+        Me.Panel3.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.Panel3.Controls.Add(Me.Button1)
+        Me.Panel3.Controls.Add(Me.tbx_cedula)
+        Me.Panel3.Controls.Add(Me.Label4)
+        Me.Panel3.Location = New System.Drawing.Point(3, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(994, 51)
+        Me.Panel3.TabIndex = 33
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.PaleGreen
+        Me.Button1.Location = New System.Drawing.Point(657, 9)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(112, 41)
+        Me.Button1.TabIndex = 9
+        Me.Button1.Text = "BUSCAR"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'tbx_cedula
+        '
+        Me.tbx_cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbx_cedula.Location = New System.Drawing.Point(375, 11)
+        Me.tbx_cedula.Name = "tbx_cedula"
+        Me.tbx_cedula.Size = New System.Drawing.Size(250, 30)
+        Me.tbx_cedula.TabIndex = 8
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label4.Location = New System.Drawing.Point(85, 12)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(270, 29)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Cedula del Estudante:"
         '
         'txb_sexo
         '
@@ -308,6 +412,7 @@ Partial Class frm_MatricularEstudiante
         '
         'dgv_matriculados
         '
+        Me.dgv_matriculados.BackgroundColor = System.Drawing.Color.DeepSkyBlue
         Me.dgv_matriculados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_matriculados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cedula, Me.nombres, Me.apellidos, Me.sexo, Me.nacimiento, Me.eliminalCol})
         Me.dgv_matriculados.Location = New System.Drawing.Point(3, 521)
@@ -362,109 +467,6 @@ Partial Class frm_MatricularEstudiante
         Me.eliminalCol.Text = "Eliminar"
         Me.eliminalCol.Width = 80
         '
-        'btn_regersar
-        '
-        Me.btn_regersar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btn_regersar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_regersar.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btn_regersar.Location = New System.Drawing.Point(895, 727)
-        Me.btn_regersar.Name = "btn_regersar"
-        Me.btn_regersar.Size = New System.Drawing.Size(130, 41)
-        Me.btn_regersar.TabIndex = 32
-        Me.btn_regersar.Text = "Regresar"
-        Me.btn_regersar.UseVisualStyleBackColor = False
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label4.Location = New System.Drawing.Point(85, 12)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(270, 29)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Cedula del Estudante:"
-        '
-        'tbx_cedula
-        '
-        Me.tbx_cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbx_cedula.Location = New System.Drawing.Point(375, 11)
-        Me.tbx_cedula.Name = "tbx_cedula"
-        Me.tbx_cedula.Size = New System.Drawing.Size(250, 30)
-        Me.tbx_cedula.TabIndex = 8
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.PaleGreen
-        Me.Button1.Location = New System.Drawing.Point(657, 9)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(112, 41)
-        Me.Button1.TabIndex = 9
-        Me.Button1.Text = "BUSCAR"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.LightBlue
-        Me.Panel3.Controls.Add(Me.Button1)
-        Me.Panel3.Controls.Add(Me.tbx_cedula)
-        Me.Panel3.Controls.Add(Me.Label4)
-        Me.Panel3.Location = New System.Drawing.Point(3, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(994, 51)
-        Me.Panel3.TabIndex = 33
-        '
-        'Panel4
-        '
-        Me.Panel4.BackColor = System.Drawing.Color.LightBlue
-        Me.Panel4.Controls.Add(Me.cbx_modalidad)
-        Me.Panel4.Controls.Add(Me.Label14)
-        Me.Panel4.Controls.Add(Me.cbx_tipoMatricula)
-        Me.Panel4.Controls.Add(Me.Label13)
-        Me.Panel4.Controls.Add(Me.btn_matricular)
-        Me.Panel4.Location = New System.Drawing.Point(3, 184)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(994, 153)
-        Me.Panel4.TabIndex = 34
-        '
-        'cbx_tipoMatricula
-        '
-        Me.cbx_tipoMatricula.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbx_tipoMatricula.FormattingEnabled = True
-        Me.cbx_tipoMatricula.Location = New System.Drawing.Point(159, 45)
-        Me.cbx_tipoMatricula.Name = "cbx_tipoMatricula"
-        Me.cbx_tipoMatricula.Size = New System.Drawing.Size(261, 28)
-        Me.cbx_tipoMatricula.TabIndex = 34
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(180, 20)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(148, 22)
-        Me.Label13.TabIndex = 33
-        Me.Label13.Text = "Tipo de Matricula"
-        '
-        'cbx_modalidad
-        '
-        Me.cbx_modalidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbx_modalidad.FormattingEnabled = True
-        Me.cbx_modalidad.Location = New System.Drawing.Point(542, 45)
-        Me.cbx_modalidad.Name = "cbx_modalidad"
-        Me.cbx_modalidad.Size = New System.Drawing.Size(261, 28)
-        Me.cbx_modalidad.TabIndex = 36
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(563, 20)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(92, 22)
-        Me.Label14.TabIndex = 35
-        Me.Label14.Text = "Modalidad"
-        '
         'frm_MatricularEstudiante
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -477,11 +479,11 @@ Partial Class frm_MatricularEstudiante
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.dgv_matriculados, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        CType(Me.dgv_matriculados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

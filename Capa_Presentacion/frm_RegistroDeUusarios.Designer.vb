@@ -43,9 +43,13 @@ Partial Class frm_RegistroDeUusarios
         Me.cmbRoles = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ptbImagen = New System.Windows.Forms.PictureBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ptbImagen, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -207,11 +211,12 @@ Partial Class frm_RegistroDeUusarios
         '
         'Panel1
         '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.cmbRoles)
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.cmbSexo)
         Me.Panel1.Controls.Add(Me.dtpFechaNac)
@@ -274,15 +279,39 @@ Partial Class frm_RegistroDeUusarios
         Me.Button1.Text = "Limpiar Datos"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'PictureBox1
+        'ptbImagen
         '
-        Me.PictureBox1.Image = Global.Capa_Presentacion.My.Resources.Resources.logousuario1
-        Me.PictureBox1.Location = New System.Drawing.Point(646, 320)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(129, 113)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 16
-        Me.PictureBox1.TabStop = False
+        Me.ptbImagen.Image = Global.Capa_Presentacion.My.Resources.Resources.logousuario1
+        Me.ptbImagen.Location = New System.Drawing.Point(8, 9)
+        Me.ptbImagen.Name = "ptbImagen"
+        Me.ptbImagen.Size = New System.Drawing.Size(143, 131)
+        Me.ptbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ptbImagen.TabIndex = 16
+        Me.ptbImagen.TabStop = False
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.SystemColors.InactiveBorder
+        Me.Button3.Location = New System.Drawing.Point(160, 47)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(134, 52)
+        Me.Button3.TabIndex = 25
+        Me.Button3.Text = "Cambiar de Foto"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.SystemColors.Info
+        Me.Panel2.Controls.Add(Me.ptbImagen)
+        Me.Panel2.Controls.Add(Me.Button3)
+        Me.Panel2.Location = New System.Drawing.Point(541, 297)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(311, 148)
+        Me.Panel2.TabIndex = 26
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'frm_RegistroDeUusarios
         '
@@ -295,7 +324,8 @@ Partial Class frm_RegistroDeUusarios
         Me.Text = "frm_Usuario"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ptbImagen, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -312,7 +342,6 @@ Partial Class frm_RegistroDeUusarios
     Friend WithEvents txtApellido As TextBox
     Friend WithEvents txtDireccion As TextBox
     Friend WithEvents dtpFechaNac As DateTimePicker
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents cmbSexo As ComboBox
     Friend WithEvents btnGuardar As Button
     Friend WithEvents txtContrasena As TextBox
@@ -322,4 +351,8 @@ Partial Class frm_RegistroDeUusarios
     Friend WithEvents Button1 As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents cmbRoles As ComboBox
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents ptbImagen As PictureBox
+    Friend WithEvents Button3 As Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

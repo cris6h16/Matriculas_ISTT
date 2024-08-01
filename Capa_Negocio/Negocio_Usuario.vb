@@ -107,4 +107,9 @@ Public Class Negocio_Usuario
     Public Function listarTipoDeUsuario(eRol As ERoles) As HashSet(Of Entidad_Usuario)
         Return Me.datoUsuario.listarTipoDeUsuario(eRol)
     End Function
+
+    ' listar todos los usuarios
+    Public Function listarTodosDataSet() As DataSet
+        Return Me.datoUsuario.listarTodosDataSet()
+    End Function
 End Class

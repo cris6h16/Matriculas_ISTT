@@ -69,11 +69,11 @@ Public Class frm_RegistroDeAsignatura
     End Function
 
 
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+    Private Sub Label3_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+    Private Sub Label4_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -83,6 +83,48 @@ Public Class frm_RegistroDeAsignatura
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
+
+
+
+    Private Sub cmbCarreras_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCarreras.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub cmb_niveles_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_niveles.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub txtNombre_TextChanged(sender As Object, e As EventArgs) Handles txtNombre.TextChanged
+
+    End Sub
+
+    Private Sub Label3_Click_1(sender As Object, e As EventArgs) Handles Label3.Click
+
+    End Sub
+
+    Private Sub Label4_Click_1(sender As Object, e As EventArgs) Handles Label4.Click
+
+    End Sub
+
+    Private Sub txtDescripcion_TextChanged(sender As Object, e As EventArgs) Handles txtDescripcion.TextChanged
+
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub Panel3_Paint(sender As Object, e As PaintEventArgs) Handles Panel3.Paint
 
     End Sub
 End Class

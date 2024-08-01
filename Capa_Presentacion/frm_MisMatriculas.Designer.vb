@@ -25,12 +25,12 @@ Partial Class frm_MisMatriculas
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dgv_MisMatriculas = New System.Windows.Forms.DataGridView()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.asignaturas = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.periodo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.docente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipoDeMatricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.modalidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.dgv_MisMatriculas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -47,11 +47,11 @@ Partial Class frm_MisMatriculas
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.Panel1.BackColor = System.Drawing.Color.RoyalBlue
         Me.Panel1.Controls.Add(Me.dgv_MisMatriculas)
-        Me.Panel1.Location = New System.Drawing.Point(39, 98)
+        Me.Panel1.Location = New System.Drawing.Point(-8, 98)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1330, 484)
+        Me.Panel1.Size = New System.Drawing.Size(1405, 484)
         Me.Panel1.TabIndex = 27
         '
         'dgv_MisMatriculas
@@ -64,18 +64,6 @@ Partial Class frm_MisMatriculas
         Me.dgv_MisMatriculas.RowTemplate.Height = 24
         Me.dgv_MisMatriculas.Size = New System.Drawing.Size(1074, 339)
         Me.dgv_MisMatriculas.TabIndex = 15
-        '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button5.Location = New System.Drawing.Point(1174, 643)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(130, 41)
-        Me.Button5.TabIndex = 28
-        Me.Button5.Text = "Cerrar Secion"
-        Me.Button5.UseVisualStyleBackColor = False
         '
         'asignaturas
         '
@@ -112,10 +100,23 @@ Partial Class frm_MisMatriculas
         Me.modalidad.Name = "modalidad"
         Me.modalidad.Width = 125
         '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Button5.Location = New System.Drawing.Point(1174, 643)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(130, 41)
+        Me.Button5.TabIndex = 28
+        Me.Button5.Text = "Cerrar Secion"
+        Me.Button5.UseVisualStyleBackColor = False
+        '
         'frm_MisMatriculas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.ClientSize = New System.Drawing.Size(1396, 715)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Panel1)

@@ -40,4 +40,17 @@
         frm_AsignarMateriasADocentes.Show()
         Me.Hide()
     End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+
+    End Sub
+
+    Private Sub frm_MenuDeAdministrador_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub btnReporte_Click(sender As Object, e As EventArgs) Handles btnReporte.Click
+        frmReporteEstudiante.Show()
+
+    End Sub
 End Class

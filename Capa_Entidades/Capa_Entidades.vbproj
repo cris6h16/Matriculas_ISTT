@@ -67,6 +67,7 @@
     <Compile Include="EModalidad.vb" />
     <Compile Include="Entidad_Carrera.vb" />
     <Compile Include="Entidad_Asignatura.vb" />
+    <Compile Include="Entidad_Estudiantes.vb" />
     <Compile Include="Entidad_MatriculaAAsignatura.vb" />
     <Compile Include="Entidad_Modalidad.vb" />
     <Compile Include="Entidad_Nivel.vb" />

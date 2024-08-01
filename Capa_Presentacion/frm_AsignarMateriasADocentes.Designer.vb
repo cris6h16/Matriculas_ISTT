@@ -61,7 +61,7 @@ Partial Class frm_AsignarMateriasADocentes
         Me.dgv_asignaciones.Name = "dgv_asignaciones"
         Me.dgv_asignaciones.RowHeadersWidth = 51
         Me.dgv_asignaciones.RowTemplate.Height = 24
-        Me.dgv_asignaciones.Size = New System.Drawing.Size(1164, 155)
+        Me.dgv_asignaciones.Size = New System.Drawing.Size(1203, 181)
         Me.dgv_asignaciones.TabIndex = 0
         '
         'id
@@ -128,11 +128,11 @@ Partial Class frm_AsignarMateriasADocentes
         '
         Me.dgv_asignaturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_asignaturas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nivel, Me.nombre, Me.carrera})
-        Me.dgv_asignaturas.Location = New System.Drawing.Point(34, 96)
+        Me.dgv_asignaturas.Location = New System.Drawing.Point(12, 96)
         Me.dgv_asignaturas.Name = "dgv_asignaturas"
         Me.dgv_asignaturas.RowHeadersWidth = 51
         Me.dgv_asignaturas.RowTemplate.Height = 24
-        Me.dgv_asignaturas.Size = New System.Drawing.Size(544, 152)
+        Me.dgv_asignaturas.Size = New System.Drawing.Size(566, 168)
         Me.dgv_asignaturas.TabIndex = 7
         '
         'nivel
@@ -164,7 +164,7 @@ Partial Class frm_AsignarMateriasADocentes
         Me.dgw_docentes.Name = "dgw_docentes"
         Me.dgw_docentes.RowHeadersWidth = 51
         Me.dgw_docentes.RowTemplate.Height = 24
-        Me.dgw_docentes.Size = New System.Drawing.Size(544, 152)
+        Me.dgw_docentes.Size = New System.Drawing.Size(544, 168)
         Me.dgw_docentes.TabIndex = 8
         '
         'cedula
@@ -262,7 +262,7 @@ Partial Class frm_AsignarMateriasADocentes
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.Panel1.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.Panel1.Controls.Add(Me.dgw_docentes)
         Me.Panel1.Controls.Add(Me.btn_regersar)
         Me.Panel1.Controls.Add(Me.Label5)

@@ -94,4 +94,30 @@ Public Class frm_RegistroDeUusarios
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
 
     End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles ptbImagen.Click
+
+    End Sub
+
+    Private Sub OpenFileDialog1_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs)
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim openFileDialog1 As New OpenFileDialog()
+        ' Configurar el diálogo
+        openFileDialog1.Filter = "Archivos de imagen|.jpg;.jpeg;.png;.gif;*.bmp"
+        openFileDialog1.Title = "Seleccionar una imagen"
+        ' Mostrar el diálogo y verificar si el usuario seleccionó un archivo
+        If openFileDialog1.ShowDialog() = DialogResult.OK Then
+            Try
+                ' Cargar la imagen en el PictureBox
+                ptbImagen.Image = Image.FromFile(openFileDialog1.FileName)
+                ' Opcional: ajustar el tamaño de la imagen al PictureBox
+                ptbImagen.SizeMode = PictureBoxSizeMode.Zoom
+            Catch ex As Exception
+                MessageBox.Show("Error al cargar la imagen: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
+    End Sub
 End Class
