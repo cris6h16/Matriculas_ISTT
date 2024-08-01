@@ -1,4 +1,5 @@
-﻿Imports Capa_Datos
+﻿Imports System.IO
+Imports Capa_Datos
 Imports Capa_Entidades
 Imports Capa_Negocio
 
@@ -25,6 +26,8 @@ Public Class frm_RegistroDeUusarios
         Dim fechaNac As Date = dtpFechaNac.Value
         Dim direccion As String = txtDireccion.Text
         Dim contrasena As String = txtContrasena.Text
+        Dim foto As Image = ptbImagen.Image
+
         Dim rol As ERoles = CType([Enum].Parse(GetType(ERoles), cmbRoles.SelectedItem.ToString), ERoles)
 
         Dim usuario As New Entidad_Usuario(
@@ -36,7 +39,8 @@ Public Class frm_RegistroDeUusarios
             contrasena,
             sexo,
             fechaNac,
-            direccion
+            direccion,
+            foto
             )
 
         Try
@@ -106,18 +110,21 @@ Public Class frm_RegistroDeUusarios
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim openFileDialog1 As New OpenFileDialog()
         ' Configurar el diálogo
-        openFileDialog1.Filter = "Archivos de imagen|.jpg;.jpeg;.png;.gif;*.bmp"
+        openFileDialog1.Filter = "Archivos de imagen (*.jpg;*.jpeg;*.png;*.gif;*.bmp)|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
         openFileDialog1.Title = "Seleccionar una imagen"
         ' Mostrar el diálogo y verificar si el usuario seleccionó un archivo
         If openFileDialog1.ShowDialog() = DialogResult.OK Then
             Try
+                ' Mostrar la ruta del archivo para depuración
+                MessageBox.Show("Ruta del archivo: " & openFileDialog1.FileName)
                 ' Cargar la imagen en el PictureBox
                 ptbImagen.Image = Image.FromFile(openFileDialog1.FileName)
-                ' Opcional: ajustar el tamaño de la imagen al PictureBox
+                ' Ajustar el tamaño de la imagen al PictureBox
                 ptbImagen.SizeMode = PictureBoxSizeMode.Zoom
             Catch ex As Exception
                 MessageBox.Show("Error al cargar la imagen: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End If
     End Sub
+
 End Class

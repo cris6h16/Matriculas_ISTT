@@ -1,5 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports Capa_Entidades
+Imports System.Drawing
+Imports System.IO
 
 Public Class Dato_Usuario
 
@@ -29,10 +31,13 @@ Public Class Dato_Usuario
                         Dim sexo As Char = reader.GetChar(6)
                         Dim nacimiento As Date = reader.GetDateTime(7)
                         Dim direccion As String = reader.GetString(8)
+                        Dim foto As Byte() = CType(reader("foto"), Byte())
+
 
                         Dim eRol As ERoles = CType([Enum].Parse(GetType(ERoles), rol), ERoles)
 
-                        usuario = New Entidad_Usuario(id, nombres, apellidos, cedulaR, eRol, contrasenaR, sexo, nacimiento, direccion)
+                        usuario = New Entidad_Usuario(id, nombres, apellidos, cedulaR, eRol, contrasenaR, sexo, nacimiento, direccion, ByteArrayToImage(foto))
+
                     End If
                 End Using
             End Using
@@ -65,10 +70,11 @@ Public Class Dato_Usuario
                         Dim sexo As Char = reader.GetChar(6)
                         Dim nacimiento As Date = reader.GetDateTime(7)
                         Dim direccion As String = reader.GetString(8)
+                        Dim foto As Byte() = CType(reader("foto"), Byte())
 
                         Dim eRol As ERoles = CType([Enum].Parse(GetType(ERoles), rol), ERoles)
 
-                        usuario = New Entidad_Usuario(id, nombres, apellidos, cedulaR, eRol, contrasenaR, sexo, nacimiento, direccion)
+                        usuario = New Entidad_Usuario(id, nombres, apellidos, cedulaR, eRol, contrasenaR, sexo, nacimiento, direccion, ByteArrayToImage(foto))
                     End If
                 End Using
             End Using
@@ -76,6 +82,7 @@ Public Class Dato_Usuario
 
         Return usuario
     End Function
+
 
 
     Public Function traerPorId(id As Integer) As Entidad_Usuario
@@ -101,10 +108,11 @@ Public Class Dato_Usuario
                         Dim sexo As Char = reader.GetChar(6)
                         Dim nacimiento As Date = reader.GetDateTime(7)
                         Dim direccion As String = reader.GetString(8)
+                        Dim foto As Byte() = CType(reader("foto"), Byte())
 
                         Dim eRol As ERoles = CType([Enum].Parse(GetType(ERoles), rol), ERoles)
 
-                        usuario = New Entidad_Usuario(idR, nombres, apellidos, cedula, eRol, contrasena, sexo, nacimiento, direccion)
+                        usuario = New Entidad_Usuario(idR, nombres, apellidos, cedula, eRol, contrasena, sexo, nacimiento, direccion, ByteArrayToImage(foto))
                     End If
                 End Using
             End Using
@@ -129,6 +137,7 @@ Public Class Dato_Usuario
                 cmd.Parameters.AddWithValue("sexo_param", usuario.Sexo)
                 cmd.Parameters.AddWithValue("nacimiento_param", usuario.Nacimiento)
                 cmd.Parameters.AddWithValue("direccion_param", usuario.Direccion)
+                cmd.Parameters.AddWithValue("foto_param", ImageToByteArray(usuario.Foto))
                 cmd.Parameters.AddWithValue("rol_param", usuario.Rol.ToString())
                 conn.Open()
 
@@ -202,6 +211,7 @@ Public Class Dato_Usuario
                         Dim sexo As Char = reader.GetChar(6)
                         Dim nacimiento As Date = reader.GetDateTime(7)
                         Dim direccion As String = reader.GetString(8)
+                        Dim foto As Byte() = CType(reader("foto"), Byte())
 
                         Dim usuario As New Entidad_Usuario(
                             id,
@@ -212,8 +222,9 @@ Public Class Dato_Usuario
                             contrasena,
                             sexo,
                             nacimiento,
-                            direccion
-                        )
+                            direccion,
+                            ByteArrayToImage(foto)
+                            )
                         usuarios.Add(usuario)
                     End While
                 End Using
@@ -229,7 +240,7 @@ Public Class Dato_Usuario
         Using cnn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
             cnn.Open()
             Try
-                Dim cmd As New MySqlCommand("SELECT * FROM usuario", cnn)
+                Dim cmd As New MySqlCommand("SELECT * FROM vistaUsuariosCamposEnOrden", cnn)
                 Dim adapter As New MySqlDataAdapter(cmd)
                 adapter.Fill(ds, "estudiantes")
             Catch ex As Exception
@@ -240,5 +251,18 @@ Public Class Dato_Usuario
 
         Return ds
 
+    End Function
+
+    Public Function ByteArrayToImage(byteArray As Byte()) As Image
+        Using ms As New MemoryStream(byteArray)
+            Return Image.FromStream(ms)
+        End Using
+    End Function
+
+    Public Function ImageToByteArray(image As Image) As Byte()
+        Using ms As New MemoryStream()
+            image.Save(ms, image.RawFormat)
+            Return ms.ToArray()
+        End Using
     End Function
 End Class

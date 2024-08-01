@@ -22,6 +22,7 @@
               <xs:element name="sexo" msprop:Generator_ColumnPropNameInTable="SexoColumn" msprop:Generator_ColumnPropNameInRow="Sexo" msprop:Generator_UserColumnName="sexo" msprop:Generator_ColumnVarNameInTable="columnSexo" type="xs:string" minOccurs="0" />
               <xs:element name="nacimiento" msprop:Generator_ColumnPropNameInTable="nacimientoColumn" msprop:Generator_ColumnPropNameInRow="nacimiento" msprop:Generator_UserColumnName="nacimiento" msprop:Generator_ColumnVarNameInTable="columnnacimiento" type="xs:string" minOccurs="0" />
               <xs:element name="direccion" msprop:Generator_ColumnPropNameInTable="direccionColumn" msprop:Generator_ColumnPropNameInRow="direccion" msprop:Generator_UserColumnName="direccion" msprop:Generator_ColumnVarNameInTable="columndireccion" type="xs:string" minOccurs="0" />
+              <xs:element name="foto" msprop:Generator_ColumnPropNameInRow="foto" msprop:Generator_ColumnPropNameInTable="fotoColumn" msprop:Generator_ColumnVarNameInTable="columnfoto" msprop:Generator_UserColumnName="foto" type="xs:base64Binary" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

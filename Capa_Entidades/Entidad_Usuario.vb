@@ -1,4 +1,6 @@
-﻿Public Class Entidad_Usuario
+﻿Imports System.Drawing
+
+Public Class Entidad_Usuario
     Private _Id As Integer
     Private _Nombres As String
     Private _Apellidos As String
@@ -7,9 +9,10 @@
     Private _Sexo As Char
     Private _Nacimiento As Date
     Private _Direccion As String
+    Private _Foto As Image
     Private _Rol As ERoles
 
-    Public Sub New(id As Integer, nombre As String, apellido As String, cedula As String, Rol As ERoles, contrasena As String, sexo As Char, nacimiento As Date, direccion As String)
+    Public Sub New(id As Integer, nombre As String, apellido As String, cedula As String, Rol As ERoles, contrasena As String, sexo As Char, nacimiento As Date, direccion As String, foto As Image)
         Me.Id = id
         Me.Nombres = nombre
         Me.Apellidos = apellido
@@ -19,6 +22,7 @@
         Me.Sexo = sexo
         Me.Nacimiento = nacimiento
         Me.Direccion = direccion
+        Me._Foto = foto
     End Sub
 
     Public Property Id As Integer
@@ -99,6 +103,15 @@
         End Get
         Set(value As ERoles)
             _Rol = value
+        End Set
+    End Property
+
+    Public Property Foto As Image
+        Get
+            Return _Foto
+        End Get
+        Set(value As Image)
+            _Foto = value
         End Set
     End Property
 End Class

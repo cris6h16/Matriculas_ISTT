@@ -297,6 +297,8 @@ Partial Public Class dsMatriculas
         
         Private columndireccion As Global.System.Data.DataColumn
         
+        Private columnfoto As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -389,6 +391,14 @@ Partial Public Class dsMatriculas
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property fotoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfoto
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -425,9 +435,9 @@ Partial Public Class dsMatriculas
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddestudiantesRow(ByVal ID As String, ByVal Cedula As String, ByVal nombres As String, ByVal Apellidos As String, ByVal Sexo As String, ByVal nacimiento As String, ByVal direccion As String) As estudiantesRow
+        Public Overloads Function AddestudiantesRow(ByVal ID As String, ByVal Cedula As String, ByVal nombres As String, ByVal Apellidos As String, ByVal Sexo As String, ByVal nacimiento As String, ByVal direccion As String, ByVal foto() As Byte) As estudiantesRow
             Dim rowestudiantesRow As estudiantesRow = CType(Me.NewRow,estudiantesRow)
-            Dim columnValuesArray() As Object = New Object() {ID, Cedula, nombres, Apellidos, Sexo, nacimiento, direccion}
+            Dim columnValuesArray() As Object = New Object() {ID, Cedula, nombres, Apellidos, Sexo, nacimiento, direccion, foto}
             rowestudiantesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowestudiantesRow)
             Return rowestudiantesRow
@@ -457,6 +467,7 @@ Partial Public Class dsMatriculas
             Me.columnSexo = MyBase.Columns("sexo")
             Me.columnnacimiento = MyBase.Columns("nacimiento")
             Me.columndireccion = MyBase.Columns("direccion")
+            Me.columnfoto = MyBase.Columns("foto")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -492,6 +503,8 @@ Partial Public Class dsMatriculas
             MyBase.Columns.Add(Me.columnnacimiento)
             Me.columndireccion = New Global.System.Data.DataColumn("direccion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndireccion)
+            Me.columnfoto = New Global.System.Data.DataColumn("foto", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfoto)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -743,6 +756,21 @@ Partial Public Class dsMatriculas
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property foto() As Byte()
+            Get
+                Try 
+                    Return CType(Me(Me.tableestudiantes.fotoColumn),Byte())
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'foto' in table 'estudiantes' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableestudiantes.fotoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsIDNull() As Boolean
             Return Me.IsNull(Me.tableestudiantes.IDColumn)
         End Function
@@ -823,6 +851,18 @@ Partial Public Class dsMatriculas
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetdireccionNull()
             Me(Me.tableestudiantes.direccionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsfotoNull() As Boolean
+            Return Me.IsNull(Me.tableestudiantes.fotoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetfotoNull()
+            Me(Me.tableestudiantes.fotoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
