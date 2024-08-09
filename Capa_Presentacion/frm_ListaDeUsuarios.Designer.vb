@@ -31,6 +31,11 @@ Partial Class frm_ListaDeUsuarios
         Me.sexo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nacimiento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.modificarCol = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.btn_eliminar = New System.Windows.Forms.Button()
+        Me.btn_modificar = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.btn_buscar = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.tablaUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -39,7 +44,7 @@ Partial Class frm_ListaDeUsuarios
         Me.tablaUsuarios.BackgroundColor = System.Drawing.Color.DeepSkyBlue
         Me.tablaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tablaUsuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Foto, Me.ROL, Me.cedula, Me.nombres, Me.apellidos, Me.sexo, Me.nacimiento, Me.modificarCol})
-        Me.tablaUsuarios.Location = New System.Drawing.Point(12, 116)
+        Me.tablaUsuarios.Location = New System.Drawing.Point(31, 120)
         Me.tablaUsuarios.Name = "tablaUsuarios"
         Me.tablaUsuarios.RowHeadersWidth = 51
         Me.tablaUsuarios.RowTemplate.Height = 24
@@ -113,16 +118,70 @@ Partial Class frm_ListaDeUsuarios
         Me.modificarCol.Text = "Modificar"
         Me.modificarCol.Width = 150
         '
+        'btn_eliminar
+        '
+        Me.btn_eliminar.BackColor = System.Drawing.Color.LightCoral
+        Me.btn_eliminar.Location = New System.Drawing.Point(71, 528)
+        Me.btn_eliminar.Name = "btn_eliminar"
+        Me.btn_eliminar.Size = New System.Drawing.Size(139, 50)
+        Me.btn_eliminar.TabIndex = 2
+        Me.btn_eliminar.Text = "ELIMINAR"
+        Me.btn_eliminar.UseVisualStyleBackColor = False
+        '
+        'btn_modificar
+        '
+        Me.btn_modificar.BackColor = System.Drawing.Color.LimeGreen
+        Me.btn_modificar.Location = New System.Drawing.Point(233, 528)
+        Me.btn_modificar.Name = "btn_modificar"
+        Me.btn_modificar.Size = New System.Drawing.Size(139, 50)
+        Me.btn_modificar.TabIndex = 3
+        Me.btn_modificar.Text = "MODIFICAR"
+        Me.btn_modificar.UseVisualStyleBackColor = False
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Noto Serif", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.TextBox1.Location = New System.Drawing.Point(191, 64)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(190, 31)
+        Me.TextBox1.TabIndex = 4
+        '
+        'btn_buscar
+        '
+        Me.btn_buscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btn_buscar.Location = New System.Drawing.Point(387, 64)
+        Me.btn_buscar.Name = "btn_buscar"
+        Me.btn_buscar.Size = New System.Drawing.Size(103, 31)
+        Me.btn_buscar.TabIndex = 5
+        Me.btn_buscar.Text = "Buscar"
+        Me.btn_buscar.UseVisualStyleBackColor = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.Label1.Location = New System.Drawing.Point(187, 29)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(163, 20)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "buscar por CEDULA"
+        '
         'frm_ListaDeUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1387, 664)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btn_buscar)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.btn_modificar)
+        Me.Controls.Add(Me.btn_eliminar)
         Me.Controls.Add(Me.tablaUsuarios)
         Me.Name = "frm_ListaDeUsuarios"
         Me.Text = "Form1"
         CType(Me.tablaUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -135,4 +194,9 @@ Partial Class frm_ListaDeUsuarios
     Friend WithEvents sexo As DataGridViewTextBoxColumn
     Friend WithEvents nacimiento As DataGridViewTextBoxColumn
     Friend WithEvents modificarCol As DataGridViewButtonColumn
+    Friend WithEvents btn_eliminar As Button
+    Friend WithEvents btn_modificar As Button
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents btn_buscar As Button
+    Friend WithEvents Label1 As Label
 End Class

@@ -79,4 +79,20 @@ Public Class frm_ListaDeUsuarios
             Next
         Next
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btn_modificar.Click
+        Dim fila As DataGridViewRow = obtenerFilaSeleccionada()
+        Dim cedula As String = fila.Cells(2).Value
+
+        Dim frm As New frm_ModificarUsuario(cedula)
+    End Sub
+
+    ' optener la fila seleccionada actualmente
+    Private Function obtenerFilaSeleccionada() As DataGridViewRow
+        If tablaUsuarios.SelectedRows.Count = 0 Then
+            Throw New Exception("Seleccione una fila")
+        End If
+
+        Return tablaUsuarios.SelectedRows(0)
+    End Function
 End Class

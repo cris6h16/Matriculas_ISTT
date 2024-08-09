@@ -22,6 +22,7 @@ Public Class Dato_Usuario
     End Sub
 
 
+
     Public Function traerPorCedulaYContrasena(cedula As String, contrasena As String) As Entidad_Usuario
         Dim usuario As Entidad_Usuario = Nothing
 
@@ -168,6 +169,34 @@ Public Class Dato_Usuario
 
         Return creado
     End Function
+
+    Public Sub actualizar(usuario As Entidad_Usuario)
+
+
+        ' Conexión a la base de datos
+        Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            ' Comando para ejecutar el procedimiento almacenado
+            Using cmd As New MySqlCommand("actualizarUsuario", conn)
+                cmd.CommandType = CommandType.StoredProcedure
+                ' Agregando parámetros al procedimiento almacenado
+                cmd.Parameters.AddWithValue("nombres_param", usuario.Nombres)
+                cmd.Parameters.AddWithValue("apellidos_param", usuario.Apellidos)
+                cmd.Parameters.AddWithValue("cedula_param", usuario.Cedula)
+                cmd.Parameters.AddWithValue("contrasena_param", usuario.Contrasena)
+                cmd.Parameters.AddWithValue("sexo_param", usuario.Sexo)
+                cmd.Parameters.AddWithValue("nacimiento_param", usuario.Nacimiento)
+                cmd.Parameters.AddWithValue("direccion_param", usuario.Direccion)
+                cmd.Parameters.AddWithValue("foto_param", ImageToByteArray(usuario.Foto))
+                cmd.Parameters.AddWithValue("activo_param", usuario.Activo)
+                cmd.Parameters.AddWithValue("rol_param", usuario.Rol.ToString())
+                conn.Open()
+
+                ' Ejecuta el comando
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+
+    End Sub
 
     '
     Public Function existePorCedula(cedula As String) As Boolean

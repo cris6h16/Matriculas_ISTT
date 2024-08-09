@@ -16,6 +16,59 @@ Public Class Negocio_Usuario
         datoUsuario.cambiarEstadoPorCedula(cedula, activo)
     End Sub
 
+    Public Sub actualizar(usuario As Entidad_Usuario)
+
+
+        If (usuario Is Nothing) Then
+            Throw New ArgumentException("El usuario no puede ser nulo")
+        End If
+
+
+        If (usuario.Nombres = "" Or usuario.Nombres Is Nothing) Then
+            Throw New ArgumentException("El nombre no puede estar vacio o nulo")
+        End If
+
+        If (usuario.Apellidos = "" Or usuario.Apellidos Is Nothing) Then
+            Throw New ArgumentException("El apellido no puede estar vacio o nulo")
+        End If
+
+        If (usuario.Cedula.Length <> 10 Or usuario.Cedula Is Nothing) Then
+            Throw New ArgumentException("La cedula debe tener 10 caracteres")
+        End If
+
+        If (usuario.Sexo <> "M" AndAlso usuario.Sexo <> "F") Then
+            Throw New ArgumentException("El sexo debe ser M o F")
+        End If
+
+        If (usuario.Nacimiento = Nothing) Then
+            Throw New ArgumentException("La fecha de nacimiento no puede ser nula")
+        End If
+
+        If (usuario.Direccion Is Nothing Or usuario.Direccion.Length = 0) Then
+            Throw New ArgumentException("La direccion no puede estar vacia o nula")
+        End If
+
+        If usuario.Contrasena Is Nothing Or usuario.Contrasena.Length < 8 Then
+            Throw New ArgumentException("La contraseña debe tener al menos 8 caracteres")
+        End If
+
+        If usuario.Foto Is Nothing Then
+            Throw New ArgumentException("La foto no puede ser nula")
+        End If
+
+
+
+        ' verificar si existe el usuario
+
+        If Not datoUsuario.existePorCedula(usuario.Cedula) Then
+            Throw New ArgumentException("No existe un usuario con esa cedula")
+        End If
+
+
+
+        Me.datoUsuario.actualizar(usuario)
+    End Sub
+
     Public Function traerPorCedulaYContrasena(cedula As String, contrasena As String) As Entidad_Usuario
         If cedula = "" Or cedula Is Nothing Then
             Throw New ArgumentException("La cedula no puede estar vacia o nula")
@@ -57,6 +110,8 @@ Public Class Negocio_Usuario
         'Private _Nacimiento As Date
         'Private _Direccion As String
         'Private _Rol As Entidad_Roles
+        ' Private _Foto As Image
+        ' Private _Activo As Boolean
 
 
         If (usuario Is Nothing) Then
@@ -94,6 +149,12 @@ Public Class Negocio_Usuario
         If usuario.Contrasena Is Nothing Or usuario.Contrasena.Length < 8 Then
             Throw New ArgumentException("La contraseña debe tener al menos 8 caracteres")
         End If
+
+        If usuario.Foto Is Nothing Then
+            Throw New ArgumentException("La foto no puede ser nula")
+        End If
+
+
 
         ' verificar no repetidos
 

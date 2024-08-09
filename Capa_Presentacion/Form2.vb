@@ -1,23 +1,22 @@
-﻿Imports System.IO
-Imports Capa_Datos
-Imports Capa_Entidades
+﻿Imports Capa_Entidades
 Imports Capa_Negocio
+Imports Capa_Datos
 
-Public Class Form1
+Public Class Form2
+
+    Private entidad_Usuario As Entidad_Usuario
 
     Private negocioUsuario As Negocio_Usuario
 
-    Public Sub New()
+    Public Sub New(entidad_Usuario As Entidad_Usuario)
         InitializeComponent()
-        negocioUsuario = New Negocio_Usuario(New Dato_Usuario)
-        Me.cmbSexo.SelectedIndex = 0
+        negocioUsuario = New Negocio_Usuario(New Dato_Usuario())
 
-        Me.cmbRoles.Items.AddRange(ERoles.GetNames(GetType(ERoles)))
-        Me.cmbRoles.SelectedIndex = 0
-        Me.dtpFechaNac.Format = DateTimePickerFormat.Custom
+        Me.entidad_Usuario = entidad_Usuario
+        llenarComboBoxes()
+        llenarCampos()
     End Sub
-
-    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+    Private Sub btn_actualizar_Click(sender As Object, e As EventArgs) Handles btn_actualizar.Click
         ' Capturar los datos ingresados en los campos del formulario
         Dim cedula As String = txtCedula.Text
         Dim nombre As String = txtNombre.Text
@@ -42,70 +41,35 @@ Public Class Form1
             direccion,
             foto,
             True
-            )
-
+)
         Try
-            negocioUsuario.crear(usuario)
-            MsgBox("Usuario creado correctamente")
+            negocioUsuario.actualizar(usuario)
+            MsgBox("Usuario ACTUALIZADO correctamente")
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
 
-
-
     End Sub
 
-    Private Sub frm_Usuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub llenarComboBoxes()
+        ' Llenar el ComboBox de Roles
+        Me.cmbRoles.Items.AddRange(ERoles.GetNames(GetType(ERoles)))
+        Me.cmbRoles.SelectedIndex = 0
 
+        ' Llenar el ComboBox de Sexo: solo es 'M' o 'F'
+        Me.cmbSexo.Items.AddRange(New String() {"M", "F"})
     End Sub
 
-    Private Sub txtApellido_TextChanged(sender As Object, e As EventArgs) Handles txtApellido.TextChanged
-
-    End Sub
-
-    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
-
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Me.Hide()
-        frmPrincipal.frm_MenuDeAdministrador.Show()
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-        Me.txtApellido.Clear()
-        Me.txtCedula.Clear()
-        Me.txtContrasena.Clear()
-        Me.txtDireccion.Clear()
-        Me.txtNombre.Clear()
-        Me.cmbSexo.SelectedIndex = 0
-        Me.dtpFechaNac.Value = Date.Now
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
-
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
-    End Sub
-
-    Private Sub dtpFechaNac_ValueChanged(sender As Object, e As EventArgs) Handles dtpFechaNac.ValueChanged
-
-    End Sub
-
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-
-    End Sub
-
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles ptbImagen.Click
-
-    End Sub
-
-    Private Sub OpenFileDialog1_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs)
-
+    Private Sub llenarCampos()
+        txtCedula.Text = entidad_Usuario.Cedula
+        txtNombre.Text = entidad_Usuario.Nombres
+        txtApellido.Text = entidad_Usuario.Apellidos
+        txtContrasena.Text = entidad_Usuario.Contrasena
+        txtDireccion.Text = entidad_Usuario.Direccion
+        cmbRoles.SelectedItem = entidad_Usuario.Rol.ToString
+        cmbSexo.SelectedItem = entidad_Usuario.Sexo
+        dtpFechaNac.Value = entidad_Usuario.Nacimiento
+        ptbImagen.Image = entidad_Usuario.Foto
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -127,5 +91,4 @@ Public Class Form1
             End Try
         End If
     End Sub
-
 End Class
