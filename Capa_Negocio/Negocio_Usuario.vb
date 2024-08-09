@@ -9,7 +9,7 @@ Public Class Negocio_Usuario
     End Sub
 
     Public Sub cambiarEstadoPorCedula(cedula As String, activo As Boolean)
-        If cedula = "" Or cedula Is Nothing Then
+        If cedula Is Nothing Or cedula = "" Then
             Throw New ArgumentException("La cedula no puede estar vacia o nula")
         End If
 
@@ -24,15 +24,15 @@ Public Class Negocio_Usuario
         End If
 
 
-        If (usuario.Nombres = "" Or usuario.Nombres Is Nothing) Then
+        If (usuario.Nombres Is Nothing Or usuario.Nombres = "") Then
             Throw New ArgumentException("El nombre no puede estar vacio o nulo")
         End If
 
-        If (usuario.Apellidos = "" Or usuario.Apellidos Is Nothing) Then
+        If (usuario.Apellidos Is Nothing Or usuario.Apellidos = "") Then
             Throw New ArgumentException("El apellido no puede estar vacio o nulo")
         End If
 
-        If (usuario.Cedula.Length <> 10 Or usuario.Cedula Is Nothing) Then
+        If (usuario.Cedula Is Nothing Or usuario.Cedula.Length <> 10) Then
             Throw New ArgumentException("La cedula debe tener 10 caracteres")
         End If
 
@@ -93,10 +93,10 @@ Public Class Negocio_Usuario
     End Sub
 
     Public Function traerPorCedulaYContrasena(cedula As String, contrasena As String) As Entidad_Usuario
-        If cedula = "" Or cedula Is Nothing Then
+        If cedula Is Nothing Or cedula = "" Then
             Throw New ArgumentException("La cedula no puede estar vacia o nula")
         End If
-        If contrasena = "" Or contrasena Is Nothing Then
+        If contrasena Is Nothing Or contrasena = "" Then
             Throw New ArgumentException("La contraseña no puede estar vacia o nula")
         End If
 
@@ -111,7 +111,7 @@ Public Class Negocio_Usuario
 
 
     Public Function traerPorCedula(cedula As String) As Entidad_Usuario
-        If cedula.Length <> 10 Then
+        If cedula Is Nothing Or cedula.Length <> 10 Then
             Throw New ArgumentException("La cedula debe tener 10 digitos")
         End If
 
@@ -145,15 +145,15 @@ Public Class Negocio_Usuario
             Throw New ArgumentException("Para crear un usuario no debe asignar un id")
         End If
 
-        If (usuario.Nombres = "" Or usuario.Nombres Is Nothing) Then
+        If (usuario.Nombres Is Nothing Or usuario.Nombres = "") Then
             Throw New ArgumentException("El nombre no puede estar vacio o nulo")
         End If
 
-        If (usuario.Apellidos = "" Or usuario.Apellidos Is Nothing) Then
+        If (usuario.Apellidos Is Nothing Or usuario.Apellidos = "") Then
             Throw New ArgumentException("El apellido no puede estar vacio o nulo")
         End If
 
-        If (usuario.Cedula.Length <> 10 Or usuario.Cedula Is Nothing) Then
+        If (usuario.Cedula Is Nothing Or usuario.Cedula.Length <> 10) Then
             Throw New ArgumentException("La cedula debe tener 10 caracteres")
         End If
 

@@ -2,10 +2,22 @@
 -- ----------- PROCEDIMIENTOS ALMACENADOS --------------------
 -- -----------------------------------------------------------
 
+DROP PROCEDURE IF EXISTS `crearUsuario`;
+DROP PROCEDURE IF EXISTS `actualizarUsuario`;
+DROP PROCEDURE IF EXISTS `eliminarPorCedula`;
+DROP PROCEDURE IF EXISTS `existePorCedula`;
+DROP PROCEDURE IF EXISTS `existePorId`;
+DROP PROCEDURE IF EXISTS `traerPorCedulaYContrasena`;
+DROP PROCEDURE IF EXISTS `traerPorCedula`;
+DROP PROCEDURE IF EXISTS `traerPorId`;
+DROP PROCEDURE IF EXISTS `cambiarEstadoPorCedula`;
+DROP PROCEDURE IF EXISTS `cambiarEstadoPorCedula`;
+DROP PROCEDURE IF EXISTS `listarTipoDeUsuario`;
+DROP VIEW IF EXISTS `vistaUsuariosCamposEnOrden`;
+
 -- Procedimiento Almacenado para crear un nuevo usuario
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS `crearUsuario`;
 CREATE PROCEDURE `crearUsuario`(
     IN `nombres_param` VARCHAR(50), 
     IN `apellidos_param` VARCHAR(50),
@@ -47,10 +59,56 @@ END $$
 DELIMITER ;
 
 
+-- Procedimiento Almacenado para actualizar ususario por cedula
+
+DELIMITER $$
+CREATE PROCEDURE `actualizarUsuario`(
+    IN `id_param` VARCHAR(255),
+    IN `nombres_param` VARCHAR(255),
+    IN `apellidos_param` VARCHAR(255),
+    IN `cedula_param` VARCHAR(10),
+    IN `contrasena_param` TEXT,
+    IN `sexo_param` VARCHAR(1),
+    IN `nacimiento_param` DATE,
+    IN `direccion_param` VARCHAR(255),
+    IN `foto_param` LONGBLOB,
+    IN `activo_param` TINYINT(1),
+    IN `rol_param` VARCHAR(20)
+)
+BEGIN
+    UPDATE `usuario`
+    SET 
+        `nombres` = nombres_param,
+        `apellidos` = apellidos_param,
+        `cedula` = cedula_param,
+        `contrasena` = contrasena_param,
+        `sexo` = sexo_param,
+        `nacimiento` = nacimiento_param,
+        `direccion` = direccion_param,
+        `foto` = foto_param,
+        `activo` = activo_param,
+        `rol` = rol_param
+    WHERE `id` = id_param;
+END$$
+
+DELIMITER ;
+
+-- Procedimiento para eliminar usuario
+
+DELIMITER $$
+
+CREATE PROCEDURE eliminarPorCedula(IN cedula_param VARCHAR(10))
+BEGIN
+    DELETE FROM usuario
+    WHERE cedula = cedula_param;
+END $$
+
+DELIMITER ;
+
+
 -- Procedimiento Almacenado para verificar existencia de usuario por cédula
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS `existePorCedula`;
 CREATE PROCEDURE `existePorCedula`(
     IN `cedula_param` VARCHAR(20)
 )
@@ -74,7 +132,6 @@ DELIMITER ;
 -- Procedimiento Almacenado para verificar existencia de usuario por ID
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS `existePorId`;
 CREATE PROCEDURE `existePorId`(
     IN `id_param` INT
 )
@@ -96,7 +153,6 @@ DELIMITER ;
 -- Procedimiento Almacenado para traer usuario por cédula y contraseña
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS `traerPorCedulaYContrasena`;
 CREATE PROCEDURE traerPorCedulaYContrasena(
     IN cedula_param VARCHAR(50), 
     IN contrasena_param VARCHAR(50)
@@ -113,7 +169,6 @@ DELIMITER ;
 -- Procedimiento Almacenado para traer usuario por cédula
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS `traerPorCedula`;
 CREATE PROCEDURE traerPorCedula(
     IN cedula_param VARCHAR(50)
 )
@@ -128,7 +183,6 @@ DELIMITER ;
 -- Procedimiento Almacenado para traer usuario por ID
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS `traerPorId`;
 CREATE PROCEDURE traerPorId(
     IN id_param INT
 )
@@ -141,20 +195,13 @@ DELIMITER ;
 
 
 -- Procedimiento Almacenado para listar usuarios por tipo de rol
-
 DELIMITER $$
-DROP PROCEDURE IF EXISTS `cambiarEstadoPorCedula`$$
-
-CREATE PROCEDURE cambiarEstadoPorCedula(
-    IN cedula_param VARCHAR(10),
-    IN activo_param BOOLEAN
-)
+CREATE PROCEDURE `listarTipoDeUsuario` (IN `rol_param` VARCHAR(50))   
 BEGIN  
-    UPDATE usuario 
-    SET activo = activo_param 
-    WHERE cedula = cedula_param;
-END $$
-DELIMITER ;
+    SELECT *
+    FROM vistaUsuariosCamposEnOrden
+    WHERE LOWER(rol) = LOWER(rol_param);
+END$$
 
 
 
@@ -162,7 +209,6 @@ DELIMITER ;
 -- Procedimiento para canbiar de estado a un ususario: activo o inactivo
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS `cambiarEstadoPorCedula`;
 CREATE PROCEDURE cambiarEstadoPorCedula(
     IN cedula_param VARCHAR(10),
     IN activo_param BOOLEAN
@@ -177,7 +223,6 @@ DELIMITER ;
 -- -----------------------------------------------------------
 
 -- Vista para traer usuarios con los campos en orden
-DROP VIEW IF EXISTS `vistaUsuariosCamposEnOrden`;
 CREATE VIEW vistaUsuariosCamposEnOrden AS
 SELECT 
     u.id, 

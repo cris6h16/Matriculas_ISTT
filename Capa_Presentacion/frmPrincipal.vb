@@ -14,6 +14,7 @@ Public Class frmPrincipal
     Dim negocioUsuario As Negocio_Usuario
     Public Sub New()
         InitializeComponent()
+        negocioUsuario = New Negocio_Usuario(New Dato_Usuario())
     End Sub
 
 
