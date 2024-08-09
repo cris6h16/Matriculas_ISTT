@@ -81,10 +81,18 @@ Public Class frm_ListaDeUsuarios
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btn_modificar.Click
-        Dim fila As DataGridViewRow = obtenerFilaSeleccionada()
-        Dim cedula As String = fila.Cells(2).Value
+        Try
+            Dim fila As DataGridViewRow = obtenerFilaSeleccionada()
+            Dim cedula As String = fila.Cells(2).Value
 
-        Dim frm As New Form2(cedula)
+            Dim frm As New Form2(cedula)
+            frm.ShowDialog()
+
+            llenarTabla()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     ' optener la fila seleccionada actualmente

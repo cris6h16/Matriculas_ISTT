@@ -1,6 +1,6 @@
 ﻿Public Class frm_MenuDeAdministrador
 
-    Public Shared Property frm_RegistroDeUusarios As Form1
+    Public Shared Property frm_RegistroDeUusarios As frm_RegistroDeUusarios
     Public Shared Property frm_RegistroDeCarrera As frm_RegistroDeCarrera
     Public Shared Property frm_RegistroDeAsignatura As frm_RegistroDeAsignatura
     Public Shared Property frm_RegistroDePeriodosAcademicos As frm_RegistroDePeriodosAcademicos

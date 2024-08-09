@@ -29,7 +29,7 @@ Public Class Form2
         Dim rol As ERoles = CType([Enum].Parse(GetType(ERoles), cmbRoles.SelectedItem.ToString), ERoles)
 
         Dim usuario As New Entidad_Usuario(
-            0,
+            entidad_Usuario.Id, ' Se mantiene el ID del usuario anterior
             nombre,
             apellido,
             cedula,
@@ -42,26 +42,30 @@ Public Class Form2
             True
 )
         Try
-            negocioUsuario.actualizar(usuario)
+            negocioUsuario.actualizar(usuario) ' actualizar el usuario usando la capa de negocio
             MsgBox("Usuario ACTUALIZADO correctamente")
+
+            ' refrescar la entidad y resfresar los campos
+            entidad_Usuario = traerUuarioPorCedula(cedula)
+            llenarCampos()
 
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
 
 
-        ' refrescar la entidad y resfresar los campos
-        entidad_Usuario = traerUuarioPorCedula(cedula)
-        llenarCampos()
+
 
     End Sub
 
     Private Sub llenarComboBoxes()
         ' Llenar el ComboBox de Roles
+        Me.cmbRoles.Items.Clear()
         Me.cmbRoles.Items.AddRange(ERoles.GetNames(GetType(ERoles)))
         Me.cmbRoles.SelectedIndex = 0
 
         ' Llenar el ComboBox de Sexo: solo es 'M' o 'F'
+        Me.cmbSexo.Items.Clear()
         Me.cmbSexo.Items.AddRange(New String() {"M", "F"})
     End Sub
 
@@ -72,7 +76,7 @@ Public Class Form2
         txtContrasena.Text = entidad_Usuario.Contrasena
         txtDireccion.Text = entidad_Usuario.Direccion
         cmbRoles.SelectedItem = entidad_Usuario.Rol.ToString
-        cmbSexo.SelectedItem = entidad_Usuario.Sexo
+        cmbSexo.SelectedItem = entidad_Usuario.Sexo.ToString.ToUpper
         dtpFechaNac.Value = entidad_Usuario.Nacimiento
         ptbImagen.Image = entidad_Usuario.Foto
     End Sub

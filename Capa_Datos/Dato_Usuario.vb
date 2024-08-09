@@ -170,7 +170,7 @@ Public Class Dato_Usuario
         Return creado
     End Function
 
-    Public Sub actualizar(usuario As Entidad_Usuario)
+    Public Sub actualizarPorId(usuario As Entidad_Usuario)
 
 
         ' Conexión a la base de datos
@@ -179,6 +179,7 @@ Public Class Dato_Usuario
             Using cmd As New MySqlCommand("actualizarUsuario", conn)
                 cmd.CommandType = CommandType.StoredProcedure
                 ' Agregando parámetros al procedimiento almacenado
+                cmd.Parameters.AddWithValue("id_param", usuario.Id)
                 cmd.Parameters.AddWithValue("nombres_param", usuario.Nombres)
                 cmd.Parameters.AddWithValue("apellidos_param", usuario.Apellidos)
                 cmd.Parameters.AddWithValue("cedula_param", usuario.Cedula)

@@ -56,17 +56,25 @@ Public Class Negocio_Usuario
             Throw New ArgumentException("La foto no puede ser nula")
         End If
 
+        ' si existe un usuario con la Cedula igual & el ID distinto, entonces no se puede actualizar
 
-
-        ' verificar si existe el usuario
-
-        If Not datoUsuario.existePorCedula(usuario.Cedula) Then
-            Throw New ArgumentException("No existe un usuario con esa cedula")
+        If datoUsuario.existePorCedula(usuario.Cedula) Then
+            Dim usuarioExistente As Entidad_Usuario = datoUsuario.traerPorCedula(usuario.Cedula)
+            If usuarioExistente.Id <> usuario.Id Then
+                Throw New ArgumentException("Ya existe un usuario con esa cedula")
+            End If
         End If
 
 
 
-        Me.datoUsuario.actualizar(usuario)
+        ' verificar si existe el usuario con el id
+
+        If Not datoUsuario.existePorId(usuario.Id) Then
+            Throw New ArgumentException("No existe un usuario con el ID: " & usuario.Id)
+        End If
+
+
+        Me.datoUsuario.actualizarPorId(usuario)
     End Sub
 
     Public Function traerPorCedulaYContrasena(cedula As String, contrasena As String) As Entidad_Usuario
