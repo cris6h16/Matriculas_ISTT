@@ -132,7 +132,25 @@ Public Class frm_ListaDeUsuarios
         End If
     End Sub
 
-    Private Sub btn_filtrar_Click(sender As Object, e As EventArgs) Handles btn_filtrar.Click
 
+    Private Sub dejarSoloFilasConLaCedulaQueComienzeCon(patron As String)
+        For Each row As DataGridViewRow In tablaUsuarios.Rows
+            If row.Cells(2).Value.ToString.StartsWith(patron) Then
+                row.Visible = True
+            Else
+                row.Visible = False
+            End If
+        Next
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txb_filtrar.TextChanged
+        Dim patron As String = txb_filtrar.Text
+
+        If patron.Length = 0 Then
+            llenarTabla()
+            Return
+        End If
+
+        dejarSoloFilasConLaCedulaQueComienzeCon(txb_filtrar.Text)
     End Sub
 End Class
