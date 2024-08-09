@@ -5,14 +5,13 @@ Imports Capa_Datos
 Public Class Form2
 
     Private entidad_Usuario As Entidad_Usuario
-
     Private negocioUsuario As Negocio_Usuario
 
-    Public Sub New(entidad_Usuario As Entidad_Usuario)
+    Public Sub New(cedula As String)
         InitializeComponent()
         negocioUsuario = New Negocio_Usuario(New Dato_Usuario())
 
-        Me.entidad_Usuario = entidad_Usuario
+        Me.entidad_Usuario = traerUuarioPorCedula(cedula)
         llenarComboBoxes()
         llenarCampos()
     End Sub
@@ -45,9 +44,15 @@ Public Class Form2
         Try
             negocioUsuario.actualizar(usuario)
             MsgBox("Usuario ACTUALIZADO correctamente")
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+
+
+        ' refrescar la entidad y resfresar los campos
+        entidad_Usuario = traerUuarioPorCedula(cedula)
+        llenarCampos()
 
     End Sub
 
@@ -91,4 +96,14 @@ Public Class Form2
             End Try
         End If
     End Sub
+
+
+    Private Function traerUuarioPorCedula(cedula As String) As Entidad_Usuario
+        Try
+            Return negocioUsuario.traerPorCedula(cedula)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Me.Close()
+        End Try
+    End Function
 End Class

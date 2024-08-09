@@ -84,7 +84,7 @@ Public Class frm_ListaDeUsuarios
         Dim fila As DataGridViewRow = obtenerFilaSeleccionada()
         Dim cedula As String = fila.Cells(2).Value
 
-        Dim frm As New frm_ModificarUsuario(cedula)
+        Dim frm As New Form2(cedula)
     End Sub
 
     ' optener la fila seleccionada actualmente
