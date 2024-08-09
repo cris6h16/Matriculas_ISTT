@@ -407,5 +407,18 @@ Public Class Dato_Usuario
         End Using
     End Function
 
-
+    Public Sub eliminarPorCedula(cedula As String)
+        ' Conexión a la base de datos
+        Using conn As New MySqlConnection(InformacionDeConexion.direccionDeConexion)
+            ' Comando para ejecutar el procedimiento almacenado
+            Using cmd As New MySqlCommand("eliminarPorCedula", conn)
+                cmd.CommandType = CommandType.StoredProcedure
+                ' Agregando parámetros al procedimiento almacenado
+                cmd.Parameters.AddWithValue("cedula_param", cedula)
+                conn.Open()
+                ' Ejecutar el comando
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
 End Class

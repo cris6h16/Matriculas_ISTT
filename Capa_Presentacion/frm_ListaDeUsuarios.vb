@@ -82,10 +82,9 @@ Public Class frm_ListaDeUsuarios
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btn_modificar.Click
         Try
-            Dim fila As DataGridViewRow = obtenerFilaSeleccionada()
-            Dim cedula As String = fila.Cells(2).Value
+            Dim cedula As String = obtenerCedulaDeLaFilaSeleccionada()
 
-            Dim frm As New Form2(cedula)
+            Dim frm As New frm_ModificarUsuario(cedula)
             frm.ShowDialog()
 
             llenarTabla()
@@ -96,11 +95,44 @@ Public Class frm_ListaDeUsuarios
     End Sub
 
     ' optener la fila seleccionada actualmente
-    Private Function obtenerFilaSeleccionada() As DataGridViewRow
+    Private Function obtenerCedulaDeLaFilaSeleccionada() As String
         If tablaUsuarios.SelectedRows.Count = 0 Then
             Throw New Exception("Seleccione una fila")
         End If
 
-        Return tablaUsuarios.SelectedRows(0)
+        Dim cedula As String = tablaUsuarios.SelectedRows(0).Cells(2).Value
+
+        If cedula Is Nothing Or cedula = "" Then
+            Throw New Exception("No se pudo obtener la cedula de la fila seleccionada")
+        End If
+
+        Return cedula
     End Function
+
+    Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
+        Try
+
+            Dim cedula As String = obtenerCedulaDeLaFilaSeleccionada()
+
+            confirmarEliminacion() ' si no, lanzará una excepción
+
+            negocioUsuario.eliminarPorCedula(cedula) ' eliminar el usuario
+
+            llenarTabla()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub confirmarEliminacion()
+        Dim result As Integer = MessageBox.Show("¿Está seguro que desea eliminar el usuario?", "Confirmar eliminación", MessageBoxButtons.YesNo)
+        If result = DialogResult.No Then
+            Throw New Exception("Eliminación cancelada")
+        End If
+    End Sub
+
+    Private Sub btn_filtrar_Click(sender As Object, e As EventArgs) Handles btn_filtrar.Click
+
+    End Sub
 End Class

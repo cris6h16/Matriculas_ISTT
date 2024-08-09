@@ -89,13 +89,13 @@ Partial Class frm_MenuDeAdministrador
         '
         'Button8
         '
-        Me.Button8.BackColor = System.Drawing.Color.Pink
+        Me.Button8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button8.Location = New System.Drawing.Point(6, 457)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(353, 68)
         Me.Button8.TabIndex = 27
-        Me.Button8.Text = "DESACTIVAR/ACTIVAR USUARIOS"
+        Me.Button8.Text = "MODIFICAR DE USSUARIOS"
         Me.Button8.UseVisualStyleBackColor = False
         '
         'Button7

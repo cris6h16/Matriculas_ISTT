@@ -2,7 +2,7 @@
 Imports Capa_Negocio
 Imports Capa_Datos
 
-Public Class Form2
+Public Class frm_ModificarUsuario
 
     Private entidad_Usuario As Entidad_Usuario
     Private negocioUsuario As Negocio_Usuario

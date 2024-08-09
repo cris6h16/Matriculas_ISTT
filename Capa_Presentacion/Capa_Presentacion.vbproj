@@ -101,10 +101,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form2.Designer.vb">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <Compile Include="frm_ModificarUsuario.Designer.vb">
+      <DependentUpon>frm_ModificarUsuario.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form2.vb">
+    <Compile Include="frm_ModificarUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_ListaDeUsuarios.Designer.vb">
@@ -211,8 +211,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <EmbeddedResource Include="frm_ModificarUsuario.resx">
+      <DependentUpon>frm_ModificarUsuario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ListaDeUsuarios.resx">
       <DependentUpon>frm_ListaDeUsuarios.vb</DependentUpon>

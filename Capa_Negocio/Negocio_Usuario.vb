@@ -77,6 +77,21 @@ Public Class Negocio_Usuario
         Me.datoUsuario.actualizarPorId(usuario)
     End Sub
 
+    Public Sub eliminarPorCedula(cedula As String)
+        If cedula Is Nothing Or cedula.Length <> 10 Then
+            Throw New ArgumentException("La cedula debe tener 10 digitos")
+        End If
+
+        ' verificar si existe el usuario con la cedula
+
+        If Not datoUsuario.existePorCedula(cedula) Then
+            Throw New ArgumentException("No existe un usuario con cedula " & cedula)
+        End If
+
+        ' eliminar el usuario con la capa de datos
+        Me.datoUsuario.eliminarPorCedula(cedula)
+    End Sub
+
     Public Function traerPorCedulaYContrasena(cedula As String, contrasena As String) As Entidad_Usuario
         If cedula = "" Or cedula Is Nothing Then
             Throw New ArgumentException("La cedula no puede estar vacia o nula")
@@ -97,7 +112,7 @@ Public Class Negocio_Usuario
 
     Public Function traerPorCedula(cedula As String) As Entidad_Usuario
         If cedula.Length <> 10 Then
-            MsgBox("La cedula debe tener 10 digitos")
+            Throw New ArgumentException("La cedula debe tener 10 digitos")
         End If
 
         If Not datoUsuario.existePorCedula(cedula) Then
